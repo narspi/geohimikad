@@ -76,7 +76,7 @@ const createJs = () => {
 };
 
 const transportFonts = () => {
-  return src("./src/fonts/**/*.*").pipe(dest("dist/fonts"));
+  return src("./src/fonts/**/*.*", { buffer: true }).pipe(dest("dist/fonts"));
 };
 
 const transportImg = () => {

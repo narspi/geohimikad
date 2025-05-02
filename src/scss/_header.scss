@@ -1,6 +1,7 @@
 @use "mixin";
 
 .header {
+  position: relative;
   &__inner {
     padding-top: 10px;
     display: flex;
@@ -8,16 +9,160 @@
   }
 
   &__links {
+    flex-grow: 1;
+  }
+
+  &__contacts {
+    margin: 22px 0 28px;
+    display: flex;
+    gap: 15px;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__contacts-link {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    text-decoration: none;
+    color: #0b2f38;
+
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
+
+    &:focus {
+      outline: 1px solid #000;
+      outline-offset: 4px;
+    }
+  }
+
+  &__nav {
+    position: relative;
+    padding-bottom: 10px;
+    z-index: 1;
+    & ul {
+      @include mixin.reset-list;
+      display: flex;
+      gap: 10px 50px;
+      flex-wrap: wrap;
+    }
+
+    & li {
+      line-height: 1;
+    }
+
+    & a {
+      text-decoration: none;
+      color: inherit;
+      font-size: 18px;
+      line-height: 2;
+      @include mixin.roboto-flex;
+      font-weight: 200;
+      text-underline-offset: 8px;
+
+      &.active {
+        line-height: 2;
+        font-weight: 600;
+        color: #cc1100;
+        text-decoration-thickness: 2px;
+        text-decoration-line: underline;
+      }
+
+      &:hover {
+        text-decoration-line: underline;
+      }
+    }
   }
 
   &__btns {
     margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: #d9d9d9;
+    margin-right: -20px;
+    border-radius: 40px 40px 0 0;
+    position: relative;
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+    }
+
+    &::before {
+      left: -40px;
+      bottom: 0;
+      width: 40px;
+      height: 40px;
+      background-color: #d9d9d9;
+    }
+
+    &::after {
+      left: -80px;
+      bottom: 0px;
+      width: 80px;
+      height: 80px;
+      background-color: #fff;
+      border-radius: 50%;
+    }
   }
 
-  &__nav {
-    & ul {
-      display: flex;
-      gap: 50px;
+  &__call-back {
+    display: block;
+    margin-bottom: 10px;
+    padding: 16px;
+    border: 1px solid #0b2f38;
+    background-color: #fff;
+    border-radius: 45px;
+    white-space: nowrap;
+    font-weight: 600;
+    @include mixin.roboto-flex;
+  }
+
+  &__social {
+    @include mixin.reset-list;
+    display: flex;
+    gap: 30px;
+  }
+
+  &__social-item {
+    display: block;
+  }
+
+  &__social-link {
+    text-decoration: none;
+    padding: 16px 33px;
+    display: block;
+    line-height: 1;
+    border-radius: 50px;
+    background-color: white;
+    transition: transform 200ms;
+    &:hover {
+      transform: scale(1.05);
     }
+
+    &:focus {
+      outline-offset: 1px;
+      outline: 1px solid #0b2f38;
+    }
+  }
+
+  &__social-img {
+    display: block;
+    width: 19px;
+    height: 19px;
+    object-fit: contain;
+    object-position: center;
+    line-height: 1;
+  }
+}
+
+.logo {
+  &:focus {
+    outline-offset: 2px;
+    outline: 2px solid black;
   }
 }
