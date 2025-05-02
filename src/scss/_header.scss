@@ -1,0 +1,23 @@
+@use "mixin";
+
+.header {
+  &__inner {
+    padding-top: 10px;
+    display: flex;
+    gap: 50px;
+  }
+
+  &__links {
+  }
+
+  &__btns {
+    margin-left: auto;
+  }
+
+  &__nav {
+    & ul {
+      display: flex;
+      gap: 50px;
+    }
+  }
+}

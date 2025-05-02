@@ -1,0 +1,36 @@
+{
+  "name": "order",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "gulp start",
+    "dev": "cross-env MODE=development gulp",
+    "server": "cross-env MODE=development TUNNEL=run gulp",
+    "build": "gulp build"
+  },
+  "keywords": [],
+  "author": "alexander ivanov",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "browser-sync": "^3.0.4",
+    "cross-env": "^7.0.3",
+    "gulp": "^5.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-cli": "^3.0.0",
+    "gulp-esbuild": "^0.14.0",
+    "gulp-if": "^3.0.0",
+    "gulp-postcss": "^10.0.0",
+    "gulp-sass": "^6.0.1",
+    "gulp-sourcemaps": "^3.0.0",
+    "localtunnel": "^2.0.2",
+    "panini": "^1.7.2",
+    "sass": "^1.87.0"
+  },
+  "dependencies": {
+    "modern-normalize": "^2.0.0",
+    "swiper": "^11.0.5"
+  }
+}
