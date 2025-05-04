@@ -1,13 +1,122 @@
+@use "mixin";
+
 .top {
   &__content {
     background-color: #d9d9d9;
     margin: 0 -20px;
     padding: 65px 20px 0;
-    border-radius: 20px 0 0 0;
+    border-radius: 20px 0 20px 0;
   }
 
   &__title {
     font-family: "Wadik", sans-serif;
     font-weight: bold;
+    margin: 0 0 62px;
+    position: relative;
+    font-size: 47px;
+  }
+
+  &__descr {
+    margin: 16px 0;
+    font-family: "Adamina", sans-serif;
+    font-size: 24px;
+    color: #cc1100;
+  }
+
+  &__steps {
+    display: flex;
+    padding-bottom: 33px;
+    @include mixin.roboto-flex;
+  }
+
+  &__step-num {
+    margin: 0 0 25px;
+    padding-bottom: 20px;
+    padding-right: 65px;
+    border-bottom: 1px solid #cc1100;
+    @include mixin.roboto-flex;
+    position: relative;
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      background-color: #fff;
+      bottom: -1px;
+      left: 0;
+      transform: translateY(50%);
+      border-radius: 50px;
+    }
+
+    &::after {
+      border: 2px solid #000;
+    }
+  }
+
+  &__step-list {
+    @include mixin.reset-list;
+    padding-right: 65px;
+  }
+
+  &__btns {
+    margin: 0 -20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  &__bot {
+    position: relative;
+    background-color: #d9d9d9;
+    flex-grow: 1;
+    border-radius: 0 0 20px 20px;
+    padding: 40px 20px 20px;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+    }
+
+    &::before {
+      right: -40px;
+      top: 0;
+      width: 40px;
+      height: 40px;
+      background-color: #d9d9d9;
+    }
+
+    &::after {
+      right: -80px;
+      top: 0px;
+      width: 80px;
+      height: 80px;
+      background-color: #fff;
+      border-radius: 50%;
+    }
+  }
+
+  &__btn-service {
+    position: relative;
+    padding: 16px 94px;
+    background-color: #cc1100;
+    color: #fff;
+    border: none;
+    border-radius: 45px;
+    display: block;
+    margin-top: 19px;
+    font-size: 16px;
+    @include mixin.roboto-flex;
+  }
+
+  &__btn-colsunctation {
+    padding: 0;
+    border: none;
+    text-decoration: underline;
+    color: #cc1100;
+    background-color: transparent;
+    @include mixin.roboto-flex;
+    font-size: 16px;
   }
 }

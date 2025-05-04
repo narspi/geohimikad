@@ -76,11 +76,11 @@ const createJs = () => {
 };
 
 const transportFonts = () => {
-  return src("./src/fonts/**/*.*", { buffer: true }).pipe(dest("dist/fonts"));
+  return src("./src/fonts/**/*.{woff,woff2}", { encoding: false }).pipe(dest("dist/fonts"));
 };
 
 const transportImg = () => {
-  return src("./src/img/**/*.*").pipe(dest("dist/img"));
+  return src("./src/img/**/*.*", { encoding: false }).pipe(dest("dist/img"));
 };
 
 const transportFiles = () => {
