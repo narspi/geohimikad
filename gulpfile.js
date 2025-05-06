@@ -9,6 +9,7 @@ import gulpif from "gulp-if";
 import postcss from "gulp-postcss";
 import autoprefixer from "autoprefixer";
 import gulpEsbuild from "gulp-esbuild";
+import plumber from "gulp-plumber";
 
 const isDevelopment = process.env.MODE === "development";
 const isTunnel = process.env.TUNNEL === "run";
@@ -21,6 +22,7 @@ const sync = browserSync.create();
 const htmlInclude = () => {
   panini.refresh();
   return src("src/html/pages/**/*.html")
+    .pipe(plumber())
     .pipe(
       panini({
         root: "src/html/pages",
@@ -50,7 +52,7 @@ const createCss = () => {
           : {
               level: {
                 1: { specialComments: 0 },
-                2: {}, 
+                2: {},
               },
             }
       )
@@ -76,7 +78,9 @@ const createJs = () => {
 };
 
 const transportFonts = () => {
-  return src("./src/fonts/**/*.{woff,woff2}", { encoding: false }).pipe(dest("dist/fonts"));
+  return src("./src/fonts/**/*.{woff,woff2}", { encoding: false }).pipe(
+    dest("dist/fonts")
+  );
 };
 
 const transportImg = () => {

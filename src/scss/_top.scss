@@ -119,4 +119,32 @@
     @include mixin.roboto-flex;
     font-size: 16px;
   }
+
+  &__list {
+    padding: 12px 0;
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+    text-align: center;
+  }
+
+  &__list-img {
+    height: 100px;
+    width: auto;
+    object-fit: 100;
+    object-position: top center;
+  }
+
+  &__list-title {
+    font-family: "Wadik", sans-serif;
+    font-weight: bold;
+    margin: 0;
+    color: #0b2f38;
+    min-height: 2.2em;
+  }
+
+  &__list-descr {
+    @include mixin.roboto-flex;
+    margin: 10px 0 0;
+  }
 }

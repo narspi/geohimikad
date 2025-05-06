@@ -1,0 +1,122 @@
+@use "mixin";
+
+.services {
+  background-color: #0b2f38;
+  color: #fff;
+  padding: 55px 0;
+
+  &__inner {
+    max-width: 1920px;
+    margin: 0 auto;
+  }
+
+  &__elem-title {
+    margin-right: max(calc((100% - 1200px) / 2), 20px);
+  }
+
+  &__btn {
+    font-family: "Wadik", sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    border: none;
+    padding: 0;
+    background-color: transparent;
+    color: inherit;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    text-align: left;
+    gap: 10px;
+    &::after {
+      content: "+";
+      color: #cc1100;
+    }
+  }
+
+  &__btn-decor {
+    padding-left: max(calc(100% - 1200px), 20px);
+    padding-bottom: 25px;
+    transition: flex-grow 200ms;
+    flex-grow: 1;
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      width: calc(100% + 30px);
+      height: 1px;
+      background-color: #fff;
+      bottom: 0;
+      left: 0;
+    }
+  }
+
+  &__elem-title.active &__btn {
+    &::after {
+      content: "-";
+    }
+  }
+
+  &__elem-title.active &__btn-decor {
+    flex-grow: 0;
+  }
+
+  &__elem-drop {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 200ms;
+    padding-bottom: 60px;
+
+    &.active {
+      grid-template-rows: 1fr;
+    }
+  }
+
+  &__elem-body {
+    display: flex;
+    align-items: flex-start;
+    gap: 23px;
+    overflow: hidden;
+    transition: grid-template-rows 0.4s ease;
+  }
+
+  &__elem-img {
+    border-radius: 30px;
+    max-width: 486px;
+    flex-shrink: 0;
+  }
+
+  &__elem-content {
+    font-size: 18px;
+    @include mixin.roboto-flex;
+  }
+
+  &__elem-row {
+    display: flex;
+    gap: 17px;
+  }
+
+  &__elem-btn {
+    display: block;
+    flex-grow: 1;
+    text-align: center;
+    text-decoration: none;
+    padding: 15px;
+    background-color: aqua;
+    border: none;
+    border-radius: 45px;
+    @include mixin.roboto-flex;
+    font-weight: 600;
+    font-size: 16px;
+    max-width: 286px;
+
+    &--red {
+      background-color: #cc1100;
+      color: #fff;
+    }
+
+    &--white {
+      background-color: #fff;
+      color: #cc1100;
+    }
+  }
+}
