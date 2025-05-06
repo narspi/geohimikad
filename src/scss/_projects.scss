@@ -1,7 +1,96 @@
+@use "mixin";
+
 .projects {
   padding: 100px 0;
 
   &__title {
     color: #cc1100;
+  }
+
+  &__filter {
+    list-style: none;
+    padding-left: 0;
+    margin: 30px 0 54px;
+    display: flex;
+    gap: 20px 29px;
+    flex-wrap: wrap;
+  }
+
+  &__filter-btn {
+    @include mixin.roboto-flex;
+    font-weight: 400;
+    font-size: 18px;
+    padding: 13px 27px;
+    background-color: transparent;
+    border: 1px solid #cc1100;
+    border-radius: 42px;
+    color: #cc1100;
+
+    &.active {
+      background-color: #cc1100;
+      color: #fff;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 34px 29px;
+  }
+
+  &__item {
+    width: calc((100% - 29px) / 2);
+    background-color: #efedec;
+    border-radius: 55px;
+    padding: 15px 0 22px;
+    @include mixin.roboto-flex;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__item-pic {
+    aspect-ratio: 555 / 264;
+    position: relative;
+    margin: 0px 15px 19px;
+    max-width: 100%;
+  }
+
+  &__item-img {
+    display: block;
+    border-radius: 45px 45px 0 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &__item-service {
+    color: #b3b3b3;
+    margin: 0 24px 10px;
+  }
+
+  &__item-title {
+    font-family: "Wadik", sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    margin: 0 24px 12px;
+    color: #cc1100;
+  }
+
+  &__item-descr {
+    margin: 0 24px 0;
+  }
+
+  &__item-btn {
+    display: block;
+    text-decoration: none;
+    background-color: #0b2f38;
+    color: #fff;
+    padding: 15px 95px;
+    align-self: flex-end;
+    border-radius: 45px;
+    margin: auto 45px 0 auto;
   }
 }
