@@ -1,0 +1,119 @@
+@use "mixin";
+
+.reviews {
+  padding: 85px 0 105px;
+  max-width: 1920px;
+  overflow: hidden;
+
+  &__top {
+    display: flex;
+    gap: 15px;
+  }
+
+  &__btns {
+    margin-left: auto;
+    display: flex;
+    gap: 10px;
+  }
+
+  &__btn-next,
+  &__btn-prev {
+    width: 53px;
+    height: 50px;
+    display: block;
+    padding: 0;
+    border: 1px solid #c2c2c2;
+    background-color: transparent;
+    border-radius: 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    &.swiper-button-disabled {
+      opacity: 0;
+    }
+  }
+
+  &__btn-next {
+    right: 0;
+    background-image: url("../img/icons/arrow-right.svg");
+  }
+
+  &__btn-prev {
+    right: 61px;
+    background-image: url("../img/icons/arrow-left.svg");
+  }
+
+  &__slider {
+    overflow: visible;
+  }
+
+  &__list {
+    margin: 70px 0;
+  }
+
+  &__item {
+    width: 384px;
+    height: unset;
+    background-color: #efedec;
+    border-radius: 28px;
+    color: #0b2f38;
+    padding: 24px;
+    box-shadow: 0px 3px 30px rgba(#000, 15%);
+    min-height: 373px;
+    display: flex;
+    flex-shrink: 0;
+
+    &--big {
+      width: 612px;
+    }
+  }
+
+  &__slider:not(.swiper-initialized) &__item {
+    margin-right: 24px;
+  }
+
+  &__item-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  &__item-title {
+    font-family: "Wadik", sans-serif;
+    font-weight: 700;
+    color: #cc1100;
+    font-size: 18px;
+    margin: auto 0 0;
+  }
+
+  &__item-text {
+    font-size: 20px;
+    margin: 0 0 15px;
+    @include mixin.roboto-flex;
+  }
+
+  &__item-decors {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  &__item-img {
+    width: 204px;
+    height: auto;
+    border-radius: 15px;
+  }
+
+  &__btn-send {
+    display: block;
+    margin-left: auto;
+    padding: 15px 100px;
+    background-color: #cc1100;
+    color: #fff;
+    @include mixin.roboto-flex;
+    font-weight: 600;
+    font-size: 16px;
+    border: none;
+    border-radius: 45px;
+  }
+}
