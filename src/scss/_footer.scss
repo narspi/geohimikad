@@ -1,0 +1,78 @@
+@use "mixin";
+
+.footer {
+  padding: 147px 0 67px;
+  background-color: #0a2d36;
+  color: #fff;
+
+  &__inner {
+    display: flex;
+  }
+
+  &__descr {
+    margin: 12px 0 0;
+    font-size: 15px;
+    @include mixin.roboto-flex;
+  }
+
+  &__social {
+    display: flex;
+    gap: 10px;
+    list-style: none;
+    padding-left: 0;
+    margin: 0 20px 0 100px;
+  }
+
+  &__services {
+    margin-left: auto;
+  }
+
+  &__services-title {
+    @include mixin.roboto-flex;
+    font-size: 26px;
+    margin: 0 0 24px;
+    font-weight: 600;
+  }
+
+  &__services-list {
+    @include mixin.reset-list;
+    @include mixin.roboto-flex;
+
+    & li {
+      margin: 5px 0;
+    }
+
+    & a {
+      font-size: 22px;
+      text-decoration: none;
+      color: inherit;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__policy {
+    margin: 24px 0 0;
+  }
+
+  &__policy-link {
+    @include mixin.roboto-flex;
+    font-size: 22px;
+    color: inherit;
+  }
+
+  &__scroll-up {
+    width: 72px;
+    height: 72px;
+    display: block;
+    margin-left: 100px;
+    background-color: transparent;
+    border: 1px solid #fff;
+    border-radius: 27px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("../img/icons/footer-arrow.svg");
+  }
+}
