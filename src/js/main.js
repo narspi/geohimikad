@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     const services = document.querySelector('.services');
     const certificatesSlider = document.querySelector('.certificates__slider');
     const reviewsSlider = document.querySelector('.reviews__slider');
+    const questionsItems = document.querySelector('.questions__items');
 
     if (services) {
         services.addEventListener('click', (event) => {
@@ -40,6 +41,19 @@ document.addEventListener('DOMContentLoaded',()=>{
                 nextEl: '.reviews__btn-next',
                 prevEl: '.reviews__btn-prev',
             },
+        })
+    }
+
+    if (questionsItems) {
+        questionsItems.addEventListener('click', (event) => {
+            const target = event.target;
+            if (target.closest('.questions__item-title')) {
+                const parent = target.closest('.questions__item')
+                const btnElem = parent.querySelector('.questions__item-btn');
+                const elemDropdown = parent.querySelector('.questions__item-drop');
+                elemDropdown.classList.toggle('active');
+                btnElem.classList.toggle('active');
+            }
         })
     }
 });
