@@ -1,14 +1,28 @@
 @use "mixin";
 
 .contacts {
-  padding: 0 0 100px;
-
   &__title {
     color: #cc1100;
+    margin-bottom: 70px;
   }
 
-  &__body {
-    margin-top: 70px;
+  &__address {
+    display: flex;
+    gap: 17px;
+    margin: 0;
+    font-family: "Wadik", sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    color: #0b2f38;
+  }
+
+  &__address-pref {
+    white-space: nowrap;
+  }
+
+  &__main {
+    margin-top: 50px;
+    padding-bottom: 100px;
     display: grid;
     gap: 100px;
     grid-template-columns: 714fr 379fr;
@@ -94,5 +108,146 @@
     @include mixin.roboto-flex;
     font-weight: 600;
     text-decoration: none;
+  }
+
+  &__social {
+    @include mixin.reset-list;
+    display: flex;
+    gap: 30px;
+  }
+
+  &__social-item {
+    display: block;
+    flex-grow: 1;
+  }
+
+  &__social-link {
+    text-decoration: none;
+    width: 100%;
+    padding: 16px 33px;
+    display: flex;
+    justify-content: center;
+    line-height: 1;
+    border-radius: 50px;
+    background-color: white;
+    border: 1px solid #0b2f38;
+    transition: transform 200ms;
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    &:focus {
+      outline-offset: 1px;
+      outline: 1px solid #0b2f38;
+    }
+  }
+
+  &__info-time {
+    margin: 38px 0 40px;
+    font-family: "Wadik", sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+  }
+
+  &__form {
+    padding: 61px 0;
+    background-image: url("../img/contacts-form-decor.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+
+  &__form-inner {
+    display: flex;
+  }
+
+  &__form-block {
+    margin: auto;
+    max-width: 706px;
+  }
+
+  &__form-title {
+    font-family: "Wadik", sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    margin: 0;
+    text-align: center;
+    color: #cc1100;
+  }
+
+  &__form-elem {
+    margin-top: 45px;
+    background-color: #0b2f38;
+    color: #fff;
+    padding: 50px 70px;
+    border-radius: 35px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  &__form-input {
+    border: 1px solid #fff;
+    padding: 20px 27px;
+    border-radius: 35px;
+    background-color: transparent;
+    color: #fff;
+    @include mixin.roboto-flex;
+    font-weight: 500;
+
+    &::placeholder {
+      color: #d9d9d9;
+    }
+
+    &:focus {
+      outline: 1px solid #fff;
+      outline-offset: 2px;
+    }
+
+    &:-webkit-autofill {
+      -webkit-text-fill-color: #fff !important;
+      transition: background-color 9999s ease-out, color 9999s ease-out;
+    }
+  }
+
+  &__form-policy {
+    @include mixin.roboto-flex;
+    font-weight: 500;
+    margin: 0;
+    display: flex;
+    gap: 10px;
+    cursor: pointer;
+  }
+
+  &__form-checkbox {
+    position: absolute;
+    clip: rect(0 0 0 0);
+  }
+
+  &__form-fake {
+    display: block;
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    border: 2px solid #cc1100;
+    flex-shrink: 0;
+    background-repeat: no-repeat;
+    background-size: 16px 16px;
+    background-position: center;
+  }
+
+  &__form-checkbox:checked + &__form-fake {
+    background-color: #cc1100;
+    background-image: url("../img/icons/check.svg");
+  }
+
+  &__form-btn {
+    @include mixin.roboto-flex;
+    font-weight: 600;
+    border: none;
+    background-color: #fff;
+    color: #0b2f38;
+    padding: 15px;
+    border-radius: 45px;
   }
 }

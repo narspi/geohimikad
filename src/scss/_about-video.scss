@@ -1,0 +1,15 @@
+.about-video {
+  padding: 85px 0 60px;
+  background-color: #0a2d36;
+  color: #fff;
+
+  &__block {
+    margin-top: 60px;
+
+    & video {
+      border-radius: 35px;
+      width: 100%;
+      height: auto;
+    }
+  }
+}

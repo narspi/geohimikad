@@ -1,0 +1,112 @@
+@use "mixin";
+
+.about-form {
+  padding: 50px 0;
+  background-image: url("../img/about-form-decor.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  &__block {
+    max-width: 568px;
+    margin-left: auto;
+    color: #fff;
+  }
+
+  &__title {
+    font-family: "Wadik", sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    margin: 0;
+  }
+
+  &__elem {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__top-text {
+    font-size: 24px;
+    @include mixin.roboto-flex;
+    margin: 41px 0 24px;
+  }
+
+  &__bot-text {
+    font-size: 20px;
+    @include mixin.roboto-flex;
+    margin: 12px 0 30px;
+    max-width: 449px;
+  }
+
+  &_tel {
+    @include mixin.roboto-flex;
+    font-size: 24px;
+    color: #cc1100;
+    font-weight: 600;
+  }
+
+  &__input {
+    border: 1px solid #fff;
+    padding: 20px 27px;
+    border-radius: 35px;
+    background-color: transparent;
+    @include mixin.roboto-flex;
+    font-weight: 500;
+    margin-bottom: 15px;
+
+    &:focus {
+      outline: 1px solid #fff;
+      outline-offset: 2px;
+    }
+
+    &::placeholder {
+      color: #fff;
+    }
+
+    &:-webkit-autofill {
+      -webkit-text-fill-color: #fff !important;
+      transition: background-color 9999s ease-out, color 9999s ease-out;
+    }
+  }
+
+  &__policy {
+    @include mixin.roboto-flex;
+    font-weight: 500;
+    margin: 5px 0 32px;
+    display: flex;
+    gap: 10px;
+    cursor: pointer;
+  }
+
+  &__checkbox {
+    position: absolute;
+    clip: rect(0 0 0 0);
+  }
+
+  &__checkbox-fake {
+    display: block;
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    border: 2px solid #cc1100;
+    flex-shrink: 0;
+    background-repeat: no-repeat;
+    background-size: 16px 16px;
+    background-position: center;
+  }
+
+  &__checkbox:checked + &__checkbox-fake {
+    background-color: #cc1100;
+    background-image: url("../img/icons/check.svg");
+  }
+
+  &__btn {
+    @include mixin.roboto-flex;
+    font-weight: 600;
+    border: none;
+    background-color: #cc1100;
+    color: #fff;
+    padding: 15px;
+    border-radius: 45px;
+  }
+}
