@@ -63,6 +63,11 @@
       font-weight: 200;
       text-underline-offset: 8px;
 
+      &:focus-visible {
+        outline-offset: 8px;
+        outline: 2px solid black;
+      }
+
       &.active {
         line-height: 2;
         font-weight: 600;
@@ -123,6 +128,16 @@
     white-space: nowrap;
     font-weight: 600;
     @include mixin.roboto-flex;
+
+    &:focus-visible {
+      outline: 1px solid #0b2f38;
+      outline-offset: 2px;
+    }
+
+    &:hover {
+      background-color: #0b2f38;
+      color: #fff;
+    }
   }
 
   &__social {

@@ -3,14 +3,41 @@
 .projects {
   padding: 100px 0;
 
+  &--service {
+    background-color: #0b2f38;
+  }
+
+  &__top {
+    display: flex;
+    gap: 15px;
+  }
+
   &__title {
     color: #cc1100;
+  }
+
+  &--service &__title {
+    color: #fff;
+  }
+
+  &__btn {
+    width: 53px;
+    height: 50px;
+    display: block;
+    padding: 0;
+    border: 1px solid #c2c2c2;
+    background-color: transparent;
+    border-radius: 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("../img/icons/arrow-right.svg");
+    margin-left: auto;
   }
 
   &__filter {
     list-style: none;
     padding-left: 0;
-    margin: 30px 0 54px;
+    margin: 30px 0 0px;
     display: flex;
     gap: 20px 29px;
     flex-wrap: wrap;
@@ -26,13 +53,20 @@
     border-radius: 42px;
     color: #cc1100;
 
-    &.active {
+    &:focus-visible {
+      outline-offset: 2px;
+      outline: 1px solid #cc1100;
+    }
+
+    &.active,
+    &:hover {
       background-color: #cc1100;
       color: #fff;
     }
   }
 
   &__list {
+    margin-top: 54px;
     display: flex;
     flex-wrap: wrap;
     gap: 34px 29px;
@@ -84,13 +118,26 @@
   }
 
   &__item-btn {
+    @include mixin.roboto-flex;
+    font-weight: 600;
     display: block;
     text-decoration: none;
     background-color: #0b2f38;
+    border: 1px solid #0b2f38;
     color: #fff;
     padding: 15px 95px;
     align-self: flex-end;
     border-radius: 45px;
     margin: auto 45px 0 auto;
+
+    &:hover {
+      background-color: #fff;
+      color: #0b2f38;
+    }
+
+    &:focus-visible {
+      outline-offset: 2px;
+      outline: 1px solid #0b2f38;
+    }
   }
 }

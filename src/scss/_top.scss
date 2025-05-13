@@ -99,15 +99,8 @@
 
   &__btn-service {
     position: relative;
-    padding: 16px 94px;
-    background-color: #cc1100;
-    color: #fff;
-    border: none;
-    border-radius: 45px;
-    display: block;
     margin-top: 19px;
-    font-size: 16px;
-    @include mixin.roboto-flex;
+    max-width: 315px;
   }
 
   &__btn-colsunctation {
@@ -118,6 +111,11 @@
     background-color: transparent;
     @include mixin.roboto-flex;
     font-size: 16px;
+
+    &:focus-visible {
+      outline-offset: 2px;
+      outline: 1px solid #cc1100;
+    }
   }
 
   &__list {

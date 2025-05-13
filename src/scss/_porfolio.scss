@@ -1,0 +1,227 @@
+@use "mixin";
+
+.porfolio {
+  &__descr-top {
+    font-family: "Wadik", sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    margin: 0 0 15px;
+  }
+
+  &__descr-bot {
+    margin: 20px 0 40px;
+    font-size: 20px;
+  }
+}
+
+.porfolio-list {
+  padding-top: 50px;
+  padding-bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  &__item {
+    box-shadow: 0 -2px 20px rgba(#000, 10%), 0 2px 20px rgba(#000, 10%);
+    padding: 50px 52px;
+    border-radius: 55px;
+    display: flex;
+
+    &:nth-child(even) {
+      background-color: #efedec;
+      color: #0b2f38;
+    }
+
+    &:nth-child(odd) {
+      color: #cc1100;
+    }
+  }
+
+  &__body {
+    margin-right: 24px;
+  }
+
+  &__service {
+    color: #b3b3b3;
+    font-size: 20px;
+    margin: 0;
+  }
+
+  &__title {
+    font-family: "Wadik", sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    margin: 18px 0;
+  }
+
+  &__content {
+    color: #000;
+  }
+
+  &__link {
+    margin-top: 40px;
+    display: inline-block;
+    color: inherit;
+    font-family: "Wadik", sans-serif;
+    font-weight: 700;
+
+    &:focus-visible {
+      outline-offset: 2px;
+      outline: 2px solid currentColor;
+    }
+  }
+
+  &__view {
+    margin-right: 49px;
+  }
+
+  &__pic {
+    aspect-ratio: 408 / 232;
+    position: relative;
+    width: 408px;
+    flex-shrink: 0;
+    margin-bottom: 39px;
+  }
+
+  &__pic &__img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    right: 0;
+    border-radius: 45px 45px 0 0;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &__btn {
+    flex-shrink: 0;
+    display: block;
+    width: 78px;
+    height: 74px;
+    border-width: 1px;
+    border-color: #000;
+    border-style: solid;
+    border-radius: 30px;
+    align-self: center;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  &__item:nth-child(even) &__btn {
+    border-color: #cc1100;
+    background-image: url("data:image/svg+xml,%3Csvg width='49' height='16' viewBox='0 0 49 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M48.2071 8.70711C48.5976 8.31658 48.5976 7.68342 48.2071 7.29289L41.8431 0.928932C41.4526 0.538408 40.8195 0.538408 40.4289 0.928932C40.0384 1.31946 40.0384 1.95262 40.4289 2.34315L46.0858 8L40.4289 13.6569C40.0384 14.0474 40.0384 14.6805 40.4289 15.0711C40.8195 15.4616 41.4526 15.4616 41.8431 15.0711L48.2071 8.70711ZM0.5 9H47.5V7H0.5V9Z' fill='%23CC1100'/%3E%3C/svg%3E%0A");
+
+    &:focus-visible {
+      outline-offset: 2px;
+      outline: 1px solid #cc1100;
+    }
+  }
+
+  &__item:nth-child(odd) &__btn {
+    border-color: #0b2f38;
+    background-image: url("data:image/svg+xml,%3Csvg width='49' height='16' viewBox='0 0 49 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M48.2071 8.70711C48.5976 8.31658 48.5976 7.68342 48.2071 7.29289L41.8431 0.928932C41.4526 0.538408 40.8195 0.538408 40.4289 0.928932C40.0384 1.31946 40.0384 1.95262 40.4289 2.34315L46.0858 8L40.4289 13.6569C40.0384 14.0474 40.0384 14.6805 40.4289 15.0711C40.8195 15.4616 41.4526 15.4616 41.8431 15.0711L48.2071 8.70711ZM0.5 9H47.5V7H0.5V9Z' fill='%230B2F38'/%3E%3C/svg%3E%0A");
+
+    &:focus-visible {
+      outline-offset: 2px;
+      outline: 1px solid #0b2f38;
+    }
+  }
+
+  &__view-btn {
+    border-width: 1px;
+    border-style: solid;
+    padding: 15px;
+    width: 100%;
+    @include mixin.roboto-flex;
+    font-weight: 600;
+    padding: 15px;
+    border-radius: 45px;
+  }
+
+  &__item:nth-child(even) &__view-btn {
+    border-color: #cc1100;
+    background-color: #cc1100;
+    color: #fff;
+
+    &:hover {
+      background-color: transparent;
+      color: #cc1100;
+    }
+
+    &:focus-visible {
+      outline-offset: 2px;
+      outline: 1px solid #cc1100;
+    }
+  }
+
+  &__item:nth-child(odd) &__view-btn {
+    background-color: transparent;
+    border-color: #0b2f38;
+    color: #0b2f38;
+
+    &:hover {
+      background-color: #0b2f38;
+      color: #fff;
+    }
+
+    &:focus-visible {
+      outline-offset: 2px;
+      outline: 1px solid #0b2f38;
+    }
+  }
+}
+
+.porfolio-item {
+  &__top {
+    display: flex;
+    gap: 28px;
+  }
+
+  &__top-content {
+    font-family: "Wadik", sans-serif;
+    font-weight: 700;
+    color: #0b2f38;
+  }
+
+  &__pic {
+    max-width: 588px;
+  }
+
+  &__img {
+    width: 100%;
+    height: auto;
+    border-radius: 35px;
+  }
+
+  &__top-title {
+    margin: 0;
+    font-size: 32px;
+  }
+
+  &__top-list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__top-text {
+    margin: 0;
+    width: 50%;
+    text-align: center;
+    font-size: 64px;
+    padding: 20px 15px;
+  }
+
+  &__descr {
+    font-family: "Wadik", sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    margin: 40px 0;
+    color: #0b2f38;
+  }
+
+  &__content {
+    font-size: 20px;
+    padding-bottom: 100px;
+  }
+}

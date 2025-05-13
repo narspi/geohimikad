@@ -1,0 +1,126 @@
+@use "mixin";
+
+.services-form {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 120px 0 91px;
+
+  &__title {
+    color: #0a2d36;
+  }
+
+  &__body {
+    margin-top: 50px;
+    display: flex;
+    gap: 44px;
+  }
+
+  &__content {
+    width: 100%;
+    padding: 27px 78px 24px max(calc((100% - 1200px) / 2), 20px);
+    background-color: #cc1100;
+    color: #fff;
+    border-radius: 0 35px 35px 0;
+  }
+
+  &__elem {
+    width: 100%;
+    padding-right: max(calc((100% - 1200px) / 2), 20px);
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__decor {
+    display: block;
+    margin-left: auto;
+    margin-right: 30px;
+  }
+
+  &__text {
+    @include mixin.roboto-flex;
+    font-size: 18px;
+    margin: 0 0 19px;
+  }
+
+  &__input {
+    border: 1px solid #0a2d36;
+    padding: 20px 27px;
+    border-radius: 35px;
+    background-color: transparent;
+    color: #0a2d36;
+    @include mixin.roboto-flex;
+    font-weight: 500;
+    margin-bottom: 15px;
+
+    &::placeholder {
+      color: #c2c2c2;
+    }
+
+    &:focus {
+      outline: 1px solid #0a2d36;
+      outline-offset: 2px;
+    }
+
+    &:-webkit-autofill {
+      -webkit-text-fill-color: #0a2d36 !important;
+      transition: background-color 9999s ease-out, color 9999s ease-out;
+    }
+  }
+
+  &__policy {
+    @include mixin.roboto-flex;
+    font-weight: 500;
+    margin: 5px 0 30px;
+    display: flex;
+    gap: 10px;
+    cursor: pointer;
+    color: #c2c2c2;
+  }
+
+  &__checkbox {
+    position: absolute;
+    clip: rect(0 0 0 0);
+  }
+
+  &__checkbox-fake {
+    display: block;
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    border: 2px solid #0a2d36;
+    flex-shrink: 0;
+    background-repeat: no-repeat;
+    background-size: 16px 16px;
+    background-position: center;
+  }
+
+  &__checkbox:checked + &__checkbox-fake {
+    background-color: #0a2d36;
+    background-image: url("../img/icons/check.svg");
+  }
+
+  &__btn {
+    align-self: center;
+    display: block;
+    width: 100%;
+    max-width: 346px;
+    padding: 15px;
+    background-color: transparent;
+    color: #cc1100;
+    border: 1px solid #cc1100;
+    border-radius: 45px;
+    @include mixin.roboto-flex;
+    font-weight: 600;
+
+    &:focus-visible {
+      outline-offset: 2px;
+      outline: 1px solid #cc1100;
+    }
+
+    &:hover {
+      background-color: #cc1100;
+      color: #fff;
+    }
+  }
+}

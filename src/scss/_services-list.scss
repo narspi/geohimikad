@@ -1,0 +1,68 @@
+@use "mixin";
+
+.services-list {
+  padding: 40px 0 47px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 75px;
+
+  &__item {
+    padding: 0px 44px;
+    border-radius: 20px;
+    display: flex;
+    gap: 48px;
+    box-shadow: 0px 4px 10px rgba(#000, 25%);
+
+    &:nth-child(odd) {
+      background-color: #e3e3e3;
+      color: #0a2d36;
+    }
+    &:nth-child(even) {
+      background-color: #0a2d36;
+      color: #fff;
+    }
+  }
+
+  &__body {
+    padding: 34px 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title {
+    margin: 0 0 20px;
+    font-family: "Wadik", sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+  }
+
+  &__content {
+    font-size: 18px;
+    @include mixin.roboto-flex;
+  }
+
+  &__price {
+    font-family: "Wadik", sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    margin: auto 0 39px;
+    color: #cc1100;
+  }
+
+  &__img {
+    margin: -22px 0;
+    display: block;
+    border-radius: 15px;
+    box-shadow: 0px 4px 30px rgba(#000, 25%);
+  }
+
+  &__item:nth-child(even) &__pic {
+    order: 1;
+  }
+
+  &__btns-row {
+    display: flex;
+    gap: 25px;
+  }
+}

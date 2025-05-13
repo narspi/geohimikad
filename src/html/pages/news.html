@@ -13,4 +13,67 @@ title: New project
     ></a>
     <h1 class="title-big">Новости</h1>
   </div>
+  {{> filter}}
+  <div class="news-list">
+    <article class="news-list__item">
+      <div class="news-list__pic">
+        <img
+          src="./img/new-placeholder.jpg"
+          alt="Фото новосоти"
+          class="news-list__img"
+        >
+      </div>
+      <div class="news-list__content">
+        <h2 class="news-list__title">Lorem ipsum dolor sit a met</h2>
+        <p class="news-list__descr">
+          Lorem ipsum dolor sit a met, consectetuer adipiscing elitLorem ipsum
+          dolor sit a met, consectetuer adipiscing elit. Lorem ipsum dolor sit a
+          met, consectetuer
+        </p>
+        <a class="news-list__link" href="./new-page.html">Подробнее</a>
+      </div>
+    </article>
+    {{#repeat 2}}
+    <article class="news-list__item">
+      <div class="news-list__pic">
+        <img
+          src="./img/new-placeholder.jpg"
+          alt="Фото новосоти"
+          class="news-list__img"
+        >
+      </div>
+      <div class="news-list__content">
+        <h2 class="news-list__title">
+          Lorem ipsum dolor sit a met, consectetuer adipiscing
+        </h2>
+        <p class="news-list__descr">
+          Lorem ipsum dolor sit a met, consectetuer adipiscing elitLorem ipsum
+          dolor sit a met, consectetuer adipiscing elit. Lorem ipsum dolor sit a
+          met, consectetuer
+        </p>
+        <a class="news-list__link" href="./new-page.html">Подробнее</a>
+      </div>
+    </article>
+    {{/repeat}}
+    <article class="news-list__item news-list__item--big">
+      <div class="news-list__pic">
+        <img
+          src="./img/new-placeholder.jpg"
+          alt="Фото новосоти"
+          class="news-list__img"
+        >
+      </div>
+      <div class="news-list__content">
+        <h2 class="news-list__title">
+          Lorem ipsum dolor sit a met, consectetuer adipiscing
+        </h2>
+        <p class="news-list__descr">
+          Lorem ipsum dolor sit a met, consectetuer adipiscing elitLorem ipsum
+          dolor sit a met, consectetuer adipiscing elit. Lorem ipsum dolor sit a
+          met, consectetuer
+        </p>
+        <a class="news-list__link" href="./new-page.html">Подробнее</a>
+      </div>
+    </article>
+  </div>
 </div>

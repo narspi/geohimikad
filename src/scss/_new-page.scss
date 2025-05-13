@@ -1,0 +1,32 @@
+.new-page {
+  margin-bottom: 87px;
+  &__descr {
+    font-family: "Wadik", sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    color: #0b2f38;
+    margin: 10px 0 35px;
+    max-width: 756px;
+  }
+
+  &__category {
+    max-width: 384px;
+    margin-bottom: 54px;
+  }
+
+  &__content {
+    font-size: 18px;
+    margin-top: 54px;
+    margin-bottom: 60px;
+  }
+
+  &__gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  &__gallery-img {
+    width: 100%;
+  }
+}
