@@ -1,0 +1,56 @@
+@use "mixin";
+
+.service-certificates {
+  padding: 95px 0 50px;
+  background-image: url("../img/questions-decor.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  &__inner {
+    position: relative;
+  }
+
+  &__btn-next,
+  &__btn-prev {
+    width: 65px;
+    height: 55px;
+    background-color: transparent;
+    padding: 0;
+    border: 1px solid #c2c2c2;
+    border-radius: 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &__btn-next {
+    background-image: url("../img/icons/arrow-right.svg");
+    right: 0;
+  }
+
+  &__btn-prev {
+    background-image: url("../img/icons/arrow-left-red.svg");
+    left: 0;
+  }
+
+  &__slider {
+    margin: 0 70px;
+  }
+
+  &__slider:not(.swiper-initialized) &__slider-item {
+    width: calc((100% - 24px) / 2);
+    margin-right: 24px;
+  }
+
+  &__slider-list {
+    @include mixin.reset-list;
+  }
+
+  &__slider-img {
+    display: block;
+    width: 100%;
+  }
+}

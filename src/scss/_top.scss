@@ -16,49 +16,6 @@
     font-size: 47px;
   }
 
-  &__descr {
-    margin: 16px 0;
-    font-family: "Adamina", sans-serif;
-    font-size: 24px;
-    color: #cc1100;
-  }
-
-  &__steps {
-    display: flex;
-    padding-bottom: 33px;
-    @include mixin.roboto-flex;
-  }
-
-  &__step-num {
-    margin: 0 0 25px;
-    padding-bottom: 20px;
-    padding-right: 65px;
-    border-bottom: 1px solid #cc1100;
-    @include mixin.roboto-flex;
-    position: relative;
-    &::before,
-    &::after {
-      content: "";
-      position: absolute;
-      width: 18px;
-      height: 18px;
-      background-color: #fff;
-      bottom: -1px;
-      left: 0;
-      transform: translateY(50%);
-      border-radius: 50px;
-    }
-
-    &::after {
-      border: 2px solid #000;
-    }
-  }
-
-  &__step-list {
-    @include mixin.reset-list;
-    padding-right: 65px;
-  }
-
   &__btns {
     margin: 0 -20px;
     display: flex;
@@ -144,5 +101,9 @@
   &__list-descr {
     @include mixin.roboto-flex;
     margin: 10px 0 0;
+  }
+
+  &__steps {
+    padding-bottom: 33px;
   }
 }

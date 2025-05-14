@@ -1,0 +1,55 @@
+.service-stages {
+  padding: 95px 0 75px;
+  background-color: #0b2f38;
+  color: #fff;
+
+  &__title {
+    margin: 0;
+    font-family: "Wadik", sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+  }
+
+  &__list {
+    display: flex;
+    padding-left: 0;
+    list-style: none;
+    margin: 67px 0 0;
+    counter-reset: stages;
+  }
+
+  &__item {
+    flex-grow: 1;
+    counter-increment: stages;
+
+    &::before {
+      content: counter(stages) " этап";
+      color: #cc1100;
+      font-weight: 600;
+      font-size: 24px;
+      padding-right: 10px;
+    }
+  }
+
+  &__text {
+    margin: 15px 0 0;
+    padding-top: 25px;
+    padding-right: 10px;
+    border-top: 1px solid #cc1100;
+    font-size: 18px;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 18px;
+      width: 18px;
+      border: 2px solid #fff;
+      border-radius: 50%;
+      transform: translateY(-50%);
+      background-color: #0b2f38;
+    }
+  }
+}

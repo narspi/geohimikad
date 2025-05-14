@@ -1,0 +1,60 @@
+.popular-services {
+  padding: 80px 0 50px;
+  &__title {
+    color: #cc1100;
+  }
+
+  &__list {
+    margin-top: 60px;
+    display: flex;
+    gap: 24px;
+  }
+
+  &__pic {
+    aspect-ratio: 343 / 228;
+    position: relative;
+  }
+
+  &__img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 22px 22px 0 0;
+  }
+
+  &__item {
+    flex-grow: 1;
+    background-color: rgba(#efedec, 70%);
+    padding: 18px 20px 40px;
+    border-radius: 28px;
+    box-shadow: 0px 3px 30px 5px rgba(#000, 15%);
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__item-title {
+    color: #0a2d36;
+    font-weight: 500;
+    font-size: 24px;
+    text-align: center;
+    margin: 18px 0;
+  }
+
+  &__item-price {
+    font-size: 18px;
+    font-family: "Wadik", sans-serif;
+    font-weight: 700;
+    color: #cc1100;
+    text-align: center;
+    margin: 0 0 28px;
+  }
+
+  &__item-btn {
+    max-width: 290px;
+    margin: auto auto 0;
+  }
+}

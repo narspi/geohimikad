@@ -1,0 +1,60 @@
+@use "mixin";
+
+.steps {
+  &__descr {
+    margin: 16px 0;
+    font-family: "Adamina", sans-serif;
+    font-size: 24px;
+    color: #cc1100;
+  }
+
+  &__list {
+    display: flex;
+    @include mixin.roboto-flex;
+  }
+
+  &__item-num {
+    margin: 0 0 25px;
+    padding-bottom: 20px;
+    padding-right: 65px;
+    border-bottom: 1px solid #cc1100;
+    @include mixin.roboto-flex;
+    position: relative;
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      background-color: #fff;
+      bottom: -1px;
+      left: 0;
+      transform: translateY(50%);
+      border-radius: 50px;
+    }
+
+    &::after {
+      border: 2px solid #000;
+    }
+  }
+
+  &__item-list {
+    @include mixin.reset-list;
+    padding-right: 24px;
+
+    & li {
+      flex-grow: 1;
+    }
+
+    & a {
+      color: inherit;
+      text-decoration: none;
+      font-size: 16px;
+
+      &.active,
+      &:hover {
+        color: #cc1100;
+      }
+    }
+  }
+}
