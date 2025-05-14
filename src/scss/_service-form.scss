@@ -1,5 +1,142 @@
+@use "mixin";
+
 .service-form {
   padding: 100px 0;
   background-color: #0a2d36;
   color: #fff;
+
+  &__inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+  }
+
+  &__info-text {
+    font-family: "Wadik", sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    margin: 0;
+  }
+
+  &__info-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 60px 0 0;
+    display: flex;
+    gap: 15px;
+    justify-content: space-between;
+  }
+
+  &__info-elem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    text-align: center;
+  }
+
+  &__info-img {
+    width: 106px;
+    height: 80px;
+    object-fit: contain;
+    object-position: center;
+  }
+
+  &__elem {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__elem-title {
+    font-family: "Wadik", sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    margin: 0 0 45px;
+  }
+
+  &__elem-input {
+    border: 1px solid #fff;
+    padding: 20px 27px;
+    border-radius: 35px;
+    background-color: transparent;
+    color: #fff;
+    @include mixin.roboto-flex;
+    font-weight: 500;
+    margin-bottom: 15px;
+
+    &::placeholder {
+      color: #c2c2c2;
+    }
+
+    &:focus {
+      outline: 1px solid #fff;
+      outline-offset: 2px;
+    }
+
+    &:-webkit-autofill {
+      -webkit-text-fill-color: #fff !important;
+      transition: background-color 9999s ease-out, color 9999s ease-out;
+    }
+  }
+
+  &__elem-policy {
+    @include mixin.roboto-flex;
+    font-weight: 500;
+    margin: 5px 0 30px;
+    display: flex;
+    gap: 10px;
+    cursor: pointer;
+  }
+
+  &__elem-checkbox {
+    position: absolute;
+    clip: rect(0 0 0 0);
+  }
+
+  &__elem-fake {
+    display: block;
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    border: 2px solid #cc1100;
+    flex-shrink: 0;
+    background-repeat: no-repeat;
+    background-size: 16px 16px;
+    background-position: center;
+  }
+
+  &__elem-checkbox:focus-visible + &__elem-fake {
+    outline-offset: 2px;
+    outline: 1px solid #fff;
+  }
+
+  &__elem-checkbox:checked + &__elem-fake {
+    background-color: #cc1100;
+    background-image: url("../img/icons/check.svg");
+  }
+
+  &__elem-btn {
+    display: block;
+    @include mixin.roboto-flex;
+    font-weight: 600;
+    border: none;
+    border: 1px solid #fff;
+    background-color: #fff;
+    color: #0b2f38;
+    padding: 15px;
+    border-radius: 45px;
+    max-width: 358px;
+    width: 100%;
+    align-self: center;
+
+    &:hover {
+      background-color: transparent;
+      color: #fff;
+    }
+
+    &:focus-visible {
+      outline-offset: 2px;
+      outline: 1px solid #fff;
+    }
+  }
 }
