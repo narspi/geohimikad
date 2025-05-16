@@ -199,6 +199,10 @@
     display: block;
   }
 
+  &__star-input:focus-visible ~ &__star-icon {
+    outline: 2px solid #ffe54e;
+  }
+
   &__star-icon {
     color: transparent;
   }
