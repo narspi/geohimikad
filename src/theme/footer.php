@@ -1,0 +1,87 @@
+<footer class="footer">
+    <div class="container footer__inner">
+        <div>
+            <a href="<?= home_url() ?>" class="footer__logo">
+                <img src="<?= get_template_directory_uri() ?>/assets/img/footer-logo.svg" alt="Главная страница"
+                    width="180" height="65">
+            </a>
+            <p class="footer__descr">
+                Профессиональные<br>геодезические<br>и кадастровые услуги
+            </p>
+        </div>
+        <ul class="footer__social">
+            <li class="footer__social-item">
+                <a class="footer__social-link" href="#">
+                    <img class="footer__social-img"
+                        src="<?= get_template_directory_uri() ?>/assets/img/icons/whatsapp.svg" alt="Написать в ватсап">
+                </a>
+            </li>
+            <li class="footer__social-item">
+                <a class="footer__social-link" href="#">
+                    <img class="footer__social-img"
+                        src="<?= get_template_directory_uri() ?>/assets/img/icons/instagram.svg"
+                        alt="Написать в инстаграм">
+                </a>
+            </li>
+            <li class="footer__social-item">
+                <a class="footer__social-link" href="#">
+                    <img class="footer__social-img"
+                        src="<?= get_template_directory_uri() ?>/assets/img/icons/footer-tg.svg"
+                        alt="Написать в телеграмм">
+                </a>
+            </li>
+            <li class="footer__social-item">
+                <a class="footer__social-link" href="#">
+                    <img class="footer__social-img"
+                        src="<?= get_template_directory_uri() ?>/assets/img/icons/footer-phone.svg" alt="Позвонить нам">
+                </a>
+            </li>
+        </ul>
+        <div class="footer__services">
+            <p class="footer__services-title">Услуги</p>
+            <ul class="footer__services-list">
+                <li>
+                    <a href="#">Геодезия</a>
+                </li>
+                <li>
+                    <a href="#">Проектирование</a>
+                </li>
+                <li>
+                    <a href="#">Археология</a>
+                </li>
+                <li>
+                    <a href="#">Геология</a>
+                </li>
+                <li>
+                    <a href="#">Бурение скважин на воду</a>
+                </li>
+                <li>
+                    <a href="#">Бурение скважин на воду</a>
+                </li>
+                <li>
+                    <a href="#">Кадастр</a>
+                </li>
+                <li>
+                    <a href="#">Разрешение на строительство</a>
+                </li>
+                <li>
+                    <a href="#">Росавиация</a>
+                </li>
+            </ul>
+            <?php
+            $privacy_url = get_privacy_policy_url();
+            if ($privacy_url):
+                ?>
+                <p class="footer__policy">
+                    <a class="footer__policy-link" href="<?php echo $privacy_url; ?>">Политика
+                        конфидициальности</a>
+                </p>
+            <?php endif; ?>
+        </div>
+        <button class="footer__scroll-up" title="Вернуться в начало"></button>
+    </div>
+</footer>
+<?php wp_footer(); ?>
+</body>
+
+</html>
