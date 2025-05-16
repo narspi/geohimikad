@@ -91,6 +91,11 @@
     background-image: url("../img/icons/check.svg");
   }
 
+  &__checkbox:focus + &__fake {
+    outline-offset: 2px;
+    outline: 1px solid #fff;
+  }
+
   &__btn {
     @include mixin.roboto-flex;
     font-weight: 600;

@@ -1,5 +1,6 @@
 import Swiper from "swiper";
 import { Navigation } from "swiper/modules";
+import Choices from "choices.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const services = document.querySelector(".services");
@@ -9,6 +10,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const footerBtnScrollUp = document.querySelector(".footer__scroll-up");
   const serviceCertificatesSlider = document.querySelector(
     ".service-certificates__slider"
+  );
+  const reviewsFormFile = document.getElementById("reviews-form-file");
+  const reviewsFormServiceChoices = document.querySelector(
+    ".reviews-form__service-choices"
   );
 
   if (services) {
@@ -80,6 +85,56 @@ document.addEventListener("DOMContentLoaded", () => {
         nextEl: ".service-certificates__btn-next",
         prevEl: ".service-certificates__btn-prev",
       },
+    });
+  }
+
+  if (reviewsFormFile) {
+    const previewContainer = document.querySelector(
+      ".reviews-form__file-preview"
+    );
+    reviewsFormFile.addEventListener("change", (event) => {
+      const files = event.target.files;
+      previewContainer.innerHTML = "";
+
+      Array.from(files).forEach((file) => {
+        if (!file.type.startsWith("image/")) return;
+
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          const img = document.createElement("img");
+          img.src = e.target.result;
+          img.style.maxWidth = "120px";
+          img.style.marginRight = "10px";
+          img.style.marginBottom = "10px";
+          img.style.borderRadius = "8px";
+          img.alt = file.name;
+          previewContainer.appendChild(img);
+        };
+        reader.readAsDataURL(file);
+      });
+    });
+  }
+
+  if (reviewsFormServiceChoices) {
+    const choices = new Choices(reviewsFormServiceChoices, {
+      searchEnabled: false,
+      itemSelectText: "Нажмите для выбора",
+      shouldSort: false,
+      placeholder: true,
+      placeholderValue: "Услуга, о которой вы оставляете отзыв",
+    });
+  }
+
+  const reviewsFormStarList = document.querySelectorAll(".reviews-form__star");
+
+  if (reviewsFormStarList) {
+    const radios = document.querySelectorAll('input[name="rating"]');
+
+    reviewsFormStarList.forEach((star, index) => {
+      star.addEventListener("click", () => {
+        radios[index].checked = true;
+        reviewsFormStarList.forEach((l, i) => l.classList.toggle("reviews-form__star--filled", i <= index));
+      });
     });
   }
 });
