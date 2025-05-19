@@ -1,8 +1,8 @@
 <?php
-get_header('index');
+get_header('');
 ?>
 <div>
-    Главная
+    Страница
 </div>
 <?php
 get_footer();

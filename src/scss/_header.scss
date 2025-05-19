@@ -68,17 +68,17 @@
         outline: 2px solid black;
       }
 
-      &.active {
-        line-height: 2;
-        font-weight: 600;
-        color: #cc1100;
+      &:hover {
         text-decoration-thickness: 2px;
         text-decoration-line: underline;
       }
+    }
 
-      &:hover {
-        text-decoration-line: underline;
-      }
+    & li.current-menu-item a {
+      font-weight: 600;
+      color: #cc1100;
+      text-decoration-thickness: 2px;
+      text-decoration-line: underline;
     }
   }
 

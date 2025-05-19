@@ -1,0 +1,87 @@
+<section class="reviews">
+    <div class="container">
+        <div class="reviews__top">
+            <h2 class="title">Отзывы клиентов</h2>
+            <div class="reviews__btns">
+                <button class="reviews__btn-prev" aria-label="Листать слайдер назад"></button>
+                <button class="reviews__btn-next" aria-label="Листать слайдер вперёд"></button>
+            </div>
+        </div>
+        <div class="swiper reviews__slider">
+            <div class="swiper-wrapper reviews__list">
+                <div class="swiper-slide reviews__item">
+                    <div class="reviews__item-content">
+                        <p class="reviews__item-text">
+                            Возникла необходимость пробурить скважину, обратились в
+                            "Геоархикад", были впечатлены работой: ребята приехали на площадку
+                            и дали свое заключение, мы договорились о стоимости. Все вовремя,
+                            без изменений стоимости. Она работает бесперебойно, мои лучшие
+                            рекомендации компании.
+                        </p>
+                        <p class="reviews__item-title">Владимир</p>
+                    </div>
+                </div>
+                <div class="swiper-slide reviews__item reviews__item--big">
+                    <div class="reviews__item-content">
+                        <p class="reviews__item-text">
+                            Обратилась в "Геоархикад" за сложным комплексом услуг: разрешение
+                            на строительство, архитектурные работы. Ребята отзывчивые, помогли
+                            со всем, до сих пор продуктивно работаем, буду продолжать
+                            сотрудничество и в дальнейшем. Огромное спасибо!
+                        </p>
+                        <p class="reviews__item-title">ТАТЬЯНА ФРАЙФРАУ</p>
+                    </div>
+                    <div class="reviews__item-decors">
+                        <img class="reviews__item-img"
+                            src="<?= get_template_directory_uri() ?>/assets/img/placeholder-project.svg"
+                            alt="фото отзыва">
+                        <img class="reviews__item-img"
+                            src="<?= get_template_directory_uri() ?>/assets/img/placeholder-project.svg"
+                            alt="фото отзыва">
+                    </div>
+                </div>
+                <div class="swiper-slide reviews__item">
+                    <div class="reviews__item-content">
+                        <p class="reviews__item-text">
+                            Пробурили скважину, 43 метра глубиной, работает отлично. Летом
+                            прокачивали - не было перебоев. Мы рады, что обратились к этим
+                            ребятам, и они нам сделали все.
+                        </p>
+                        <p class="reviews__item-title">Нина</p>
+                    </div>
+                </div>
+                <div class="swiper-slide reviews__item">
+                    <div class="reviews__item-content">
+                        <p class="reviews__item-text">
+                            Пробурили скважину, 43 метра глубиной, работает отлично. Летом
+                            прокачивали - не было перебоев. Мы рады, что обратились к этим
+                            ребятам, и они нам сделали все.
+                        </p>
+                        <p class="reviews__item-title">Нина</p>
+                    </div>
+                </div>
+                <div class="swiper-slide reviews__item">
+                    <div class="reviews__item-content">
+                        <p class="reviews__item-text">
+                            Пробурили скважину, 43 метра глубиной, работает отлично. Летом
+                            прокачивали - не было перебоев. Мы рады, что обратились к этим
+                            ребятам, и они нам сделали все.
+                        </p>
+                        <p class="reviews__item-title">Нина</p>
+                    </div>
+                </div>
+                <div class="swiper-slide reviews__item">
+                    <div class="reviews__item-content">
+                        <p class="reviews__item-text">
+                            Пробурили скважину, 43 метра глубиной, работает отлично. Летом
+                            прокачивали - не было перебоев. Мы рады, что обратились к этим
+                            ребятам, и они нам сделали все.
+                        </p>
+                        <p class="reviews__item-title">Нина</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="./reviews.html#reviews-form" class="reviews__btn-send">Оставить отзыв</a>
+    </div>
+</section>

@@ -105,13 +105,21 @@
   &__btn-send {
     display: block;
     margin-left: auto;
-    padding: 15px 100px;
+    padding: 15px;
     background-color: #cc1100;
+    border: 1px solid #cc1100;
     color: #fff;
     @include mixin.roboto-flex;
     font-weight: 600;
     font-size: 16px;
-    border: none;
     border-radius: 45px;
+    text-align: center;
+    text-decoration: none;
+    max-width: 320px;
+
+    &:hover {
+      background-color: transparent;
+      color: #cc1100;
+    }
   }
 }
