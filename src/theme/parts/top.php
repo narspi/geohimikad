@@ -48,27 +48,27 @@
         </div>
         <div class="top__list">
             <div class="top__list-item">
-                <img class="top__list-img" src="<?= get_template_directory_uri() ?>/assets/img/top-list-1.svg" alt="" />
+                <img class="top__list-img" src="<?= get_template_directory_uri() ?>/assets/img/top-list-1.svg" alt="">
                 <p class="top__list-title">10+ лет опыта</p>
                 <p class="top__list-descr">Более 1000 проектов выполнено.</p>
             </div>
             <div class="top__list-item">
-                <img class="top__list-img" src="<?= get_template_directory_uri() ?>/assets/img/top-list-2.svg" alt="" />
-                <p class="top__list-title">Гарантия<br />качества</p>
+                <img class="top__list-img" src="<?= get_template_directory_uri() ?>/assets/img/top-list-2.svg" alt="">
+                <p class="top__list-title">Гарантия<br>качества</p>
                 <p class="top__list-descr">Используем сертифицированные материалы</p>
             </div>
             <div class="top__list-item">
-                <img class="top__list-img" src="<?= get_template_directory_uri() ?>/assets/img/top-list-3.svg" alt="" />
+                <img class="top__list-img" src="<?= get_template_directory_uri() ?>/assets/img/top-list-3.svg" alt="">
                 <p class="top__list-title">Команда профессионалов</p>
                 <p class="top__list-descr">Высокая квалификация сотрудников</p>
             </div>
             <div class="top__list-item">
-                <img class="top__list-img" src="<?= get_template_directory_uri() ?>/assets/img/top-list-4.svg" alt="" />
+                <img class="top__list-img" src="<?= get_template_directory_uri() ?>/assets/img/top-list-4.svg" alt="">
                 <p class="top__list-title">Собственный автопарк</p>
                 <p class="top__list-descr">Оперативное выполнение работ</p>
             </div>
             <div class="top__list-item">
-                <img class="top__list-img" src="<?= get_template_directory_uri() ?>/assets/img/top-list-5.svg" alt="" />
+                <img class="top__list-img" src="<?= get_template_directory_uri() ?>/assets/img/top-list-5.svg" alt="">
                 <p class="top__list-title">Онлайн-запись</p>
                 <p class="top__list-descr">Удобное расписание, свободные даты</p>
             </div>

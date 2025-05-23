@@ -40,6 +40,13 @@ function my_acf_op_init()
             'menu_slug' => 'theme-docs-settings'
         ));
 
+        acf_add_options_sub_page(array(
+            'page_title' => 'Сотрудники',
+            'menu_title' => 'Сотрудники',
+            'parent_slug' => $parent['menu_slug'],
+            'menu_slug' => 'theme-team-settings'
+        ));
+
         // acf_add_options_sub_page(array(
         //     'page_title' => 'Настройки шапки',
         //     'menu_title' => 'Шапка',
@@ -139,3 +146,24 @@ function register_service_post_type()
     register_post_type('service', $args);
 }
 add_action('init', 'register_service_post_type');
+
+function register_cases_post_type()
+{
+    $args = array(
+        'labels' => array(
+            'name' => 'Кейсы',
+            'singular_name' => 'Кейс',
+        ),
+        'public' => true,
+        'has_archive' => true,
+        'show_in_nav_menus' => true,
+        'rewrite' => array(
+            'slug' => 'k', // это даёт /k/кейсы
+            'with_front' => false
+        ),
+        'supports' => array('title', 'editor', 'thumbnail'),
+    );
+
+    register_post_type('cases', $args);
+}
+add_action('init', 'register_cases_post_type');

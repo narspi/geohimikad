@@ -1,0 +1,34 @@
+<div class="popular-services">
+    <div class="container">
+        <p class="title popular-services__title">Подходящие сопутствующие услуги</p>
+        <div class="popular-services__list">
+            <article class="popular-services__item">
+                <div class="popular-services__pic">
+                    <img src="<?= get_template_directory_uri() ?>/assets/img/services/list/item-4.jpg"
+                        alt="Похожая услуга" class="popular-services__img">
+                </div>
+                <h2 class="popular-services__item-title">Бурение на воду</h2>
+                <p class="popular-services__item-price">от 10 000 руб.</p>
+                <a class="btn-dark popular-services__item-btn" href="./service-page.html">Подробнее</a>
+            </article>
+            <article class="popular-services__item">
+                <div class="popular-services__pic">
+                    <img src="<?= get_template_directory_uri() ?>/assets/img/services/list/item-4.jpg"
+                        alt="Похожая услуга" class="popular-services__img">
+                </div>
+                <h2 class="popular-services__item-title">Бурение на воду</h2>
+                <p class="popular-services__item-price">от 10 000 руб.</p>
+                <a class="btn-dark popular-services__item-btn" href="./service-page.html">Подробнее</a>
+            </article>
+            <article class="popular-services__item">
+                <div class="popular-services__pic">
+                    <img src="<?= get_template_directory_uri() ?>/assets/img/services/list/item-4.jpg"
+                        alt="Похожая услуга" class="popular-services__img">
+                </div>
+                <h2 class="popular-services__item-title">Бурение на воду</h2>
+                <p class="popular-services__item-price">от 10 000 руб.</p>
+                <a class="btn-dark popular-services__item-btn" href="./service-page.html">Подробнее</a>
+            </article>
+        </div>
+    </div>
+</div>

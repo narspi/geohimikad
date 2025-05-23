@@ -27,6 +27,7 @@
                         <li class="swiper-slide certificates__slider-slide">
                             <img class=" certificates__slider-img" src="<?= $img_item['url'] ?>" alt="<?= $img_item['alt'] ?>"
                                 loading="lazy">
+                            <div class="swiper-lazy-preloader"></div>
                         </li>
                         <?php
                     endwhile; ?>
