@@ -24,7 +24,7 @@ get_header();
                     <div class="porfolio-list__body">
                         <div class="porfolio-list__service">
                             <div>
-                                <span>Бурение на воду</span>
+                                <span>Бурение на воду <?php echo get_the_ID(); ?></span>
                             </div>
                             <div>
                                 <span>Геодезические услуги</span>

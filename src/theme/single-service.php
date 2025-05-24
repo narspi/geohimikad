@@ -8,21 +8,16 @@ get_header();
         <h1 class="title-big"><?php the_title(); ?></h1>
     </div>
     <div class="service-page__top">
-        <img src="<?= get_template_directory_uri() ?>/assets/img/services/page/item-1.jpg" alt="Фото услуги"
-            class="service-page__img">
+        <?php
+        if (has_post_thumbnail()):
+            $thumbnail_id = get_post_thumbnail_id();
+            $alt = get_post_meta($thumbnail_id, '_wp_attachment_image_alt', true);
+            ?>
+            <img src="<?= get_the_post_thumbnail_url(); ?>" alt="<?= esc_attr($alt); ?>" class="service-page__img">
+        <?php endif; ?>
         <div class="service-page__body">
             <div class="service-page__content">
-                <p>
-                    Инженеры-геодезисты компании ГЕОАРХИКАД -  дипломированные
-                    специалисты, с опытом работы на территории Сочи свыше 7ми лет, знающие
-                    все особенности местных рельефов.Мы являемся членами Национального
-                    реестра специалистов НОПРИЗ.
-                </p>
-                <p>ГЕОАРХИКАД имеет допуски СРО, на изыскания и проектирование.</p>
-                <p>
-                    Наши специалисты используют поверенное геодезическое оборудование
-                    ведущих производителей.
-                </p>
+                <?php the_content(); ?>
             </div>
             <div class="steps service-page__steps">
                 <p class="steps__descr">Как подготовиться к строительству дома?</p>

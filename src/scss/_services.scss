@@ -88,9 +88,13 @@
   &__elem-content {
     font-size: 18px;
     @include mixin.roboto-flex;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
   }
 
   &__elem-row {
+    margin-top: auto;
     display: flex;
     gap: 17px;
   }

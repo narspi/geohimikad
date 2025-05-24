@@ -10,17 +10,20 @@
   &__item {
     padding: 0px 44px;
     border-radius: 20px;
-    display: flex;
+    display: grid;
     gap: 48px;
     box-shadow: 0px 4px 10px rgba(#000, 25%);
+    min-height: 426px;
 
     &:nth-child(odd) {
       background-color: #e3e3e3;
       color: #0a2d36;
+      grid-template-columns: 497fr 567fr;
     }
     &:nth-child(even) {
       background-color: #0a2d36;
       color: #fff;
+      grid-template-columns: 567fr 497fr;
     }
   }
 
@@ -50,11 +53,22 @@
     color: #cc1100;
   }
 
-  &__img {
+  &__pic {
     margin: -22px 0;
+    position: relative;
+  }
+
+  &__img {
     display: block;
     border-radius: 15px;
     box-shadow: 0px 4px 30px rgba(#000, 25%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
   }
 
   &__item:nth-child(even) &__pic {

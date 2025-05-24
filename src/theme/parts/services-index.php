@@ -12,6 +12,7 @@ $services = get_posts(array(
         foreach ($services as $post):
             setup_postdata($post);
             $is_active = $i === 0 ? true : false;
+            $id = get_the_ID();
             ?>
             <article class="services__elem">
                 <h2 class="<?php if ($is_active) echo 'services__elem-title active';
@@ -25,19 +26,16 @@ $services = get_posts(array(
                 <div class="<?php if ($is_active) echo 'services__elem-drop active';
                 else echo 'services__elem-drop'; ?>">
                     <div class="container services__elem-body">
-                        <img class="services__elem-img"
-                            src="<?= get_template_directory_uri() ?>/assets/img/services/main/elem-1.jpg" alt="фото услуги">
+                        <?php
+                        $img_elem = get_field('index-img', $id);
+                        if ($img_elem): ?>
+                            <img class="services__elem-img" src="<?= $img_elem['url'] ?>"
+                                alt="<?= esc_attr($img_elem['alt']); ?>">
+                        <?php endif; ?>
                         <div class="services__elem-content">
-                            <p>
-                                Инженеры-геодезисты компании ГЕОАРХИКАД - дипломированные специалисты,
-                                с опытом работы на территории Сочи свыше 7ми лет, знающие все
-                                особенности местных рельефов. Мы являемся членами Национального
-                                реестра специалистов НОПРИЗ.
-                            </p>
-                            <p>
-                                Наши специалисты используют поверенное геодезическое оборудование
-                                ведущих производителей.
-                            </p>
+                            <div>
+                                <?php the_field('index-text', $id); ?>
+                            </div>
                             <div class="services__elem-row">
                                 <a class="services__elem-btn services__elem-btn--red"
                                     href="<?= esc_url(get_permalink()); ?>">Узнать

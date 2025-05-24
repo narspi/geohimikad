@@ -9,23 +9,17 @@
             <?php while (have_posts()):
                 the_post(); ?>
                 <article class="services-list__item">
-                    <div class="services-list__pic">
-                        <img class="services-list__img"
-                            src="<?= get_template_directory_uri() ?>/assets/img/services/list/item-1.jpg"
-                            alt="Декорация услуги">
-                    </div>
+                    <?php
+                    $img_elem = get_field('services-img');
+                    if ($img_elem): ?>
+                        <div class="services-list__pic">
+                            <img class="services-list__img" src="<?= $img_elem['url'] ?>" alt="<?= esc_attr($img_elem['alt']); ?>">
+                        </div>
+                    <?php endif; ?>
                     <div class="services-list__body">
                         <h2 class="services-list__title"><?php the_title(); ?></h2>
                         <div class="services-list__content">
-                            <p>
-                                Мы поможем Вам с выполнением таких работ как: технический план
-                                объекта капитального строительства, межевой план
-                            </p>
-                            <p>
-                                В команде ГЕОАРХИКАД кадастровые инженеры обладают опытом работы
-                                свыше 8-ми лет. Помимо этого, наши специалисты имеют образование и
-                                аттестат кадастрового инженера, позволяющий ему выполнять работы.
-                            </p>
+                            <?php the_field('services-text'); ?>
                         </div>
                         <p class="services-list__price">от 10 000 руб.</p>
                         <div class="services-list__btns-row">

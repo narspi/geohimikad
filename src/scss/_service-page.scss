@@ -11,8 +11,13 @@
     margin-top: 1em;
   }
 
+  &__body {
+    display: flex;
+    flex-direction: column;
+  }
+
   &__steps {
-    margin: 75px 0 38px;
+    margin: auto 0 38px;
   }
 
   &__btn {
