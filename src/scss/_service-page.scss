@@ -60,6 +60,10 @@
     grid-template-columns: 612fr 510fr;
     gap: 80px;
     padding-bottom: 50px;
+
+    &--full {
+      grid-template-columns: 1fr;
+    }
   }
 
   &__info-title {

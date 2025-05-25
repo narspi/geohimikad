@@ -21,7 +21,12 @@
                         <div class="services-list__content">
                             <?php the_field('services-text'); ?>
                         </div>
-                        <p class="services-list__price">от 10 000 руб.</p>
+                        <?php
+                        $price = get_field('services-price');
+                        if ($price):
+                            ?>
+                            <p class="services-list__price"><?php echo esc_html($price); ?></p>
+                        <?php endif; ?>
                         <div class="services-list__btns-row">
                             <a class="btn-light" href="<?php the_permalink(); ?>">Узнать подробнее</a>
                             <button class="btn-red">Заказать услугу</button>

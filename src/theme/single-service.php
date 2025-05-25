@@ -99,31 +99,44 @@ get_header();
             </p>
         </li>
     </ul>
-    <div class="service-page__bot">
-        <div class="service-page__info">
-            <p class="service-page__info-title">Для кого эта услуга?</p>
-            <p class="service-page__info-descr">
-                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean
-                massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam
-                felis, ultricies nec. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula
-                eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
-                ridiculus mus. Donec quam felis, ultricies nec.
-            </p>
+    <?php
+    $title = get_field('bot-block-title');
+    $descr = get_field('bot-block-descr');
+    if ($title or $descr):
+        ?>
+        <div class="<?php if (have_rows('bot-block-list')) echo 'service-page__bot service-page__bot';
+        else echo 'service-page__bot service-page__bot--full'; ?>">
+            <div class="service-page__info">
+                <?php if ($title): ?>
+                    <p class="service-page__info-title"><?= esc_html($title) ?></p>
+                <?php endif; ?>
+                <?php if ($descr): ?>
+                    <p class="service-page__info-descr">
+                        <?= esc_html($descr) ?>
+                    </p>
+                <?php endif; ?>
+            </div>
+            <?php
+            if (have_rows('bot-block-list')):
+                ?>
+                <ul class="service-page__bot-list">
+                    <?php while (have_rows('bot-block-list')):
+                        the_row();
+                        $elem = get_sub_field('bot-block-li');
+                        ?>
+                        <li><?= esc_html($elem) ?></li>
+                    <?php endwhile; ?>
+                </ul>
+            <?php endif; ?>
         </div>
-        <ul class="service-page__bot-list">
-            <li>Топографическая съемка</li>
-            <li>Топографическая съемка с согласованием в архитектуре</li>
-            <li>Расчет объема грунта</li>
-            <li>Закладка пунктов и координирование геодезической разбивочной основы</li>
-        </ul>
-    </div>
+    <?php endif; ?>
 </div>
 <?php
 get_template_part('parts/service-stages');
 get_template_part('parts/service-prices');
 get_template_part('parts/service-form');
 get_template_part('parts/service-certificates');
-get_template_part('parts/popular-services');
+get_template_part('parts/related-services');
 get_template_part('parts/request-form');
 get_footer();
 ?>

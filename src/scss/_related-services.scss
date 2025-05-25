@@ -1,4 +1,4 @@
-.popular-services {
+.related-services {
   padding: 80px 0 50px;
   &__title {
     color: #cc1100;
@@ -34,6 +34,7 @@
     box-shadow: 0px 3px 30px 5px rgba(#000, 15%);
     display: flex;
     flex-direction: column;
+    width: 100%;
   }
 
   &__item-title {
