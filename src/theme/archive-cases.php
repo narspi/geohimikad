@@ -22,32 +22,44 @@ get_header();
                 the_post(); ?>
                 <article class="porfolio-list__item">
                     <div class="porfolio-list__body">
-                        <div class="porfolio-list__service">
-                            <div>
-                                <span>Бурение на воду <?php echo get_the_ID(); ?></span>
+                        <?php
+                        $services_related = get_field('service-related');
+                        if ($services_related):
+                            ?>
+                            <div class="porfolio-list__service">
+                                <?php
+                                foreach ($services_related as $service_id):
+                                    $title = get_the_title($service_id);
+                                    ?>
+                                    <div>
+                                        <span><?php echo esc_html($title); ?></span>
+                                    </div>
+                                <?php endforeach; ?>
                             </div>
-                            <div>
-                                <span>Геодезические услуги</span>
-                            </div>
-                        </div>
+                        <?php endif; ?>
                         <h2 class="porfolio-list__title"><?php the_title(); ?></h2>
                         <div class="porfolio-list__content">
-                            <p>
-                                Lorem ipsum dolor sit a met, consectetuer adipiscing elitLorem ipsum dolor sit a met,
-                                consectetuer adipiscing elit
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit a met, consectetuer adipiscing elitLorem ipsum dolor sit a met,
-                                consectetuer adipiscing elit
-                            </p>
+                            <?php the_content(); ?>
                         </div>
                         <a class="porfolio-list__link" href="<?php the_permalink(); ?>">Узнать подробнее</a>
                     </div>
                     <div class="porfolio-list__view">
+                        <?php
+
+                        ?>
                         <div class="porfolio-list__pic">
-                            <img class="porfolio-list__img"
-                                src="<?= get_template_directory_uri() ?>/assets/img/placeholder-project.svg"
-                                alt="Кейс какой то">
+                            <?php
+                            $thumbnail_url = get_the_post_thumbnail_url(get_the_ID(), 'large');
+                            if ($thumbnail_url):
+                                $thumbnail_alt = get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true);
+                                ?>
+                                <img class="porfolio-list__img" src="<?= esc_url($thumbnail_url); ?>"
+                                    alt="<?= esc_attr($thumbnail_alt); ?>">
+                            <?php else: ?>
+                                <img class="porfolio-list__img"
+                                    src="<?= get_template_directory_uri() ?>/assets/img/placeholder-project.svg"
+                                    alt="Кейс какой то">
+                            <?php endif; ?>
                         </div>
                         <button class="porfolio-list__view-btn">Заказать эту услугу</button>
                     </div>

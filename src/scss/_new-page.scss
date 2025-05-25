@@ -9,9 +9,15 @@
     max-width: 756px;
   }
 
+  &__related {
+    margin-bottom: 54px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
   &__category {
     max-width: 384px;
-    margin-bottom: 54px;
   }
 
   &__content {

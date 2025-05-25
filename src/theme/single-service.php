@@ -137,6 +137,11 @@ get_template_part('parts/service-prices');
 get_template_part('parts/service-form');
 get_template_part('parts/service-certificates');
 get_template_part('parts/related-services');
+$questions = get_field('questions');
+get_template_part('parts/questions', null, array(
+    'is_grey' => true,
+    'questions' => $questions
+));
 get_template_part('parts/request-form');
 get_footer();
 ?>

@@ -9,7 +9,7 @@
                     <h2 class="news-title"><?php the_title(); ?></h2>
                     <p class="news-excerpt"><?php the_excerpt(); ?></p>
                     <p class="news-date"><?php echo get_the_date(); ?></p>
-                    <a href="<?php the_permalink(); ?>">Подробнее</a>
+                    <a href="<?php the_permalink(); ?>">Подробнееы</a>
                 </article>
             <?php endwhile; ?>
         </div>
