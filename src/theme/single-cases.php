@@ -5,7 +5,7 @@ get_header();
     <div class="heading-row">
         <a class="heading-row__btn" href="<?= get_post_type_archive_link('cases'); ?>" aria-label="На страницу кейсов"
             title="Перейти на страницу кейсов"></a>
-        <h1 class="title-big">Название кейса</h1>
+        <h1 class="title-big"><?php the_title(); ?></h1>
     </div>
     <div class="porfolio-item__top">
         <?php

@@ -8,7 +8,8 @@
             </symbol>
         </svg>
         <div class="title reviews-form__title">Вы можете оставить свой отзыв!</div>
-        <form class="reviews-form__elem">
+        <form class="reviews-form__elem" data-url="<?php echo admin_url('admin-ajax.php'); ?>">
+            <input type="hidden" name="security" value="<?php echo wp_create_nonce('submit_service_review_nonce'); ?>">
             <div class="reviews-form__column">
                 <textarea class="reviews-form__textarea" name="message" placeholder="Текст вашего отзыва"></textarea>
                 <label class="reviews-form__label-file" for="reviews-form-file">
@@ -22,11 +23,23 @@
                 <input class="reviews-form__input" type="text" name="name" placeholder="Ваше имя" />
                 <input class="reviews-form__input" type="tel" name="tel" placeholder="Ваш номер телефона" />
                 <div class="reviews-form__wrap-choices">
-                    <select class="reviews-form__service-choices" name="service">
-                        <!-- <option value="" disabled selected hidden>Услуга, о который вы оставляете отзыв</option> -->
-                        <option value="value1">Услуга 1</option>
-                        <option value="value2">Услуга 2</option>
-                        <option value="value3">Услуга 3</option>
+                    <select class="reviews-form__service-choices" name="service"
+                        data-placeholder="Услуга, о который вы оставляете отзыв">
+                        <option value="Нет Услуги" placeholder>Услуга, о который вы оставляете отзыв</option>
+                        <?php
+                        $services = get_posts([
+                            'post_type' => 'service',
+                            'posts_per_page' => -1,
+                            'post_status' => 'publish',
+                            'orderby' => 'title',
+                            'order' => 'ASC',
+                        ]);
+
+                        foreach ($services as $service)
+                        {
+                            echo '<option value="' . esc_attr($service->post_title) . '">' . esc_html($service->post_title) . '</option>';
+                        }
+                        ?>
                     </select>
                 </div>
                 <fieldset class="reviews-form__wrap-rating">

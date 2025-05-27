@@ -62,6 +62,25 @@ const createCss = () => {
     .pipe(sync.stream());
 };
 
+const createCssTheme = () => {
+  return src("src/scss/**/*.scss")
+    .pipe(
+      scss({
+        outputStyle: "compressed",
+      })
+    )
+    .pipe(postcss([autoprefixer()]))
+    .pipe(
+      cleanCSS({
+        level: {
+          1: { specialComments: 0 },
+          2: {},
+        },
+      })
+    )
+    .pipe(dest("src/theme/assets/css"))
+};
+
 const createJs = () => {
   return gulp
     .src("./src/js/**/*.js")
@@ -77,6 +96,20 @@ const createJs = () => {
     .pipe(sync.stream());
 };
 
+const createJsTheme = () => {
+  return gulp
+    .src("./src/js/**/*.js")
+    .pipe(
+      gulpEsbuild({
+        bundle: true,
+        minify: true,
+        sourcemap: false,
+        target: "es6",
+      })
+    )
+    .pipe(dest("src/theme/assets/js"))
+};
+
 const transportFonts = () => {
   return src("./src/fonts/**/*.{woff,woff2}", { encoding: false }).pipe(
     dest("dist/fonts")
@@ -88,7 +121,9 @@ const transportImg = () => {
 };
 
 const transportFiles = () => {
-  return src("./src/assets/**/*.*", { encoding: false }).pipe(dest("dist/assets"));
+  return src("./src/assets/**/*.*", { encoding: false }).pipe(
+    dest("dist/assets")
+  );
 };
 
 const server = () => {
@@ -130,6 +165,13 @@ const buildTask = series(
   transportImg
 );
 
+const themeTask = series(createCssTheme,createJsTheme);
+
 const startServer = series(buildTask, buildServer);
 
-export { defaultTask as default, buildTask as build, startServer as start };
+export {
+  defaultTask as default,
+  buildTask as build,
+  startServer as start,
+  themeTask as theme,
+};

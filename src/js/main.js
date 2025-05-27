@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const reviewsFormServiceChoices = document.querySelector(
     ".reviews-form__service-choices"
   );
+  const reviewsFormElem = document.querySelector(".reviews-form__elem");
 
   if (services) {
     services.addEventListener("click", (event) => {
@@ -121,7 +122,6 @@ document.addEventListener("DOMContentLoaded", () => {
       itemSelectText: "Нажмите для выбора",
       shouldSort: false,
       placeholder: true,
-      placeholderValue: "Услуга, о которой вы оставляете отзыв",
     });
   }
 
@@ -133,8 +133,37 @@ document.addEventListener("DOMContentLoaded", () => {
     reviewsFormStarList.forEach((star, index) => {
       star.addEventListener("click", () => {
         radios[index].checked = true;
-        reviewsFormStarList.forEach((l, i) => l.classList.toggle("reviews-form__star--filled", i <= index));
+        reviewsFormStarList.forEach((l, i) =>
+          l.classList.toggle("reviews-form__star--filled", i <= index)
+        );
       });
+    });
+  }
+
+  if (reviewsFormElem) {
+    reviewsFormElem.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const ajaxUrl = reviewsFormElem.dataset.url;
+      const formData = new FormData(reviewsFormElem);
+      console.log(formData.get('service'));
+      formData.append("action", "submit_service_review");
+
+      try {
+        const response = await fetch(ajaxUrl, {
+          method: "POST",
+          body: formData,
+        });
+        const result = await response.json();
+        if (result.success) {
+          alert("Спасибо за отзыв!");
+          reviewsFormElem.reset();
+        } else {
+          alert(result.data || "Произошла ошибка. Повторите попытку позже.");
+        }
+      } catch (err) {
+        console.error("AJAX error:", err);
+        alert("Ошибка сети. Попробуйте позже.");
+      }
     });
   }
 });

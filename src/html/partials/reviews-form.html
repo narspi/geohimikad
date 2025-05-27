@@ -27,7 +27,7 @@
           name="files"
           accept="image/png, image/jpeg"
           multiple
-        />
+        >
         <div class="reviews-form__file-preview"></div>
       </div>
       <div class="reviews-form__column">
@@ -36,16 +36,16 @@
           type="text"
           name="name"
           placeholder="Ваше имя"
-        />
+        >
         <input
           class="reviews-form__input"
           type="tel"
           name="tel"
           placeholder="Ваш номер телефона"
-        />
+        >
         <div class="reviews-form__wrap-choices">
-          <select class="reviews-form__service-choices" name="service">
-            <!-- <option value="" disabled selected hidden>Услуга, о который вы оставляете отзыв</option> -->
+          <select class="reviews-form__service-choices" name="service" data-placeholder="Услуга, о который вы оставляете отзыв">
+            <option value="Нет Услуги" placeholder>Услуга, о который вы оставляете отзыв</option>
             <option value="value1">Услуга 1</option>
             <option value="value2">Услуга 2</option>
             <option value="value3">Услуга 3</option>
@@ -65,7 +65,7 @@
                 id="reviews-form__rating-1"
                 value="1"
                 class="visually-hidden reviews-form__star-input"
-              />
+              >
               <span class="reviews-form__star-text">
                 Поставить рейтинг 1 из 5
               </span>
@@ -89,7 +89,7 @@
                 id="reviews-form__rating-2"
                 value="2"
                 class="visually-hidden reviews-form__star-input"
-              />
+              >
               <span class="reviews-form__star-text">
                 Поставить рейтинг 2 из 5
               </span>
@@ -113,7 +113,7 @@
                 id="reviews-form__rating-3"
                 value="3"
                 class="visually-hidden reviews-form__star-input"
-              />
+              >
               <span class="reviews-form__star-text">
                 Поставить рейтинг 3 из 5
               </span>
@@ -138,7 +138,7 @@
                 value="4"
                 checked
                 class="visually-hidden reviews-form__star-input"
-              />
+              >
               <span class="reviews-form__star-text">
                 Поставить рейтинг 4 из 5
               </span>
@@ -162,7 +162,7 @@
                 id="reviews-form__rating-5"
                 value="5"
                 class="visually-hidden reviews-form__star-input"
-              />
+              >
               <span class="reviews-form__star-text">
                 Поставить рейтинг 5 из 5
               </span>

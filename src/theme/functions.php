@@ -140,7 +140,7 @@ function register_service_post_type()
             'slug' => 's', // это даёт /s/услуга
             'with_front' => false
         ),
-        'supports' => array('title', 'editor', 'thumbnail'),
+        'supports' => array('title', 'editor', 'thumbnail', 'comments'),
     );
 
     register_post_type('service', $args);
@@ -167,3 +167,18 @@ function register_cases_post_type()
     register_post_type('cases', $args);
 }
 add_action('init', 'register_cases_post_type');
+
+
+add_action('wp_ajax_submit_service_review', 'handle_ajax_service_review');
+add_action('wp_ajax_nopriv_submit_service_review', 'handle_ajax_service_review');
+
+function handle_ajax_service_review()
+{
+    // Проверка nonce
+    if (!isset($_POST['security']) || !wp_verify_nonce($_POST['security'], 'submit_service_review_nonce'))
+    {
+        wp_send_json_error('Ошибка безопасности');
+    }
+
+    wp_send_json_success();
+}
