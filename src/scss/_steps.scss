@@ -1,6 +1,8 @@
 @use "mixin";
 
 .steps {
+  container-type: inline-size;
+  position: relative;
   &__descr {
     margin: 16px 0;
     font-family: "Adamina", sans-serif;
@@ -55,6 +57,14 @@
       &:hover {
         color: #cc1100;
       }
+    }
+  }
+}
+
+@container (max-width: 700px) {
+  .steps {
+    &__list {
+      flex-direction: column;
     }
   }
 }

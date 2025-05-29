@@ -39,6 +39,25 @@
     }
   }
 
+  &__burger-wrap {
+    display: none;
+  }
+
+  &__burger {
+    display: block;
+    width: 30px;
+    height: 30px;
+    border: none;
+    position: relative;
+    z-index: 1;
+    background-color: transparent;
+    padding: 0px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    background-image: url("../img/icons/burger-menu.svg");
+  }
+
   &__nav {
     position: relative;
     padding-bottom: 10px;

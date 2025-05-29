@@ -34,6 +34,9 @@
                         <a href="tel:<?= $cleaned ?>" class="header__contacts-link"><?= $phone ?></a>
                     <?php endif; ?>
                 </div>
+                <div class="header__burger-wrap">
+                    <button class="header__burger" aria-label="Открыть меню"></button>
+                </div>
                 <?php
                 wp_nav_menu(array(
                     'theme_location' => 'header_mail',
@@ -43,7 +46,7 @@
                 ?>
             </div>
             <div class="header__btns header__btns--grey">
-                <button class="header__call-back">Заказать звонок</button>
+                <button class="header__call-back" data-popup="form-call">Заказать звонок</button>
                 <ul class="header__social">
                     <?php
                     $whatsup_url = get_field('whatsup-url', 'option');

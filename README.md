@@ -25,3 +25,7 @@ npm run server
 ## Билд проекта
 
 npm run build
+
+## Перенос скиптов в тему
+
+npm run theme

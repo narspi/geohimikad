@@ -4,12 +4,12 @@ import browserSync from "browser-sync";
 import sourcemaps from "gulp-sourcemaps";
 import * as dartSass from "sass";
 import gulpSass from "gulp-sass";
-import cleanCSS from "gulp-clean-css";
 import gulpif from "gulp-if";
 import postcss from "gulp-postcss";
-import autoprefixer from "autoprefixer";
 import gulpEsbuild from "gulp-esbuild";
 import plumber from "gulp-plumber";
+import autoprefixer from "autoprefixer";
+import cssnamo from "cssnano";
 
 const isDevelopment = process.env.MODE === "development";
 const isTunnel = process.env.TUNNEL === "run";
@@ -44,19 +44,14 @@ const createCss = () => {
         outputStyle: `${isDevelopment ? "expanded" : "compressed"}`,
       })
     )
-    .pipe(postcss([autoprefixer()]))
-    .pipe(
-      cleanCSS(
-        isDevelopment
-          ? { format: "beautify", level: { 1: { specialComments: 0 } } }
-          : {
-              level: {
-                1: { specialComments: 0 },
-                2: {},
-              },
-            }
-      )
-    )
+    .pipe(postcss(
+      [
+        autoprefixer(),
+        cssnamo({
+            preset: 'default',
+        })
+      ]
+    ))
     .pipe(gulpif(isDevelopment, sourcemaps.write()))
     .pipe(dest("dist/css"))
     .pipe(sync.stream());
@@ -70,15 +65,15 @@ const createCssTheme = () => {
       })
     )
     .pipe(postcss([autoprefixer()]))
-    .pipe(
-      cleanCSS({
-        level: {
-          1: { specialComments: 0 },
-          2: {},
-        },
-      })
-    )
-    .pipe(dest("src/theme/assets/css"))
+    .pipe(postcss(
+      [
+        autoprefixer(),
+        cssnamo({
+            preset: 'default',
+        })
+      ]
+    ))
+    .pipe(dest("src/theme/assets/css"));
 };
 
 const createJs = () => {
@@ -107,7 +102,7 @@ const createJsTheme = () => {
         target: "es6",
       })
     )
-    .pipe(dest("src/theme/assets/js"))
+    .pipe(dest("src/theme/assets/js"));
 };
 
 const transportFonts = () => {
@@ -165,7 +160,7 @@ const buildTask = series(
   transportImg
 );
 
-const themeTask = series(createCssTheme,createJsTheme);
+const themeTask = series(createCssTheme, createJsTheme);
 
 const startServer = series(buildTask, buildServer);
 

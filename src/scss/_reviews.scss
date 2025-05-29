@@ -1,7 +1,7 @@
 @use "mixin";
 
 .reviews {
-  padding: 85px 0 105px;
+  padding: 85px 0 50px;
   max-width: 1920px;
   overflow: hidden;
 
@@ -91,6 +91,7 @@
   }
 
   &__item-decors {
+    margin-left: 10px;
     display: flex;
     flex-direction: column;
     gap: 24px;

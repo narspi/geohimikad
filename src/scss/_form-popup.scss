@@ -1,39 +1,72 @@
 @use "mixin";
 
-.contacts-form {
-  padding: 61px 0;
-  background-image: url("../img/contacts-form-decor.jpg");
+.form-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  z-index: 100;
+  padding: 55px 24px;
+  display: none;
+  background-image: url(../img/contacts-form-decor.jpg);
+  background-position: 50%;
   background-repeat: no-repeat;
-  background-position: center;
   background-size: cover;
+  overflow: scroll;
 
-  &__inner {
+  &.active {
     display: flex;
   }
 
-  &__block {
+  &__close {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    background-image: url("../img/icons/close-circle.svg");
+
+    &:focus-visible {
+      outline-offset: 2px;
+      outline: 2px solid #0b2f38;
+    }
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  &__inner {
     margin: auto;
-    max-width: 706px;
   }
 
   &__title {
-    font-family: "Wadik", sans-serif;
-    font-weight: 700;
+    color: #c10;
+    font-family: Wadik, sans-serif;
     font-size: 32px;
+    font-weight: 700;
     margin: 0;
     text-align: center;
-    color: #cc1100;
   }
 
   &__elem {
-    margin-top: 45px;
-    background-color: #0b2f38;
-    color: #fff;
-    padding: 50px 70px;
-    border-radius: 35px;
+    margin-top: 40px;
     display: flex;
     flex-direction: column;
     gap: 24px;
+    max-width: 700px;
+    background-color: #0b2f38;
+    color: #fff;
+    border-radius: 35px;
+    padding: 50px 70px;
   }
 
   &__input {
@@ -44,6 +77,13 @@
     color: #fff;
     @include mixin.roboto-flex;
     font-weight: 500;
+    font-size: 16px;
+
+    &:disabled {
+      background-color: #0c3835;
+      color: #c7cbc3;
+      pointer-events: none;
+    }
 
     &::placeholder {
       color: #d9d9d9;
@@ -96,7 +136,7 @@
     outline: 1px solid #fff;
   }
 
-  &__btn {
+  &__submit {
     @include mixin.roboto-flex;
     font-weight: 600;
     border: none;
@@ -105,13 +145,13 @@
     padding: 15px;
     border-radius: 45px;
 
-    &:hover {
-      color: #cc1100;
-    }
-
     &:focus-visible {
       outline-offset: 2px;
       outline: 1px solid #fff;
+    }
+
+    &:hover {
+      color: #cc1100;
     }
   }
 }

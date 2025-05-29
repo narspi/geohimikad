@@ -96,6 +96,7 @@
     position: relative;
 
     & video {
+      display: block;
       border-radius: 20px;
       position: absolute;
       width: 100%;
@@ -122,7 +123,7 @@
 
   &__form-input {
     padding: 20px 26px;
-    border: 1px solid #000;
+    border: 1px solid #0b2f38;
     border-radius: 35px;
     font-size: 15px;
     margin-bottom: 15px;
@@ -135,6 +136,11 @@
       box-shadow: 0 0 0 1000px white inset !important;
       -webkit-text-fill-color: black !important;
       transition: background-color 9999s ease-out, color 9999s ease-out;
+    }
+
+    &:focus-visible {
+      outline-offset: 2px;
+      outline: 1px solid #0b2f38;
     }
   }
 

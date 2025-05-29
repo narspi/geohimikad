@@ -82,6 +82,6 @@
                 </div>
             </div>
         </div>
-        <a href="./reviews.html#reviews-form" class="reviews__btn-send">Оставить отзыв</a>
+        <a href="/reviews/#reviews-form" class="reviews__btn-send">Оставить отзыв</a>
     </div>
 </section>

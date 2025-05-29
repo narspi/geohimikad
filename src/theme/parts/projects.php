@@ -7,7 +7,7 @@ $cases = get_posts(array(
 <section class="projects">
     <div class="container">
         <h2 class="title projects__title">Наши работы</h2>
-        <ul class="projects__filter">
+        <!-- <ul class="projects__filter">
             <li class="projects__filter-item">
                 <button class="projects__filter-btn active">Все</button>
             </li>
@@ -35,7 +35,7 @@ $cases = get_posts(array(
             <li class="projects__filter-item">
                 <button class="projects__filter-btn">Кадастровые услуги</button>
             </li>
-        </ul>
+        </ul> -->
         <div class="projects__list">
             <?php
             foreach ($cases as $post):

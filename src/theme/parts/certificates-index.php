@@ -1,6 +1,6 @@
 <section class="certificates">
     <div class="container">
-        <h2 class="title">Документы и сертификаты</h2>
+        <h2 class="title certificates__title">Документы и сертификаты</h2>
         <?php if (have_rows('docs-list', 'option')): ?>
             <ul class="certificates__list">
                 <?php

@@ -1,56 +1,62 @@
 <footer class="footer">
   <div class="container footer__inner">
-    <div>
-      <a href="./" class="footer__logo">
-        <img
-          src="./img/footer-logo.svg"
-          alt="Главная страница"
-          width="180"
-          height="65"
-        >
-      </a>
-      <p class="footer__descr">
-        Профессиональные<br>геодезические<br>и кадастровые услуги
-      </p>
+    <div class="footer__info">
+      <div>
+        <a href="./" class="footer__logo">
+          <img
+            src="./img/footer-logo.svg"
+            alt="Главная страница"
+            width="180"
+            height="65"
+          />
+        </a>
+        <p class="footer__descr">
+          Профессиональные
+          <br />
+          геодезические
+          <br />
+          и кадастровые услуги
+        </p>
+      </div>
+      <ul class="footer__social">
+        <li class="footer__social-item">
+          <a class="footer__social-link" href="#">
+            <img
+              class="footer__social-img"
+              src="./img/icons/whatsapp.svg"
+              alt="Написать в ватсап"
+            />
+          </a>
+        </li>
+        <li class="footer__social-item">
+          <a class="footer__social-link" href="#">
+            <img
+              class="footer__social-img"
+              src="./img/icons/instagram.svg"
+              alt="Написать в инстаграм"
+            />
+          </a>
+        </li>
+        <li class="footer__social-item">
+          <a class="footer__social-link" href="#">
+            <img
+              class="footer__social-img"
+              src="./img/icons/footer-tg.svg"
+              alt="Написать в телеграмм"
+            />
+          </a>
+        </li>
+        <li class="footer__social-item">
+          <a class="footer__social-link" href="#">
+            <img
+              class="footer__social-img"
+              src="./img/icons/footer-phone.svg"
+              alt="Позвонить нам"
+            />
+          </a>
+        </li>
+      </ul>
     </div>
-    <ul class="footer__social">
-      <li class="footer__social-item">
-        <a class="footer__social-link" href="#">
-          <img
-            class="footer__social-img"
-            src="./img/icons/whatsapp.svg"
-            alt="Написать в ватсап"
-          >
-        </a>
-      </li>
-      <li class="footer__social-item">
-        <a class="footer__social-link" href="#">
-          <img
-            class="footer__social-img"
-            src="./img/icons/instagram.svg"
-            alt="Написать в инстаграм"
-          >
-        </a>
-      </li>
-      <li class="footer__social-item">
-        <a class="footer__social-link" href="#">
-          <img
-            class="footer__social-img"
-            src="./img/icons/footer-tg.svg"
-            alt="Написать в телеграмм"
-          >
-        </a>
-      </li>
-      <li class="footer__social-item">
-        <a class="footer__social-link" href="#">
-          <img
-            class="footer__social-img"
-            src="./img/icons/footer-phone.svg"
-            alt="Позвонить нам"
-          >
-        </a>
-      </li>
-    </ul>
     <div class="footer__services">
       <p class="footer__services-title">Услуги</p>
       <ul class="footer__services-list">
@@ -89,3 +95,41 @@
     <button class="footer__scroll-up" title="Вернуться в начало"></button>
   </div>
 </footer>
+<div class="form-popup" id="form-call">
+  <div class="form-popup__inner">
+    <p class="form-popup__title">Заказать звонок</p>
+    <form class="form-popup__elem">
+      <input class="form-popup__input" type="text" name="name" placeholder="Ваше имя"/>
+      <input class="form-popup__input" type="tel" name="tel" placeholder="Ваш телефон"/>
+      <label class="form-popup__policy">
+        <input class="form-popup__checkbox" type="checkbox" required />
+        <span class="form-popup__fake"></span>
+        <span>
+          Я ознакомлен и согласен с политикой обработки персональных данных, и
+          даю согласие на обработку моих персональных данных
+        </span>
+      </label>
+      <button class="form-popup__submit" type="submit">Перезвонить мне</button>
+    </form>
+  </div>
+  <button class="form-popup__close" aria-label="Закрыть окно"></button>
+</div>
+<div class="form-popup" id="form-service">
+  <div class="form-popup__inner">
+    <p class="form-popup__title">Заказать услугу</p>
+    <form class="form-popup__elem">
+      <input class="form-popup__input" type="text" name="name" placeholder="Ваше имя"/>
+      <input class="form-popup__input" type="tel" name="tel" placeholder="Ваш телефон"/>
+      <label class="form-popup__policy">
+        <input class="form-popup__checkbox" type="checkbox" required />
+        <span class="form-popup__fake"></span>
+        <span>
+          Я ознакомлен и согласен с политикой обработки персональных данных, и
+          даю согласие на обработку моих персональных данных
+        </span>
+      </label>
+      <button class="form-popup__submit" type="submit">Перезвонить мне</button>
+    </form>
+  </div>
+  <button class="form-popup__close" aria-label="Закрыть окно"></button>
+</div>

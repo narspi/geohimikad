@@ -52,6 +52,7 @@
     gap: 15px;
     margin-bottom: 0;
     transition: margin 200ms;
+    padding: 0;
 
     &::after {
       margin-left: auto;
@@ -68,6 +69,7 @@
       background-image: url("../img/icons/arrow-right.svg");
       transform: rotate(45deg);
       transition: transform 200ms;
+      flex-shrink: 0;
     }
 
     &.active::after {

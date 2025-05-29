@@ -8,14 +8,15 @@
             </symbol>
         </svg>
         <div class="title reviews-form__title">Вы можете оставить свой отзыв!</div>
-        <form class="reviews-form__elem" data-url="<?php echo admin_url('admin-ajax.php'); ?>">
+        <form class="reviews-form__elem" data-url="<?php echo admin_url('admin-ajax.php'); ?>"
+            enctype="multipart/form-data">
             <input type="hidden" name="security" value="<?php echo wp_create_nonce('submit_service_review_nonce'); ?>">
             <div class="reviews-form__column">
                 <textarea class="reviews-form__textarea" name="message" placeholder="Текст вашего отзыва"></textarea>
                 <label class="reviews-form__label-file" for="reviews-form-file">
                     Прикрепить фото или видео к отзыву
                 </label>
-                <input class="reviews-form__input-file" type="file" id="reviews-form-file" name="files"
+                <input class="reviews-form__input-file" type="file" id="reviews-form-file" name="files[]"
                     accept="image/png, image/jpeg" multiple />
                 <div class="reviews-form__file-preview"></div>
             </div>

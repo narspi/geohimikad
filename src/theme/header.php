@@ -43,7 +43,7 @@
                 ?>
             </div>
             <div class="header__btns">
-                <button class="header__call-back">Заказать звонок</button>
+                <button class="header__call-back" data-popup="form-call">Заказать звонок</button>
                 <ul class="header__social">
                     <?php
                     $whatsup_url = get_field('whatsup-url', 'option');

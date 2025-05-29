@@ -40,7 +40,8 @@ $services = get_posts(array(
                                 <a class="services__elem-btn services__elem-btn--red"
                                     href="<?= esc_url(get_permalink()); ?>">Узнать
                                     подробнее</a>
-                                <button class="services__elem-btn services__elem-btn--white">Заказать услугу</button>
+                                <button class="services__elem-btn services__elem-btn--white" data-popup="form-service"
+                                    data-service="<?= esc_html(get_the_title()); ?>">Заказать услугу</button>
                             </div>
                         </div>
                     </div>

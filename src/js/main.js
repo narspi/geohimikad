@@ -16,6 +16,61 @@ document.addEventListener("DOMContentLoaded", () => {
     ".reviews-form__service-choices"
   );
   const reviewsFormElem = document.querySelector(".reviews-form__elem");
+  const previewContainer = document.querySelector(
+    ".reviews-form__file-preview"
+  );
+
+  const bntListServices = document.querySelectorAll(
+    '[data-service]'
+  );
+
+  const popupOpenBtns = document.querySelectorAll("[data-popup]");
+  const closeBtnsList = document.querySelectorAll(".form-popup__close");
+
+  bntListServices.forEach((btnService) => {
+    btnService.addEventListener("click", (event) => {
+      const target = event.target;
+      const service = target.dataset.service;
+      const id = target.dataset.popup;
+      if (!service || !id) return;
+      const popup = document.getElementById(id);
+      if (!popup) return;
+      const form = popup.querySelector('form');
+      if (!form) return;
+      const checkInputService = form.querySelector('.form-popup__input--service');
+      if (checkInputService) {
+        checkInputService.value = service;
+      } else {
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.disabled = true;
+        input.classList.add('form-popup__input', 'form-popup__input--service')
+        input.value = service;
+        form.prepend(input);
+        console.log(input);
+      }
+    });
+  });
+
+  popupOpenBtns.forEach((btnOpen) => {
+    btnOpen.addEventListener("click", (event) => {
+      const target = event.target;
+      const id = target.dataset.popup;
+      if (!id) return;
+      const popup = document.getElementById(id);
+      popup.classList.add("active");
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  closeBtnsList.forEach((btnClose) => {
+    btnClose.addEventListener("click", (event) => {
+      const target = event.target;
+      const form = target.closest(".form-popup");
+      form.classList.remove("active");
+       document.body.style.overflow = null;
+    });
+  });
 
   if (services) {
     services.addEventListener("click", (event) => {
@@ -34,10 +89,15 @@ document.addEventListener("DOMContentLoaded", () => {
     new Swiper(certificatesSlider, {
       modules: [Navigation],
       slidesPerView: "auto",
-      spaceBetween: 24,
+      spaceBetween: 15,
       navigation: {
         nextEl: ".certificates__slider-next",
         prevEl: ".certificates__slider-prev",
+      },
+      breakpoints: {
+        451: {
+          spaceBetween: 24,
+        },
       },
     });
   }
@@ -47,9 +107,15 @@ document.addEventListener("DOMContentLoaded", () => {
       modules: [Navigation],
       slidesPerView: "auto",
       spaceBetween: 24,
+      autoHeight: true,
       navigation: {
         nextEl: ".reviews__btn-next",
         prevEl: ".reviews__btn-prev",
+      },
+      breakpoints: {
+        601: {
+          autoHeight: false,
+        },
       },
     });
   }
@@ -90,9 +156,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   if (reviewsFormFile) {
-    const previewContainer = document.querySelector(
-      ".reviews-form__file-preview"
-    );
     reviewsFormFile.addEventListener("change", (event) => {
       const files = event.target.files;
       previewContainer.innerHTML = "";
@@ -145,7 +208,7 @@ document.addEventListener("DOMContentLoaded", () => {
       e.preventDefault();
       const ajaxUrl = reviewsFormElem.dataset.url;
       const formData = new FormData(reviewsFormElem);
-      console.log(formData.get('service'));
+      console.log(formData.get("files[]"));
       formData.append("action", "submit_service_review");
 
       try {
@@ -157,6 +220,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (result.success) {
           alert("Спасибо за отзыв!");
           reviewsFormElem.reset();
+          previewContainer.innerHTML = "";
         } else {
           alert(result.data || "Произошла ошибка. Повторите попытку позже.");
         }

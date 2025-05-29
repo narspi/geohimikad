@@ -126,9 +126,9 @@ function clean_yandex_iframe($value, $post_id, $field)
     return wp_kses($value, $allowed);
 }
 
-function register_service_post_type()
+function register_post_type_foo()
 {
-    $args = array(
+    $args_service = array(
         'labels' => array(
             'name' => 'Услуги',
             'singular_name' => 'Услуга',
@@ -140,16 +140,12 @@ function register_service_post_type()
             'slug' => 's', // это даёт /s/услуга
             'with_front' => false
         ),
-        'supports' => array('title', 'editor', 'thumbnail', 'comments'),
+        'supports' => array('title', 'editor', 'thumbnail'),
     );
 
-    register_post_type('service', $args);
-}
-add_action('init', 'register_service_post_type');
+    register_post_type('service', $args_service);
 
-function register_cases_post_type()
-{
-    $args = array(
+    $args_cases = array(
         'labels' => array(
             'name' => 'Кейсы',
             'singular_name' => 'Кейс',
@@ -164,9 +160,34 @@ function register_cases_post_type()
         'supports' => array('title', 'editor', 'thumbnail'),
     );
 
-    register_post_type('cases', $args);
+    register_post_type('cases', $args_cases);
+
+    $args_review = array(
+        'labels' => array(
+            'name' => 'Отзывы',
+            'singular_name' => 'Отзыв',
+            'add_new' => 'Добавить отзыв',
+            'add_new_item' => 'Добавить новый отзыв',
+            'edit_item' => 'Редактировать отзыв',
+            'new_item' => 'Новый отзыв',
+            'view_item' => 'Посмотреть отзыв',
+            'search_items' => 'Искать отзывы',
+            'not_found' => 'Отзывов не найдено',
+        ),
+        'public' => false,
+        'show_ui' => true,
+        'show_in_menu' => true,
+        'menu_icon' => 'dashicons-star-filled',
+        'supports' => array('title', 'editor', 'thumbnail'),
+        'has_archive' => false,
+        'rewrite' => false,
+        'publicly_queryable' => false,
+        'exclude_from_search' => true,
+    );
+
+    register_post_type('review', $args_review);
 }
-add_action('init', 'register_cases_post_type');
+add_action('init', 'register_post_type_foo');
 
 
 add_action('wp_ajax_submit_service_review', 'handle_ajax_service_review');
@@ -180,5 +201,37 @@ function handle_ajax_service_review()
         wp_send_json_error('Ошибка безопасности');
     }
 
-    wp_send_json_success();
+    $name = sanitize_text_field($_POST['name'] ?? '');
+    $tel = sanitize_text_field($_POST['tel'] ?? '');
+    $service = sanitize_text_field($_POST['service'] ?? '');
+    $message = sanitize_textarea_field($_POST['message'] ?? '');
+
+    $uploaded_urls = [];
+
+    if (!empty($_FILES['files']))
+    {
+        foreach ($_FILES['files']['tmp_name'] as $index => $tmp_name)
+        {
+            $file = [
+                'name' => $_FILES['files']['name'][$index],
+                'type' => $_FILES['files']['type'][$index],
+                'tmp_name' => $_FILES['files']['tmp_name'][$index],
+                'error' => $_FILES['files']['error'][$index],
+                'size' => $_FILES['files']['size'][$index],
+            ];
+            $uploaded = wp_handle_upload($file, ['test_form' => false]);
+            if (!isset($uploaded['error']))
+            {
+                $uploaded_urls[] = $uploaded['url'];
+            } else
+            {
+                error_log('Ошибка загрузки: ' . $uploaded['error']);
+            }
+        }
+    }
+
+    wp_send_json_success([
+        'message' => 'Форма отправлена успешно',
+        'files' => $uploaded_urls
+    ]);
 }
