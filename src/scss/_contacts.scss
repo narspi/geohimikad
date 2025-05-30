@@ -2,9 +2,14 @@
 
 .contacts {
   padding-top: 50px;
+
   &__title {
     color: #cc1100;
     margin-bottom: 70px;
+  }
+
+  &__heading-row {
+    padding-top: 0;
   }
 
   &__address {

@@ -129,6 +129,11 @@
     &__info-address {
       margin-top: 0;
     }
+
+    &__address {
+      display: block;
+      font-size: 24px;
+    }
   }
 
   .services-list {
@@ -276,6 +281,43 @@
       font-size: 20px;
     }
   }
+
+  .news-list {
+    &__title {
+      font-size: 28px;
+    }
+  }
+
+  .contacts-form {
+    padding: 50px 0;
+  }
+}
+
+@media (max-width: 1100px) {
+  .news-list {
+    grid-template-columns: 1fr 1fr;
+
+    &__item {
+      &--big {
+        grid-column: unset;
+        flex-direction: column;
+      }
+    }
+
+    &__item--big &__pic {
+      max-width: unset;
+      margin-right: 0;
+    }
+
+    &__title {
+      font-size: 28px;
+      margin: 15px 0;
+    }
+
+    &__item--big &__title {
+      margin: 15px 0;
+    }
+  }
 }
 
 @media (max-width: 900px) {
@@ -287,6 +329,7 @@
     padding-left: 15px;
     padding-right: 15px;
   }
+
   .header {
     &__inner {
       flex-direction: column;
@@ -444,6 +487,10 @@
   }
 
   .contacts {
+    &--page {
+      padding-top: 0;
+    }
+
     &__title {
       text-align: center;
       margin-bottom: 30px;
@@ -471,6 +518,10 @@
       max-width: 600px;
       margin: 20px auto 0;
       text-align: center;
+    }
+
+    &__address {
+      font-size: 20px;
     }
   }
 
@@ -709,6 +760,38 @@
     &__content,
     &__content-price {
       font-size: 16px;
+    }
+  }
+
+  .news-list {
+    gap: 40px 15px;
+
+    &__title {
+      font-size: 20px;
+    }
+
+    &__descr {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+  }
+
+  .contacts-form {
+    &__elem {
+      padding: 50px 40px;
+    }
+
+    &__title {
+      font-size: 28px;
+    }
+
+    &__policy {
+      font-size: 14px;
+    }
+
+    &__fake {
+      width: 20px;
+      height: 20px;
     }
   }
 }
@@ -1217,6 +1300,31 @@
       max-width: 600px;
     }
   }
+
+  .news-list {
+    grid-template-columns: 1fr;
+
+    &__title {
+      font-size: 20px;
+    }
+  }
+
+  .contacts {
+    &__address {
+      font-size: 16px;
+    }
+  }
+
+  .contacts-form {
+    &__elem {
+      padding: 50px 20px;
+      margin-top: 20px;
+    }
+
+    &__title {
+      font-size: 24px;
+    }
+  }
 }
 
 @media (max-width: 450px) {
@@ -1310,6 +1418,29 @@
   .service-prices {
     &__title {
       font-size: 18px;
+    }
+  }
+
+  .news-list {
+    &__title {
+      font-size: 18px;
+    }
+  }
+
+  .contacts-form {
+    &__elem {
+      padding: 35px 15px;
+      margin-top: 20px;
+      border-radius: 20px;
+    }
+
+    &__input {
+      padding-top: 15px;
+      padding-bottom: 15px;
+    }
+
+    &__policy {
+      font-size: 12px;
     }
   }
 }
