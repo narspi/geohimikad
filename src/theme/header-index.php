@@ -35,7 +35,7 @@
                     <?php endif; ?>
                 </div>
                 <div class="header__burger-wrap">
-                    <button class="header__burger" aria-label="Открыть меню"></button>
+                    <button class="header__burger" aria-label="Открыть меню" data-popup="nav-menu"></button>
                 </div>
                 <?php
                 wp_nav_menu(array(

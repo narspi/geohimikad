@@ -5,8 +5,9 @@ get_header();
     <div class="heading-row">
         <a class="heading-row__btn" href="<?= get_post_type_archive_link('service'); ?>" aria-label="На страницу услуг"
             title="На страницу услуг"></a>
-        <h1 class="title-big"><?php the_title(); ?></h1>
+        <h1 class="title-big"><?= esc_html(get_the_title()); ?></h1>
     </div>
+    <?php $page_url = get_permalink(); ?>
     <div class="service-page__top">
         <?php
         if (has_post_thumbnail()):
@@ -36,9 +37,11 @@ get_header();
                                             $service__id = get_sub_field('service-id', 'option');
                                             if ($service__id): ?>
                                                 <li>
-                                                    <a href="<?php echo esc_url(get_permalink($service__id)); ?>">
+                                                    <?php $elem_url = get_permalink($service__id); ?>
+                                                    <a<?php if ($page_url === $elem_url) echo ' class="active"'; ?>
+                                                        href="<?php echo esc_url($elem_url); ?>">
                                                         <?php echo esc_html(get_the_title($service__id)); ?>
-                                                    </a>
+                                                        </a>
                                                 </li>
                                             <?php endif;
                                         endwhile; ?>
@@ -51,7 +54,8 @@ get_header();
                     </div>
                 <?php endif; ?>
             </div>
-            <button class="btn-red service-page__btn">Заказать услугу</button>
+            <button class="btn-red service-page__btn" data-popup="form-service"
+                data-service="<?= esc_html(get_the_title()); ?>">Заказать услугу</button>
         </div>
     </div>
     <ul class="service-page__goods">
@@ -108,7 +112,7 @@ get_header();
         else echo 'service-page__bot service-page__bot--full'; ?>">
             <div class="service-page__info">
                 <?php if ($title): ?>
-                    <p class="service-page__info-title"><?= esc_html($title) ?></p>
+                    <p class="title-big service-page__info-title"><?= esc_html($title) ?></p>
                 <?php endif; ?>
                 <?php if ($descr): ?>
                     <p class="service-page__info-descr">
@@ -142,6 +146,8 @@ get_template_part('parts/questions', null, array(
     'is_grey' => true,
     'questions' => $questions
 ));
+get_template_part('parts/projects-service');
+get_template_part('parts/reviews');
 get_template_part('parts/request-form');
 get_footer();
 ?>

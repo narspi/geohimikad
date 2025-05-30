@@ -1,85 +1,63 @@
-<div class="service-prices">
-  <div class="container service-prices__inner">
-    <article class="service-prices__item">
-      <div class="service-prices__view">
-        <div class="service-prices__pic">
-          <img src="<?= get_template_directory_uri() ?>/assets/img/services/service-arcticle.jpg" alt="Фото под услуги"
-            class="service-prices__img">
-          <h2 class="service-prices__title">Топографическая съемка</h2>
-        </div>
-        <div class="service-prices__view-descr">
-          <p>
-            Топографическая съемка - это процесс переноса рельефа конкретного
-            земельного участка на бумагу и/или в компьютер.
-          </p>
-          <p>
-            Целью топографической съемки является получение топографической 
-            карты местности.
-          </p>
-        </div>
-      </div>
-      <div class="service-prices__content">
-        <p class="service-prices__content-descr">
-          опографическая съемка участка потребуется :
-        </p>
-        <ul class="service-prices__content-list">
-          <li class="service-prices__content-item">
-            для планировки земельного участка;
-          </li>
-          <li class="service-prices__content-item">
-            для разработки качественных Архитектурных и Конструктивных решений;
-          </li>
-          <li class="service-prices__content-item">
-            для подведение к земельному участку любых видов
-            инженерно-технических коммуникаций, включая водо- и газопровод,
-            электричество, теплосеть или телефонную связь;
-          </li>
-          <li class="service-prices__content-item">
-            для подведение к земельному участку любых видов
-            инженерно-технических коммуникаций, включая водо- и газопровод,
-            электричество, теплосеть или телефонную связь;
-          </li>
-          <li class="service-prices__content-item">
-            для привязки к местности строящегося объекта;
-          </li>
-          <li class="service-prices__content-item">
-            для проведение земляных работ (например, для вычисления точного
-            объема предстоящих работ);
-          </li>
-          <li class="service-prices__content-item">
-            для ландшафтного дизайна;
-          </li>
-          <li class="service-prices__content-item">
-            для получения технических условий;
-          </li>
-        </ul>
-        <p class="service-prices__content-price">Стоимость: от 11 000 руб.</p>
-      </div>
-    </article>
-    <article class="service-prices__item">
-      <div class="service-prices__view">
-        <div class="service-prices__pic">
-          <img src="<?= get_template_directory_uri() ?>/assets/img/services/service-arcticle-small.jpg"
-            alt="Фото под услуги" class="service-prices__img">
-          <h2 class="service-prices__title">
-            Топографическая съемка с согласованием в архитектуре
-          </h2>
-        </div>
-      </div>
-      <div class="service-prices__content">
-        <p class="service-prices__content-descr">
-          опографическая съемка участка потребуется :
-        </p>
-        <ul class="service-prices__content-list">
-          <li class="service-prices__content-item">
-            для планировки земельного участка;
-          </li>
-          <li class="service-prices__content-item">
-            для разработки качественных Архитектурных и Конструктивных решений;
-          </li>
-        </ul>
-        <p class="service-prices__content-price">Стоимость: от 22 000 руб.</p>
-      </div>
-    </article>
+<?php if (have_rows('service-prices')): ?>
+  <div class="service-prices">
+    <div class="container service-prices__inner">
+      <?php
+      while (have_rows('service-prices')):
+        the_row(); ?>
+        <article class="service-prices__item">
+          <div class="service-prices__view">
+            <?php
+            $img = get_sub_field('service-prices-img');
+            if ($img):
+              ?>
+              <div class="service-prices__pic">
+                <img src="<?= esc_url($img['url']) ?>" alt="<?= esc_attr($img['alt']) ?>" class="service-prices__img">
+                <?php
+                $price_title = get_sub_field('service-prices-title');
+                if ($price_title):
+                  ?>
+                  <h2 class="service-prices__title"><?= esc_html($price_title) ?></h2>
+                <?php endif; ?>
+              </div>
+            <?php endif; ?>
+            <?php
+            $price_descr = get_sub_field('service-prices-descr');
+            if ($price_descr):
+              ?>
+              <div class="service-prices__view-descr">
+                <?= wp_kses_post($price_descr) ?>
+              </div>
+            <?php endif; ?>
+          </div>
+          <div class="service-prices__content">
+            <?php
+            $price_list_title = get_sub_field('service-prices-list-title');
+            if ($price_list_title):
+              ?>
+              <p class="service-prices__content-descr"><?= esc_html($price_list_title); ?></p>
+            <?php endif; ?>
+            <?php if (have_rows('service-prices-list')): ?>
+              <ul class="service-prices__content-list">
+                <?php while (have_rows('service-prices-list')):
+                  the_row(); ?>
+                  <li class="service-prices__content-item">
+                    <?php
+                    $elem_text = get_sub_field('service-prices-list-text');
+                    echo esc_html($elem_text);
+                    ?>
+                  </li>
+                <?php endwhile; ?>
+              </ul>
+            <?php endif; ?>
+            <?php
+            $price_num = get_sub_field('service-prices-num');
+            if ($price_num):
+              ?>
+              <p class="service-prices__content-price"><?= esc_html($price_num) ?></p>
+            <?php endif; ?>
+          </div>
+        </article>
+      <?php endwhile; ?>
+    </div>
   </div>
-</div>
+<?php endif; ?>

@@ -14,7 +14,7 @@
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
-  overflow: scroll;
+  overflow: auto;
 
   &.active {
     display: flex;
@@ -55,6 +55,27 @@
     font-weight: 700;
     margin: 0;
     text-align: center;
+  }
+
+  &__menu {
+    text-align: center;
+    @include mixin.reset-list;
+
+    & li {
+      padding: 5px 0;
+    }
+
+    & a {
+      text-decoration: none;
+      color: #0c3835;
+      font-family: "Wadik", sans-serif;
+      font-weight: 700;
+      font-size: 24px;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
 
   &__elem {

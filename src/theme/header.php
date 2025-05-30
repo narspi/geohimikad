@@ -34,6 +34,9 @@
                         <a href="tel:<?= $cleaned ?>" class="header__contacts-link"><?= $phone ?></a>
                     <?php endif; ?>
                 </div>
+                <div class="header__burger-wrap">
+                    <button class="header__burger" aria-label="Открыть меню" data-popup="nav-menu"></button>
+                </div>
                 <?php
                 wp_nav_menu(array(
                     'theme_location' => 'header_mail',

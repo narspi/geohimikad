@@ -17,15 +17,19 @@ get_header();
                 <img class="porfolio-item__img" src="<?= get_the_post_thumbnail_url(); ?>" alt="<?= esc_attr($alt); ?>">
             </div>
         <?php endif; ?>
-        <div class="porfolio-item__top-content">
-            <p class="porfolio-item__top-title">Результат в цифрах</p>
-            <div class="porfolio-item__top-list">
-                <p class="porfolio-item__top-text">xx</p>
-                <p class="porfolio-item__top-text">xx</p>
-                <p class="porfolio-item__top-text">xx</p>
-                <p class="porfolio-item__top-text">xx</p>
+        <?php if (have_rows('num-list')): ?>
+            <div class="porfolio-item__top-content">
+                <p class="porfolio-item__top-title">Результат в цифрах</p>
+                <div class="porfolio-item__top-list">
+                    <?php while (have_rows('num-list')):
+                        the_row(); ?>
+                        <p class="porfolio-item__top-text"><span
+                                class="porfolio-item__top-num"><?= esc_html(get_sub_field('num-text-big')) ?></span>
+                            <?= esc_html(get_sub_field('num-list-small')) ?></p>
+                    <?php endwhile; ?>
+                </div>
             </div>
-        </div>
+        <?php endif; ?>
     </div>
     <?php
     $bot_title = get_field('bot-title');

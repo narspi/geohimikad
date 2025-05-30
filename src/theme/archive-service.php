@@ -17,7 +17,7 @@
                         </div>
                     <?php endif; ?>
                     <div class="services-list__body">
-                        <h2 class="services-list__title"><?php the_title(); ?></h2>
+                        <h2 class="services-list__title"><?= esc_html(get_the_title()); ?></h2>
                         <div class="services-list__content">
                             <?php the_field('services-text'); ?>
                         </div>
@@ -29,7 +29,8 @@
                         <?php endif; ?>
                         <div class="services-list__btns-row">
                             <a class="btn-light" href="<?php the_permalink(); ?>">Узнать подробнее</a>
-                            <button class="btn-red">Заказать услугу</button>
+                            <button class="btn-red" data-popup="form-service"
+                                data-service="<?= esc_html(get_the_title()); ?>">Заказать услугу</button>
                         </div>
                     </div>
                 </article>
@@ -39,7 +40,7 @@
         <p>Услуги не найдены.</p>
     <?php endif; ?>
 </div>
-<section class="services-form">
+<section class=" services-form">
     <div class="container">
         <h2 class="title services-form__title">Спецпредложение!</h2>
     </div>

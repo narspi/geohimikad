@@ -9,6 +9,8 @@
     display: block;
     border-radius: 30px;
     margin-top: 1em;
+    align-self: flex-start;
+    max-width: 500px;
   }
 
   &__body {
@@ -68,9 +70,6 @@
 
   &__info-title {
     margin: 0;
-    font-family: "Wadik", sans-serif;
-    font-weight: 700;
-    font-size: 36px;
     color: #cc1100;
   }
 

@@ -132,6 +132,10 @@
     </div>
     <button class="form-popup__close" aria-label="Закрыть окно"></button>
 </div>
+<div class="form-popup" id="nav-menu">
+    <div class="form-popup__inner"></div>
+    <button class="form-popup__close" aria-label="Закрыть окно"></button>
+</div>
 <?php wp_footer(); ?>
 </body>
 

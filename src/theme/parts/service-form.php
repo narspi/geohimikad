@@ -31,6 +31,7 @@
     </div>
     <form class="service-form__elem">
       <p class="service-form__elem-title">Оставить заявку</p>
+      <input type="hidden" name="service" value="<?= esc_html(get_the_title()); ?>">
       <input class="service-form__elem-input" type="text" name="name" placeholder="Ваше имя">
       <input class="service-form__elem-input" type="tel" name="name" placeholder="Ваш номер телефона">
       <label class="service-form__elem-policy">

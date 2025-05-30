@@ -210,9 +210,12 @@
   &__top-text {
     margin: 0;
     width: 50%;
-    text-align: center;
-    font-size: 64px;
+    font-size: 18px;
     padding: 20px 15px;
+  }
+
+  &__top-num {
+    font-size: 36px;
   }
 
   &__descr {

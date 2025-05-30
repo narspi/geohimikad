@@ -1,7 +1,7 @@
 <?php if (have_rows('service-stages')): ?>
   <div class="service-stages">
     <div class="container">
-      <p class="service-stages__title">Как всё проходит?</p>
+      <p class="title-big service-stages__title">Как всё проходит?</p>
       <ol class="service-stages__list">
         <?php while (have_rows('service-stages')):
           the_row();

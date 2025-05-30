@@ -156,6 +156,7 @@ button {
   color: #cc1100;
 
   &__btn {
+    flex-shrink: 0;
     display: block;
     text-decoration: none;
     width: 53px;

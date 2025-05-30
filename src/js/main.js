@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const serviceCertificatesSlider = document.querySelector(
     ".service-certificates__slider"
   );
+  const projectsSlider = document.querySelector(".projects__slider");
   const reviewsFormFile = document.getElementById("reviews-form-file");
   const reviewsFormServiceChoices = document.querySelector(
     ".reviews-form__service-choices"
@@ -19,13 +20,18 @@ document.addEventListener("DOMContentLoaded", () => {
   const previewContainer = document.querySelector(
     ".reviews-form__file-preview"
   );
-
-  const bntListServices = document.querySelectorAll(
-    '[data-service]'
-  );
-
+  const listMenu = document.querySelector(".header__nav ul");
+  const bntListServices = document.querySelectorAll("[data-service]");
   const popupOpenBtns = document.querySelectorAll("[data-popup]");
   const closeBtnsList = document.querySelectorAll(".form-popup__close");
+
+  if (listMenu) {
+    const clone = listMenu.cloneNode(true);
+    clone.classList.add("form-popup__menu");
+    const menuPopup = document.getElementById("nav-menu");
+    const innerBlock = menuPopup.querySelector(".form-popup__inner");
+    innerBlock.append(clone);
+  }
 
   bntListServices.forEach((btnService) => {
     btnService.addEventListener("click", (event) => {
@@ -35,16 +41,18 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!service || !id) return;
       const popup = document.getElementById(id);
       if (!popup) return;
-      const form = popup.querySelector('form');
+      const form = popup.querySelector("form");
       if (!form) return;
-      const checkInputService = form.querySelector('.form-popup__input--service');
+      const checkInputService = form.querySelector(
+        ".form-popup__input--service"
+      );
       if (checkInputService) {
         checkInputService.value = service;
       } else {
-        const input = document.createElement('input');
-        input.type = 'text';
+        const input = document.createElement("input");
+        input.type = "text";
         input.disabled = true;
-        input.classList.add('form-popup__input', 'form-popup__input--service')
+        input.classList.add("form-popup__input", "form-popup__input--service");
         input.value = service;
         form.prepend(input);
         console.log(input);
@@ -59,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!id) return;
       const popup = document.getElementById(id);
       popup.classList.add("active");
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     });
   });
 
@@ -68,7 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const target = event.target;
       const form = target.closest(".form-popup");
       form.classList.remove("active");
-       document.body.style.overflow = null;
+      document.body.style.overflow = null;
     });
   });
 
@@ -97,6 +105,23 @@ document.addEventListener("DOMContentLoaded", () => {
       breakpoints: {
         451: {
           spaceBetween: 24,
+        },
+      },
+    });
+  }
+
+  if (projectsSlider) {
+    new Swiper(projectsSlider, {
+      modules: [Navigation],
+      slidesPerView: 1,
+      spaceBetween: 29,
+      navigation: {
+        nextEl: ".projects__btn-next",
+        prevEl: ".projects__btn-prev",
+      },
+      breakpoints: {
+        901: {
+          slidesPerView: 2,
         },
       },
     });
@@ -145,12 +170,18 @@ document.addEventListener("DOMContentLoaded", () => {
   if (serviceCertificatesSlider) {
     new Swiper(serviceCertificatesSlider, {
       loop: true,
-      slidesPerView: 2,
+      slidesPerView: 1,
       spaceBetween: 24,
       modules: [Navigation],
+      autoHeight: true,
       navigation: {
         nextEl: ".service-certificates__btn-next",
         prevEl: ".service-certificates__btn-prev",
+      },
+      breakpoints: {
+        750: {
+          slidesPerView: 2,
+        },
       },
     });
   }

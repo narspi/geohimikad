@@ -58,7 +58,7 @@
 
   .projects {
     &__item-btn {
-      margin: 0 24px;
+      margin: auto 24px 0;
       padding: 15px;
       width: calc(100% - 48px);
       text-align: center;
@@ -157,6 +157,124 @@
 
   .title-big {
     font-size: 36px;
+  }
+
+  .service-page {
+    &__top {
+      font-size: 16px;
+    }
+
+    &__img {
+      max-width: unset;
+      width: 25%;
+    }
+
+    &__bot {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    &__info-descr {
+      font-size: 16px;
+    }
+  }
+
+  .service-stages {
+    &__list {
+      margin-top: 30px;
+      flex-wrap: wrap;
+      gap: 20px 0;
+    }
+
+    &__item {
+      &::before {
+        font-size: 18px;
+        display: block;
+        margin-bottom: 8px;
+      }
+    }
+
+    &__text {
+      font-size: 16px;
+      padding-top: 20px;
+
+      &::before {
+        height: 14px;
+        width: 14px;
+      }
+    }
+  }
+
+  .service-form {
+    &__inner {
+      gap: 40px;
+    }
+
+    &__info-text {
+      font-size: 22px;
+    }
+
+    &__elem-title {
+      margin-bottom: 24px;
+    }
+
+    &__elem-policy {
+      font-size: 14px;
+    }
+
+    &__elem-fake {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  .request-form {
+    background-position: top left -358px;
+    background-color: #a7a1a5;
+  }
+
+  .service-certificates {
+    padding-top: 50px;
+    position: relative;
+
+    &__btn-next,
+    &__btn-prev {
+      top: 0;
+      left: unset;
+      transform: unset;
+      z-index: 2;
+    }
+
+    &__btn-next {
+      right: 15px;
+    }
+
+    &__btn-prev {
+      right: 90px;
+    }
+
+    &__slider {
+      padding-top: 70px;
+      margin: 0;
+    }
+  }
+
+  .related-services {
+    padding-top: 50px;
+
+    &__list {
+      margin-top: 30px;
+    }
+  }
+
+  .service-prices {
+    &__item {
+      grid-template-columns: 40fr 60fr;
+    }
+
+    &__title {
+      font-size: 20px;
+    }
   }
 }
 
@@ -446,6 +564,153 @@
       margin: 0 auto;
     }
   }
+
+  .service-page {
+    &__top {
+      display: grid;
+      grid-template-columns: 40fr 60fr;
+      grid-template-rows: auto;
+      grid-template-areas:
+        "a b"
+        "c c"
+        "d d";
+      gap: 0 24px;
+    }
+
+    &__img {
+      max-width: unset;
+      width: 100%;
+      grid-area: a;
+    }
+
+    &__body {
+      display: contents;
+    }
+
+    &__content {
+      grid-area: b;
+      align-self: flex-end;
+    }
+
+    &__steps {
+      grid-area: c;
+    }
+
+    &__btn {
+      grid-area: d;
+      margin-right: auto;
+    }
+
+    &__goods {
+      flex-wrap: wrap;
+      justify-content: center;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+
+    &__goods-item {
+      width: 33%;
+      flex-grow: unset;
+    }
+
+    &__info-title {
+      text-align: center;
+    }
+
+    &__info-descr {
+      margin-top: 20px;
+    }
+  }
+
+  .service-form {
+    padding: 50px 0;
+    &__inner {
+      gap: 20px;
+      grid-template-columns: 1fr;
+    }
+
+    &__info-text {
+      text-align: center;
+    }
+
+    &__info-list {
+      max-width: 500px;
+      margin: 20px auto 0;
+    }
+
+    &__elem-title {
+      text-align: center;
+    }
+
+    &__elem {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+  }
+
+  .request-form {
+    background-image: none;
+
+    &__block {
+      margin-right: auto;
+      text-align: center;
+    }
+
+    &__title {
+      text-align: center;
+    }
+
+    &__top-text {
+      margin: 15px 0;
+    }
+
+    &__bot-text {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    &__policy {
+      text-align: left;
+    }
+  }
+
+  .related-services {
+    &__title {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    &__list {
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    &__item {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+  }
+
+  .service-prices {
+    &__item {
+      grid-template-columns: 1fr;
+    }
+
+    &__title {
+      font-size: 32px;
+    }
+
+    &__pic {
+      max-width: 600px;
+    }
+
+    &__view-descr,
+    &__content,
+    &__content-price {
+      font-size: 16px;
+    }
+  }
 }
 
 @media (max-width: 600px) {
@@ -582,6 +847,10 @@
   }
 
   .projects {
+    &__title {
+      text-align: center;
+    }
+
     &__item-btn {
       margin: 0 24px;
       padding: 15px;
@@ -602,6 +871,15 @@
     &__item-descr {
       margin-left: 15px;
       margin-right: 15px;
+    }
+
+    &__top {
+      flex-direction: column;
+    }
+
+    &__btns {
+      margin-left: 0;
+      justify-content: space-between;
     }
   }
 
@@ -778,7 +1056,19 @@
   }
 
   .title-big {
-    font-size: 28px;
+    font-size: 24px;
+  }
+
+  .heading-row {
+    gap: 15px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+
+    &__btn {
+      width: 43px;
+      height: 40px;
+      border-radius: 13px;
+    }
   }
 
   .services-form {
@@ -807,6 +1097,124 @@
     &__checkbox-fake {
       width: 20px;
       height: 20px;
+    }
+  }
+
+  .service-page {
+    &__top {
+      grid-template-areas: none;
+      grid-template-columns: 1fr;
+    }
+
+    &__img {
+      grid-area: unset;
+    }
+
+    &__content {
+      grid-area: unset;
+    }
+
+    &__steps {
+      grid-area: unset;
+    }
+
+    &__btn {
+      grid-area: unset;
+    }
+
+    &__goods {
+      justify-content: flex-start;
+    }
+
+    &__goods-item {
+      width: 50%;
+    }
+
+    &__goods-text {
+      justify-content: flex-start;
+    }
+
+    &__bot-list {
+      font-size: 18px;
+      padding: 15px 15px 15px 35px;
+    }
+  }
+
+  .service-stages {
+    &__item {
+      min-width: 50%;
+    }
+  }
+
+  .service-form {
+    &__info-text {
+      font-size: 18px;
+    }
+
+    &__info-elem {
+      margin: 0;
+    }
+
+    &__elem-title {
+      font-size: 24px;
+      margin-top: 24px;
+    }
+
+    &__elem-input {
+      padding: 15px 27px;
+    }
+  }
+
+  .request-form {
+    &__top-text {
+      font-size: 18px;
+    }
+
+    &__bot-text {
+      font-size: 18px;
+    }
+
+    &__policy {
+      font-size: 14px;
+    }
+
+    &__checkbox-fake {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  .service-certificates {
+    &__btn-next,
+    &__btn-prev {
+      top: 0;
+      width: 55px;
+      height: 45px;
+      border-radius: 15px;
+    }
+
+    &__btn-prev {
+      right: 80px;
+    }
+
+    &__slider {
+      padding-top: 60px;
+    }
+  }
+
+  .related-services {
+    &__title {
+      font-size: 24px;
+    }
+  }
+
+  .service-prices {
+    &__title {
+      font-size: 24px;
+    }
+
+    &__pic {
+      max-width: 600px;
     }
   }
 }
@@ -871,6 +1279,35 @@
   }
 
   .services-form {
+    &__title {
+      font-size: 18px;
+    }
+  }
+
+  .title-big {
+    font-size: 20px;
+  }
+
+  .service-stages {
+    &__item {
+      width: 100%;
+    }
+  }
+
+  .service-form {
+    &__info-list {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+
+  .related-services {
+    &__title {
+      font-size: 20px;
+    }
+  }
+
+  .service-prices {
     &__title {
       font-size: 18px;
     }
