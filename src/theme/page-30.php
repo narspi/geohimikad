@@ -1,7 +1,7 @@
 <?php
 get_header('');
 ?>
-<div class="contacts">
+<div class="contacts contacts--page">
     <div class="container">
         <div class="heading-row">
             <a class="heading-row__btn" href="<?= home_url() ?>" aria-label="На главную" title="На главную"></a>

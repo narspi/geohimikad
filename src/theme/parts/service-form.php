@@ -29,11 +29,12 @@
         </li>
       </ul>
     </div>
-    <form class="service-form__elem">
+    <form class="service-form__elem" data-send data-url="<?= admin_url('admin-ajax.php') ?>">
       <p class="service-form__elem-title">Оставить заявку</p>
-      <input type="hidden" name="service" value="<?= esc_html(get_the_title()); ?>">
+      <input type="hidden" name="submit_send_form_nonce" value="<?= wp_create_nonce('submit_send_form_action'); ?>">
+      <input type="hidden" name="target" value="<?= esc_html(get_the_title()); ?> и выезд на участок">
       <input class="service-form__elem-input" type="text" name="name" placeholder="Ваше имя">
-      <input class="service-form__elem-input" type="tel" name="name" placeholder="Ваш номер телефона">
+      <input class="service-form__elem-input" type="tel" name="tel" placeholder="Ваш номер телефона">
       <label class="service-form__elem-policy">
         <input class="service-form__elem-checkbox" type="checkbox">
         <span class="service-form__elem-fake"></span>

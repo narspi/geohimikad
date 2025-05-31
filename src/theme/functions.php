@@ -235,3 +235,60 @@ function handle_ajax_service_review()
         'files' => $uploaded_urls
     ]);
 }
+
+add_action('wp_ajax_submit_send_form', 'handle_ajax_send_form');
+add_action('wp_ajax_nopriv_submit_send_form', 'handle_ajax_send_form');
+
+function handle_ajax_send_form()
+{
+    if (
+        !isset($_POST['submit_send_form_nonce']) ||
+        !wp_verify_nonce($_POST['submit_send_form_nonce'], 'submit_send_form_action')
+    )
+    {
+        wp_send_json_error('Ошибка безопасности. Попробуйте обновить страницу.');
+    }
+
+    $name = trim(sanitize_text_field($_POST['name'] ?? ''));
+    $tel = trim(sanitize_text_field($_POST['tel'] ?? ''));
+    $target = trim(sanitize_text_field($_POST['target'] ?? ''));
+
+    if ($name === '')
+    {
+        wp_send_json_error('Пожалуйста, укажите имя.');
+    }
+
+    if (!preg_match('/^[0-9\s\+\-\(\)]+$/', $tel))
+    {
+        wp_send_json_error('Укажите корректный номер телефона.');
+    }
+
+    $subject = 'Новая заявка с сайта';
+    $message = "Имя: {$name}\nТелефон: {$tel}";
+    $headers = ['Content-Type: text/plain; charset=UTF-8'];
+
+    if ($target !== '')
+    {
+        $message .= "\nЦель/форма: {$target}";
+    } else
+    {
+        wp_send_json_error('Что то пошло не так. Попробуйте позже');
+    }
+
+    $to_email = get_field('form-email', 'option');
+    if (!$to_email || !is_email($to_email))
+    {
+        $to_email = get_option('admin_email');
+    }
+
+
+    $mail_sent = wp_mail($to_email, $subject, $message, $headers);
+
+    if ($mail_sent)
+    {
+        wp_send_json_success(['message' => 'Форма отправлена успешно']);
+    } else
+    {
+        wp_send_json_error('Не удалось отправить письмо. Попробуйте позже.');
+    }
+}

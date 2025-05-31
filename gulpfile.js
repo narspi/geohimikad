@@ -79,6 +79,7 @@ const createCssTheme = () => {
 const createJs = () => {
   return gulp
     .src("./src/js/**/*.js")
+    .pipe(plumber())
     .pipe(
       gulpEsbuild({
         bundle: true, // Собираем все импорты в один файл

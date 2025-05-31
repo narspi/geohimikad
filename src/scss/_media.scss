@@ -57,6 +57,8 @@
   }
 
   .projects {
+    padding: 50px 0;
+
     &__item-btn {
       margin: auto 24px 0;
       padding: 15px;
@@ -291,6 +293,68 @@
   .contacts-form {
     padding: 50px 0;
   }
+
+  .porfolio {
+    &__descr-bot {
+      margin: 15px 0;
+    }
+  }
+
+  .porfolio-list {
+    padding-top: 25px;
+
+    &__item {
+      padding: 40px 24px;
+      border-radius: 25px;
+    }
+
+    &__view {
+      margin-right: 24px;
+    }
+
+    &__btn {
+      width: 54px;
+      height: 50px;
+      border-radius: 15px;
+      background-size: 30px auto;
+    }
+  }
+
+  .about-top {
+    &__top-text {
+      margin-top: 0;
+    }
+  }
+
+  .results {
+    padding: 50px 0;
+
+    &__title {
+      margin-bottom: 20px;
+    }
+
+    &__list {
+      gap: 0px;
+      display: block;
+    }
+
+    &__list-item {
+      width: 100%;
+      display: block;
+    }
+
+    &__list-text {
+      font-size: 18px;
+
+      & br {
+        display: none;
+      }
+
+      &--big {
+        color: #c10;
+      }
+    }
+  }
 }
 
 @media (max-width: 1100px) {
@@ -316,6 +380,45 @@
 
     &__item--big &__title {
       margin: 15px 0;
+    }
+  }
+
+  .porfolio-list {
+    &__item {
+      padding: 40px 24px;
+      border-radius: 24px;
+    }
+
+    &__pic {
+      width: 300px;
+      margin-top: auto;
+      margin-bottom: 24px;
+    }
+
+    &__link {
+      margin-top: 0px;
+    }
+  }
+
+  .porfolio-item {
+    &__top {
+      flex-direction: column;
+    }
+
+    &__pic {
+      max-width: 600px;
+    }
+
+    &__top-list {
+      max-width: 600px;
+    }
+
+    &__content {
+      padding-bottom: 50px;
+    }
+
+    &__descr {
+      margin: 20px 0;
     }
   }
 }
@@ -794,6 +897,113 @@
       height: 20px;
     }
   }
+
+  .porfolio-list {
+    &__item {
+      flex-direction: column;
+      max-width: 600px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 15px;
+    }
+
+    &__view {
+      margin-right: 0;
+      display: contents;
+    }
+
+    &__pic {
+      order: 1;
+      width: 100%;
+      margin: 0 auto 24px;
+    }
+
+    &__img {
+      border-radius: 9px;
+    }
+
+    &__body {
+      order: 2;
+      margin-right: 0;
+      max-width: 500px;
+      margin: 0 auto 24px;
+      text-align: center;
+    }
+
+    &__service {
+      justify-content: center;
+    }
+
+    &__title {
+      text-align: center;
+    }
+
+    &__btn {
+      display: none;
+    }
+
+    &__view-btn {
+      order: 3;
+      max-width: 500px;
+      margin: 0 auto 20px;
+    }
+  }
+
+  .about-top {
+    &__top-text {
+      font-size: 36px;
+    }
+
+    &__red-text {
+      font-size: 24px;
+      margin: 15px 0;
+    }
+  }
+
+  .team {
+    padding-top: 50px;
+
+    &__list {
+      margin-top: 30px;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    &__list-title {
+      font-size: 28px;
+      margin: 15px 0;
+    }
+
+    &__list-descr {
+      font-size: 16px;
+    }
+  }
+
+  .porfolio-item {
+    &__top-title,
+    &__descr {
+      font-size: 28px;
+    }
+
+    &__content {
+      font-size: 18px;
+    }
+  }
+
+  .new-page {
+    margin-bottom: 50px;
+    &__descr {
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+
+    &__related {
+      margin-bottom: 20px;
+    }
+
+    &__content {
+      margin: 20px 0;
+    }
+  }
 }
 
 @media (max-width: 600px) {
@@ -1107,6 +1317,10 @@
       padding: 40px 20px;
     }
 
+    &__title {
+      font-size: 24px;
+    }
+
     &__policy {
       font-size: 14px;
     }
@@ -1325,6 +1539,70 @@
       font-size: 24px;
     }
   }
+
+  .about-top {
+    &__top-text {
+      font-size: 24px;
+    }
+
+    &__red-text {
+      font-size: 18px;
+      margin: 15px 0;
+    }
+
+    &__content {
+      font-size: 16px;
+    }
+  }
+
+  .results {
+    &__title {
+      font-size: 28px;
+    }
+
+    &__list-text {
+      font-size: 16px;
+    }
+  }
+
+  .team {
+    &__list {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .porfolio-item {
+    &__top-title,
+    &__descr {
+      font-size: 24px;
+    }
+
+    &__top-num {
+      font-size: 24px;
+    }
+
+    &__content {
+      font-size: 16px;
+    }
+  }
+
+  .new-page {
+    &__descr {
+      font-size: 18px;
+    }
+
+    &__related {
+      margin-bottom: 15px;
+    }
+
+    &__content {
+      margin: 15px 0;
+      font-size: 16px;
+    }
+    &__gallery {
+      grid-template-columns: 1fr;
+    }
+  }
 }
 
 @media (max-width: 450px) {
@@ -1441,6 +1719,22 @@
 
     &__policy {
       font-size: 12px;
+    }
+  }
+
+  .porfolio-item {
+    &__top-list {
+      margin-top: 20px;
+      gap: 15px;
+    }
+
+    &__top-text {
+      width: 100%;
+      padding: 0;
+    }
+
+    &__top-num {
+      color: #c10;
     }
   }
 }

@@ -8,14 +8,6 @@ get_header();
     </div>
     <p class="porfolio__descr-top">Наши работы: примеры качества и мастертсва</p>
     <p class="porfolio__descr-bot">Мы гордимся результатами своей работы</p>
-    <?php
-    $services = get_posts(array(
-        'post_type' => 'service',
-        'numberposts' => -1
-    ));
-    get_template_part('parts/filter', null, array(
-        'services' => $services
-    )); ?>
     <?php if (have_posts()): ?>
         <div class="porfolio-list">
             <?php while (have_posts()):
@@ -37,7 +29,7 @@ get_header();
                                 <?php endforeach; ?>
                             </div>
                         <?php endif; ?>
-                        <h2 class="porfolio-list__title"><?php the_title(); ?></h2>
+                        <h2 class="porfolio-list__title"><?= esc_html(get_the_title()); ?></h2>
                         <div class="porfolio-list__content">
                             <?php the_content(); ?>
                         </div>
@@ -61,7 +53,9 @@ get_header();
                                     alt="Кейс какой то">
                             <?php endif; ?>
                         </div>
-                        <button class="porfolio-list__view-btn">Заказать эту услугу</button>
+                        <button class="porfolio-list__view-btn" data-popup="popup-case"
+                            data-point="<?= esc_html(get_the_title()); ?>">Заказать эту
+                            услугу</button>
                     </div>
                     <a class="porfolio-list__btn" href="<?php the_permalink(); ?>" aria-label="перейти на кейс"
                         title="перейти на кейс"></a>

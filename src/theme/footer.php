@@ -97,7 +97,10 @@
 <div class="form-popup" id="form-call">
     <div class="form-popup__inner">
         <p class="form-popup__title">Заказать звонок</p>
-        <form class="form-popup__elem">
+        <form class="form-popup__elem" data-send data-url="<?= admin_url('admin-ajax.php') ?>">
+            <input type="hidden" name="submit_send_form_nonce"
+                value="<?= wp_create_nonce('submit_send_form_action'); ?>">
+            <input type="hidden" name="target" value="Заказать звонок">
             <input class="form-popup__input" type="text" name="name" placeholder="Ваше имя" />
             <input class="form-popup__input" type="tel" name="tel" placeholder="Ваш телефон" />
             <label class="form-popup__policy">
@@ -116,7 +119,11 @@
 <div class="form-popup" id="form-service">
     <div class="form-popup__inner">
         <p class="form-popup__title">Заказать услугу</p>
-        <form class="form-popup__elem">
+        <form class="form-popup__elem" data-send data-url="<?= admin_url('admin-ajax.php') ?>">
+            <input type="hidden" name="submit_send_form_nonce"
+                value="<?= wp_create_nonce('submit_send_form_action'); ?>">
+            <input class="form-popup__input form-popup__input--service" type="text" name="target" value=""
+                readonly="readonly">
             <input class="form-popup__input" type="text" name="name" placeholder="Ваше имя" />
             <input class="form-popup__input" type="tel" name="tel" placeholder="Ваш телефон" />
             <label class="form-popup__policy">
@@ -134,6 +141,28 @@
 </div>
 <div class="form-popup" id="nav-menu">
     <div class="form-popup__inner"></div>
+    <button class="form-popup__close" aria-label="Закрыть окно"></button>
+</div>
+<div class="form-popup" id="popup-case">
+    <div class="form-popup__inner">
+        <p class="form-popup__title">Консультация</p>
+        <form class="form-popup__elem" data-send data-url="<?= admin_url('admin-ajax.php') ?>">
+            <input type="hidden" name="submit_send_form_nonce"
+                value="<?= wp_create_nonce('submit_send_form_action'); ?>">
+            <input class="form-popup__hidden--point" type="hidden" name="target" value="Заказать звонок">
+            <input class="form-popup__input" type="text" name="name" placeholder="Ваше имя">
+            <input class="form-popup__input" type="tel" name="tel" placeholder="Ваш телефон">
+            <label class="form-popup__policy">
+                <input class="form-popup__checkbox" type="checkbox" required>
+                <span class="form-popup__fake"></span>
+                <span>
+                    Я ознакомлен и согласен с политикой обработки персональных данных, и
+                    даю согласие на обработку моих персональных данных
+                </span>
+            </label>
+            <button class="form-popup__submit" type="submit">Перезвонить мне</button>
+        </form>
+    </div>
     <button class="form-popup__close" aria-label="Закрыть окно"></button>
 </div>
 <?php wp_footer(); ?>

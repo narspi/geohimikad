@@ -24,6 +24,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const bntListServices = document.querySelectorAll("[data-service]");
   const popupOpenBtns = document.querySelectorAll("[data-popup]");
   const closeBtnsList = document.querySelectorAll(".form-popup__close");
+  const pointBtnList = document.querySelectorAll("[data-point]");
+  const formList = document.querySelectorAll("[data-send]");
 
   if (listMenu) {
     const clone = listMenu.cloneNode(true);
@@ -32,6 +34,24 @@ document.addEventListener("DOMContentLoaded", () => {
     const innerBlock = menuPopup.querySelector(".form-popup__inner");
     innerBlock.append(clone);
   }
+
+  pointBtnList.forEach((pointBtn) => {
+    pointBtn.addEventListener("click", (event) => {
+      const target = event.target;
+      const point = target.dataset.point;
+      const id = target.dataset.popup;
+      console.log(point);
+      if (!point || !id) return;
+      const popup = document.getElementById(id);
+      if (!popup) return;
+      const form = popup.querySelector("form");
+      if (!form) return;
+      const inputService = form.querySelector(".form-popup__hidden--point");
+      if (inputService) {
+        inputService.value = point;
+      }
+    });
+  });
 
   bntListServices.forEach((btnService) => {
     btnService.addEventListener("click", (event) => {
@@ -43,19 +63,9 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!popup) return;
       const form = popup.querySelector("form");
       if (!form) return;
-      const checkInputService = form.querySelector(
-        ".form-popup__input--service"
-      );
-      if (checkInputService) {
-        checkInputService.value = service;
-      } else {
-        const input = document.createElement("input");
-        input.type = "text";
-        input.disabled = true;
-        input.classList.add("form-popup__input", "form-popup__input--service");
-        input.value = service;
-        form.prepend(input);
-        console.log(input);
+      const inputService = form.querySelector(".form-popup__input--service");
+      if (inputService) {
+        inputService.value = service;
       }
     });
   });
@@ -238,8 +248,8 @@ document.addEventListener("DOMContentLoaded", () => {
     reviewsFormElem.addEventListener("submit", async (e) => {
       e.preventDefault();
       const ajaxUrl = reviewsFormElem.dataset.url;
+      if (!ajaxUrl) return;
       const formData = new FormData(reviewsFormElem);
-      console.log(formData.get("files[]"));
       formData.append("action", "submit_service_review");
 
       try {
@@ -261,4 +271,35 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+
+  formList.forEach((form) => {
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const target = event.target;
+      const ajaxUrl = form.dataset.url;
+      const targetInput = form.querySelector('input[name="target"]');
+      const originalTargetValue = targetInput.value;
+      if (!ajaxUrl) return;
+      const formData = new FormData(target);
+      console.log(formData.get("service") ? "goood" : "failed");
+      formData.append("action", "submit_send_form");
+      try {
+        const response = await fetch(ajaxUrl, {
+          method: "POST",
+          body: formData,
+        });
+        const result = await response.json();
+        if (result.success) {
+          alert("Спасибо скоро мы с вями свяжемся!");
+          form.reset();
+          targetInput.value = originalTargetValue;
+        } else {
+          alert(result.data || "Произошла ошибка. Повторите попытку позже.");
+        }
+      } catch (err) {
+        console.error("AJAX error:", err);
+        alert("Ошибка сети. Попробуйте позже.");
+      }
+    });
+  });
 });

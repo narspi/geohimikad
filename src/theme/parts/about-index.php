@@ -49,11 +49,14 @@
                     </div>
                 </div>
             <?php endif; ?>
-            <form class="about__form">
+            <form class="about__form" data-send data-url="<?= admin_url('admin-ajax.php') ?>">
                 <p class="about__bot-title">Заказать звонок</p>
                 <p class="about__form-accent">Консультация бесплатно</p>
+                <input type="hidden" name="submit_send_form_nonce"
+                    value="<?= wp_create_nonce('submit_send_form_action'); ?>">
+                <input type="hidden" name="target" value="Заказать звонок">
                 <input class="about__form-input" type="text" name="name" placeholder="Ваше имя">
-                <input class="about__form-input" type="tel" name="name" placeholder="Ваш номер телефона">
+                <input class="about__form-input" type="tel" name="tel" placeholder="Ваш номер телефона">
                 <label class="about__policy">
                     <input type="checkbox" class="about__checkbox">
                     <span class="about__checkbox-fake"></span>

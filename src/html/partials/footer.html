@@ -104,15 +104,15 @@
         type="text"
         name="name"
         placeholder="Ваше имя"
-      />
+      >
       <input
         class="form-popup__input"
         type="tel"
         name="tel"
         placeholder="Ваш телефон"
-      />
+      >
       <label class="form-popup__policy">
-        <input class="form-popup__checkbox" type="checkbox" required />
+        <input class="form-popup__checkbox" type="checkbox" required>
         <span class="form-popup__fake"></span>
         <span>
           Я ознакомлен и согласен с политикой обработки персональных данных, и
@@ -133,15 +133,15 @@
         type="text"
         name="name"
         placeholder="Ваше имя"
-      />
+      >
       <input
         class="form-popup__input"
         type="tel"
         name="tel"
         placeholder="Ваш телефон"
-      />
+      >
       <label class="form-popup__policy">
-        <input class="form-popup__checkbox" type="checkbox" required />
+        <input class="form-popup__checkbox" type="checkbox" required>
         <span class="form-popup__fake"></span>
         <span>
           Я ознакомлен и согласен с политикой обработки персональных данных, и
@@ -155,5 +155,34 @@
 </div>
 <div class="form-popup" id="nav-menu">
   <div class="form-popup__inner"></div>
+  <button class="form-popup__close" aria-label="Закрыть окно"></button>
+</div>
+<div class="form-popup" id="popup-case">
+  <div class="form-popup__inner">
+    <p class="form-popup__title">Консультация</p>
+    <form class="form-popup__elem">
+      <input
+        class="form-popup__input"
+        type="text"
+        name="name"
+        placeholder="Ваше имя"
+      >
+      <input
+        class="form-popup__input"
+        type="tel"
+        name="tel"
+        placeholder="Ваш телефон"
+      >
+      <label class="form-popup__policy">
+        <input class="form-popup__checkbox" type="checkbox" required>
+        <span class="form-popup__fake"></span>
+        <span>
+          Я ознакомлен и согласен с политикой обработки персональных данных, и
+          даю согласие на обработку моих персональных данных
+        </span>
+      </label>
+      <button class="form-popup__submit" type="submit">Перезвонить мне</button>
+    </form>
+  </div>
   <button class="form-popup__close" aria-label="Закрыть окно"></button>
 </div>

@@ -54,7 +54,10 @@
             </p>
             <img class="services-form__decor" src="./img/auto-decor.svg" alt="">
         </div>
-        <form class="services-form__elem">
+        <form class="services-form__elem" data-send data-url="<?= admin_url('admin-ajax.php') ?>">
+            <input type="hidden" name="submit_send_form_nonce"
+                value="<?= wp_create_nonce('submit_send_form_action'); ?>">
+            <input type="hidden" name="target" value="Спецпредложение">
             <input class="services-form__input" type="text" name="name" placeholder="Ваше имя">
             <input class="services-form__input" type="tel" name="tel" placeholder="Ваш номер телефона">
             <label class="services-form__policy">
