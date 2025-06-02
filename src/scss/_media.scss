@@ -421,6 +421,17 @@
       margin: 20px 0;
     }
   }
+
+  .reviews-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+
+    &__item {
+      &--wide {
+        gap: 24px;
+      }
+    }
+  }
 }
 
 @media (max-width: 900px) {
@@ -1002,6 +1013,86 @@
 
     &__content {
       margin: 20px 0;
+    }
+  }
+
+  .reviews-form {
+    padding: 50px 0;
+
+    &__elem {
+      flex-direction: column;
+      margin-top: 50px;
+    }
+
+    &__textarea {
+      min-height: 200px;
+    }
+  }
+}
+
+@media (max-width: 750px) {
+  .reviews-list {
+    grid-template-columns: 1fr;
+    gap: 24px;
+
+    &__item {
+      gap: 0px;
+
+      &--wide {
+        grid-column: unset;
+      }
+
+      &--tall {
+        grid-row: unset;
+      }
+
+      &--row {
+        flex-direction: column;
+      }
+    }
+
+    &__block {
+      &--hulf {
+        width: unset;
+      }
+    }
+
+    &__content {
+      display: contents;
+    }
+
+    &__text {
+      margin-bottom: 0;
+      order: 1;
+      font-size: 18px;
+      margin-bottom: 24px;
+    }
+
+    &__media {
+      order: 2;
+      width: 100%;
+      gap: 0 17px;
+    }
+
+    &__media-img {
+      width: calc((100% - 17px) / 2);
+      margin-bottom: 24px;
+    }
+
+    &__media.reviews-list__block--hulf {
+      justify-content: flex-start;
+    }
+
+    &__info {
+      order: 3;
+    }
+
+    &__service {
+      margin: 10px 0;
+    }
+
+    &__rating {
+      width: 100%;
     }
   }
 }
@@ -1603,6 +1694,62 @@
       grid-template-columns: 1fr;
     }
   }
+
+  .reviews-list {
+    &__item {
+      padding: 15px;
+      border-radius: 15px;
+    }
+
+    &__media-img,
+    &__block--hulf &__media-img {
+      max-width: 450px;
+      width: 100%;
+    }
+
+    &__text {
+      font-size: 16px;
+    }
+  }
+
+  .reviews-form {
+    &__elem {
+      margin-top: 30px;
+    }
+
+    &__textarea {
+      min-height: 300px;
+    }
+
+    &__wrap-choices {
+      margin-bottom: 24px;
+    }
+
+    &__star-icon {
+      width: 50px;
+      height: 50px;
+    }
+
+    &__btn-submit {
+      max-width: unset;
+      margin-top: 24px;
+    }
+
+    &__policy {
+      font-size: 14px;
+    }
+
+    &__fake {
+      width: 20px;
+      height: 20px;
+    }
+
+    &__label-file {
+      padding-left: 0;
+      padding-right: 0;
+      text-align: center;
+    }
+  }
 }
 
 @media (max-width: 450px) {
@@ -1735,6 +1882,25 @@
 
     &__top-num {
       color: #c10;
+    }
+  }
+
+  .reviews-form {
+    &__elem {
+      margin-top: 20px;
+    }
+
+    &__wrap-choices {
+      margin-bottom: 24px;
+    }
+
+    &__rating {
+      gap: 10px;
+    }
+
+    &__star-icon {
+      width: 30px;
+      height: 30px;
     }
   }
 }

@@ -2,6 +2,7 @@
   padding: 60px 0;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  grid-auto-flow: row dense;
 
   gap: 50px 24px;
 
@@ -107,6 +108,6 @@
   }
 
   &__block--hulf &__media-img {
-    width: calc((100% / 2) - 17px);
+    width: calc((100% - 17px) / 2);
   }
 }
