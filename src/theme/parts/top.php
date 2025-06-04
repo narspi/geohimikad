@@ -2,7 +2,7 @@
     <?php $top_bg = get_field('top-bg-img'); ?>
     <div class="container">
         <div class="top__decor">
-            <div class="top__content">
+            <div class="top__content" style="--bg-photo: url(<?= esc_attr($top_bg) ?>);">
                 <h1 class="top__title">
                     <?php echo wp_kses_post(get_field('top_title')); ?>
                 </h1>

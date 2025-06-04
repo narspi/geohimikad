@@ -7,24 +7,19 @@
   }
 
   &__content {
+    margin-top: 20px;
+    --bg-photo: url("../img/top-bg-photo.jpg");
     background-color: #d9d9d9;
     padding: 65px 20px 0;
-    border-radius: 20px 0 20px 0;
-    position: relative;
-    overflow: hidden;
-    --bg-top: url("../img/arrow-top-decor.svg");
-    &::before {
-      content: "";
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      background-image: var(--bg-top);
-      background-repeat: no-repeat;
-      background-size: auto 100%;
-      background-position: bottom -80px right;
-    }
+    border-radius: 20px;
+    background-image: linear-gradient(
+        rgba(255, 255, 255, 0.8),
+        rgba(255, 255, 255, 0.8)
+      ),
+      var(--bg-photo);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
   }
 
   &__title {
@@ -42,35 +37,9 @@
 
   &__bot {
     position: relative;
-    background-color: #d9d9d9;
     flex-grow: 1;
     border-radius: 0 0 20px 20px;
     padding: 40px 20px 20px;
-
-    &::before,
-    &::after {
-      content: "";
-      position: absolute;
-    }
-
-    &::before {
-      right: -40px;
-      top: 0;
-      width: 40px;
-      height: 40px;
-      background-color: #d9d9d9;
-      z-index: 1;
-    }
-
-    &::after {
-      right: -80px;
-      top: 0px;
-      width: 80px;
-      height: 80px;
-      background-color: #fff;
-      border-radius: 50%;
-      z-index: 1;
-    }
   }
 
   &__btn-wrap {
