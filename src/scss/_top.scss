@@ -12,6 +12,7 @@
     border-radius: 20px 0 20px 0;
     position: relative;
     overflow: hidden;
+    --bg-top: url("../img/arrow-top-decor.svg");
     &::before {
       content: "";
       position: absolute;
@@ -19,7 +20,7 @@
       height: 100%;
       top: 0;
       left: 0;
-      background-image: url("../img/arrow-top-decor.svg");
+      background-image: var(--bg-top);
       background-repeat: no-repeat;
       background-size: auto 100%;
       background-position: bottom -80px right;

@@ -67,6 +67,9 @@
     font-family: "Wadik", sans-serif;
     font-weight: 700;
     color: #d9d9d9;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
   }
 
   &__name {
@@ -92,9 +95,42 @@
   &__media-img {
     border-radius: 15px;
     display: block;
+    max-width: 250px;
+    aspect-ratio: 193 / 140;
+    object-fit: cover;
+    object-position: center;
 
     &--full {
       width: 100%;
+    }
+  }
+
+  &__media-video {
+    max-width: 250px;
+    min-width: 156px;
+    width: 100%;
+    aspect-ratio: 193 / 140;
+    border-radius: 15px;
+    background-color: #d9d9d9;
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50px 50px;
+    background-image: url("../img/icons/play-video.svg");
+    cursor: pointer;
+    border: none;
+
+    &:hover {
+      background-size: 60px 60px;
+    }
+
+    &:focus-visible {
+      outline-offset: 2px;
+      outline: 2px solid #cc1100;
     }
   }
 
@@ -107,7 +143,8 @@
     margin: 0;
   }
 
-  &__block--hulf &__media-img {
+  &__block--hulf &__media-img,
+  &__block--hulf &__media-video {
     width: calc((100% - 17px) / 2);
   }
 }

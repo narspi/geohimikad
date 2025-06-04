@@ -40,35 +40,40 @@
         <p>Услуги не найдены.</p>
     <?php endif; ?>
 </div>
-<section class=" services-form">
-    <div class="container">
-        <h2 class="title services-form__title">Спецпредложение!</h2>
-    </div>
-    <div class="services-form__body">
-        <div class="services-form__content">
-            <p class="services-form__text">
-                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
-                ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis
-                dis parturient montes, nascetur ridiculus mus. Donec quam felis,
-                ultricies nec.
-            </p>
-            <img class="services-form__decor" src="./img/auto-decor.svg" alt="">
+<?php
+$show_form = get_field('special-offer-show', 'option');
+if ($show_form):
+    ?>
+    <section class=" services-form">
+        <div class="container">
+            <h2 class="title services-form__title">Спецпредложение!</h2>
         </div>
-        <form class="services-form__elem" data-send data-url="<?= admin_url('admin-ajax.php') ?>">
-            <input type="hidden" name="submit_send_form_nonce"
-                value="<?= wp_create_nonce('submit_send_form_action'); ?>">
-            <input type="hidden" name="target" value="Спецпредложение">
-            <input class="services-form__input" type="text" name="name" placeholder="Ваше имя">
-            <input class="services-form__input" type="tel" name="tel" placeholder="Ваш номер телефона">
-            <label class="services-form__policy">
-                <input class="services-form__checkbox" type="checkbox">
-                <span class="services-form__checkbox-fake"></span>
-                <span>Я ознакомлен и согласен с политикой обработки персональных данных, и
-                    даю согласие на обработку моих персональных данных
-                </span>
-            </label>
-            <button class="services-form__btn">Перезвонить мне</button>
-        </form>
-    </div>
-</section>
-<?php get_footer(); ?>
+        <div class="services-form__body">
+            <div class="services-form__content">
+                <p class="services-form__text">
+                    <?= esc_html(get_field('special-offer-text', 'option')) ?>
+                </p>
+                <img class="services-form__decor" src="<?= get_template_directory_uri() ?>/assets/img/auto-decor.svg"
+                    alt="">
+            </div>
+            <form class="services-form__elem" data-send data-url="<?= admin_url('admin-ajax.php') ?>">
+                <input type="hidden" name="submit_send_form_nonce"
+                    value="<?= wp_create_nonce('submit_send_form_action'); ?>">
+                <input type="hidden" name="target" value="Спецпредложение">
+                <input class="services-form__input" type="text" name="name" placeholder="Ваше имя">
+                <input class="services-form__input" type="tel" name="tel" placeholder="Ваш номер телефона">
+                <label class="services-form__policy">
+                    <input class="services-form__checkbox" type="checkbox">
+                    <span class="services-form__checkbox-fake"></span>
+                    <span>Я ознакомлен и согласен с политикой обработки персональных данных, и
+                        даю согласие на обработку моих персональных данных
+                    </span>
+                </label>
+                <button class="services-form__btn">Перезвонить мне</button>
+            </form>
+        </div>
+    </section>
+    <?php
+endif;
+get_footer();
+?>

@@ -1,4 +1,5 @@
 <div class="top">
+    <?php $top_bg = get_field('top-bg-img'); ?>
     <div class="container">
         <div class="top__decor">
             <div class="top__content">

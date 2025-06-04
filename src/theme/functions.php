@@ -178,7 +178,7 @@ function register_post_type_foo()
         'show_ui' => true,
         'show_in_menu' => true,
         'menu_icon' => 'dashicons-star-filled',
-        'supports' => array('title', 'editor', 'thumbnail'),
+        'supports' => array('title', 'page-attributes'),
         'has_archive' => false,
         'rewrite' => false,
         'publicly_queryable' => false,
@@ -195,16 +195,30 @@ add_action('wp_ajax_nopriv_submit_service_review', 'handle_ajax_service_review')
 
 function handle_ajax_service_review()
 {
-    // Проверка nonce
     if (!isset($_POST['security']) || !wp_verify_nonce($_POST['security'], 'submit_service_review_nonce'))
     {
         wp_send_json_error('Ошибка безопасности');
     }
 
+    require_once(ABSPATH . 'wp-admin/includes/image.php');
+    require_once(ABSPATH . 'wp-admin/includes/file.php');
+    require_once(ABSPATH . 'wp-admin/includes/media.php');
+
     $name = sanitize_text_field($_POST['name'] ?? '');
     $tel = sanitize_text_field($_POST['tel'] ?? '');
     $service = sanitize_text_field($_POST['service'] ?? '');
     $message = sanitize_textarea_field($_POST['message'] ?? '');
+    $rating = sanitize_textarea_field($_POST['rating'] ?? '');
+
+    if ($name === '')
+    {
+        wp_send_json_error('Пожалуйста, укажите имя.');
+    }
+
+    if (!preg_match('/^[0-9\s\+\-\(\)]+$/', $tel))
+    {
+        wp_send_json_error('Укажите корректный номер телефона.');
+    }
 
     $uploaded_urls = [];
 
@@ -219,21 +233,51 @@ function handle_ajax_service_review()
                 'error' => $_FILES['files']['error'][$index],
                 'size' => $_FILES['files']['size'][$index],
             ];
-            $uploaded = wp_handle_upload($file, ['test_form' => false]);
-            if (!isset($uploaded['error']))
+
+            $_FILES['single_attachment'] = $file;
+            $attachment_id = media_handle_upload('single_attachment', 0);
+
+            if (is_wp_error($attachment_id))
             {
-                $uploaded_urls[] = $uploaded['url'];
+                wp_send_json_error('Ошибка сервера. Попробуйте позже.');
             } else
             {
-                error_log('Ошибка загрузки: ' . $uploaded['error']);
+                $url = wp_get_attachment_url($attachment_id);
+                if ($url)
+                {
+                    $uploaded_urls[] = $url;
+                }
             }
         }
     }
 
-    wp_send_json_success([
-        'message' => 'Форма отправлена успешно',
-        'files' => $uploaded_urls
-    ]);
+    $images_block = '';
+    if (!empty($uploaded_urls))
+    {
+        $images_block = "\nЗагруженные файлы:\n" . implode("\n", $uploaded_urls);
+    }
+
+    $subject = 'Новая заявка с сайта';
+    $message = "Имя: {$name}\nТелефон: {$tel}\nЦель/форма: Оставить отзыв\nУслуга: {$service}\nРейтинг: {$rating}";
+    $message .= $images_block;
+    $headers = ['Content-Type: text/plain; charset=UTF-8'];
+
+    $to_email = get_field('form-email', 'option');
+    if (!$to_email || !is_email($to_email))
+    {
+        $to_email = get_option('admin_email');
+    }
+
+
+    $mail_sent = wp_mail($to_email, $subject, $message, $headers);
+
+    if ($mail_sent)
+    {
+        wp_send_json_success(['message' => 'Форма отправлена успешно']);
+    } else
+    {
+        wp_send_json_error('Не удалось отправить письмо. Попробуйте позже.');
+    }
 }
 
 add_action('wp_ajax_submit_send_form', 'handle_ajax_send_form');

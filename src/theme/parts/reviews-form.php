@@ -26,7 +26,7 @@
                 <div class="reviews-form__wrap-choices">
                     <select class="reviews-form__service-choices" name="service"
                         data-placeholder="Услуга, о который вы оставляете отзыв">
-                        <option value="Нет Услуги" placeholder>Услуга, о который вы оставляете отзыв</option>
+                        <option value="Нет Услуги" placeholder>Нет услуги</option>
                         <?php
                         $services = get_posts([
                             'post_type' => 'service',
