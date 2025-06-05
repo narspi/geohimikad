@@ -11,7 +11,7 @@
     <?php wp_head(); ?>
 </head>
 
-<body>
+<body <?php body_class(); ?>>
     <div class="header">
         <div class="container header__inner">
             <div class="header__links">

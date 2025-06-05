@@ -1,4 +1,8 @@
 <?php
+/**
+ * Template Name: Шаблон серый блок
+ * Template Post Type: service
+ */
 get_header();
 $id = get_the_ID();
 ?>
@@ -104,38 +108,42 @@ $id = get_the_ID();
             </p>
         </li>
     </ul>
-    <?php
-    $title = get_field('bot-block-title');
-    $descr = get_field('bot-block-descr');
-    if ($title or $descr):
-        ?>
-        <div class="<?php if (have_rows('bot-block-list')) echo 'service-page__bot service-page__bot';
-        else echo 'service-page__bot service-page__bot--full'; ?>">
-            <div class="service-page__info">
-                <?php if ($title): ?>
-                    <p class="title-big service-page__info-title"><?= esc_html($title) ?></p>
-                <?php endif; ?>
-                <?php if ($descr): ?>
-                    <p class="service-page__info-descr">
-                        <?= esc_html($descr) ?>
-                    </p>
+</div>
+<?php
+$title = get_field('bot-block-title');
+$descr = get_field('bot-block-descr');
+if ($title or $descr):
+    ?>
+    <div class="service-page__bot-wrap service-page__bot-decor">
+        <div class="container">
+            <div class="<?php if (have_rows('bot-block-list')) echo 'service-page__bot service-page__bot';
+            else echo 'service-page__bot service-page__bot--full'; ?>">
+                <div class="service-page__info">
+                    <?php if ($title): ?>
+                        <p class="title-big service-page__info-title"><?= esc_html($title) ?></p>
+                    <?php endif; ?>
+                    <?php if ($descr): ?>
+                        <p class="service-page__info-descr">
+                            <?= esc_html($descr) ?>
+                        </p>
+                    <?php endif; ?>
+                </div>
+                <?php
+                if (have_rows('bot-block-list')):
+                    ?>
+                    <ul class="service-page__bot-list">
+                        <?php while (have_rows('bot-block-list')):
+                            the_row();
+                            $elem = get_sub_field('bot-block-li');
+                            ?>
+                            <li><?= esc_html($elem) ?></li>
+                        <?php endwhile; ?>
+                    </ul>
                 <?php endif; ?>
             </div>
-            <?php
-            if (have_rows('bot-block-list')):
-                ?>
-                <ul class="service-page__bot-list">
-                    <?php while (have_rows('bot-block-list')):
-                        the_row();
-                        $elem = get_sub_field('bot-block-li');
-                        ?>
-                        <li><?= esc_html($elem) ?></li>
-                    <?php endwhile; ?>
-                </ul>
-            <?php endif; ?>
         </div>
-    <?php endif; ?>
-</div>
+    </div>
+<?php endif; ?>
 <?php
 get_template_part('parts/service-stages');
 get_template_part('parts/service-prices');

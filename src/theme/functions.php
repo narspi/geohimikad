@@ -140,7 +140,7 @@ function register_post_type_foo()
             'slug' => 's', // это даёт /s/услуга
             'with_front' => false
         ),
-        'supports' => array('title', 'editor', 'thumbnail'),
+        'supports' => array('title', 'editor', 'thumbnail', 'page-attributes'),
     );
 
     register_post_type('service', $args_service);
@@ -157,7 +157,7 @@ function register_post_type_foo()
             'slug' => 'k', // это даёт /k/кейсы
             'with_front' => false
         ),
-        'supports' => array('title', 'editor', 'thumbnail'),
+        'supports' => array('title', 'editor', 'thumbnail', 'page-attributes'),
     );
 
     register_post_type('cases', $args_cases);

@@ -6,10 +6,12 @@ get_template_part('parts/projects');
 get_template_part('parts/about-index');
 get_template_part('parts/certificates-index');
 $questions = get_field('questions');
-// get_template_part('parts/questions', null, array(
-//     'is_grey' => false,
-//     'questions' => $questions
-// ));
-// get_template_part('parts/reviews');
-// get_template_part('parts/contacts-index');
+get_template_part('parts/questions', null, array(
+    'is_grey' => false,
+    'questions' => $questions
+));
+get_template_part('parts/reviews', null, array(
+    'service_id' => 0
+));
+get_template_part('parts/contacts-index');
 get_footer();

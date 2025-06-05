@@ -1,0 +1,42 @@
+.service-explanation {
+  padding: 100px 0;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-image: url("../img/questions-decor.jpg");
+
+  &__inner {
+    display: grid;
+    gap: 50px;
+  }
+
+  &__items {
+    display: grid;
+    gap: 100px;
+  }
+
+  &__title {
+    color: #cc1100;
+    margin: 0;
+  }
+
+  &__list {
+    margin: 34px 0 0;
+    font-size: 24px;
+  }
+
+  &__list-elem {
+    border-bottom: 1px solid #cc1100;
+    padding: 16px 0 12px;
+  }
+
+  &__descr {
+    margin: 0;
+    padding: 44px;
+    border-radius: 55px;
+    background-color: #ffffff;
+    font-size: 20px;
+    box-shadow: 0 -2px 20px 0 rgba(0, 0, 0, 0.1),
+      0 2px 20px 0 rgba(0, 0, 0, 0.1);
+  }
+}

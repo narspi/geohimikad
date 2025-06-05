@@ -57,6 +57,17 @@
     object-position: center;
   }
 
+  &__bot-wrap {
+    padding-top: 50px;
+  }
+
+  &__bot-decor {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-image: url("../img/questions-decor.jpg");
+  }
+
   &__bot {
     display: grid;
     grid-template-columns: 612fr 510fr;

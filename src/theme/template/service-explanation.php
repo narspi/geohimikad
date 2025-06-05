@@ -1,4 +1,8 @@
 <?php
+/**
+ * Template Name: Шаблон поянение
+ * Template Post Type: service
+ */
 get_header();
 $id = get_the_ID();
 ?>
@@ -138,6 +142,7 @@ $id = get_the_ID();
 </div>
 <?php
 get_template_part('parts/service-stages');
+get_template_part('parts/service-explanation');
 get_template_part('parts/service-prices');
 get_template_part('parts/service-form');
 get_template_part('parts/service-certificates');

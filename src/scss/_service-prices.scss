@@ -41,6 +41,8 @@
 
   &__content {
     font-size: 18px;
+    display: flex;
+    flex-direction: column;
   }
 
   &__content-descr {
@@ -48,7 +50,7 @@
   }
 
   &__content-list {
-    margin: 22px 0 0;
+    margin: 24px 0;
     padding-left: 1.3em;
     display: flex;
     flex-direction: column;
@@ -61,7 +63,7 @@
   }
 
   &__content-price {
-    margin: 24px 0 0;
+    margin: auto 0 20px;
     font-family: "Wadik", sans-serif;
     font-weight: 700;
     font-size: 18px;

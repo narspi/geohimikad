@@ -1,0 +1,100 @@
+---
+layout: default
+title: New project
+---
+
+<div class="service-page container">
+    <div class="heading-row">
+        <a class="heading-row__btn" href="./services.html" aria-label="На главную" title="На главную"></a>
+        <h1 class="title-big">Геодезические услуги</h1>
+    </div>
+    <div class="service-page__top">
+        <img src="./img/services/page/item-1.jpg" alt="Фото услуги" class="service-page__img" />
+        <div class="service-page__body">
+            <div class="service-page__content">
+                <p>
+                    Инженеры-геодезисты компании ГЕОАРХИКАД -  дипломированные
+                    специалисты, с опытом работы на территории Сочи свыше 7ми лет, знающие
+                    все особенности местных рельефов.Мы являемся членами Национального
+                    реестра специалистов НОПРИЗ.
+                </p>
+                <p>ГЕОАРХИКАД имеет допуски СРО, на изыскания и проектирование.</p>
+                <p>
+                    Наши специалисты используют поверенное геодезическое оборудование
+                    ведущих производителей.
+                </p>
+            </div>
+            {{> steps class='service-page__steps'}}
+            <button class="btn-red service-page__btn" data-popup="form-service" data-service="Геодезические услуги">
+                Заказать услугу
+            </button>
+        </div>
+    </div>
+    <ul class="service-page__goods">
+        <li class="service-page__goods-item">
+            <p class="service-page__goods-text">
+                <img class="service-page__goods-img" src="./img/top-list-1.svg" alt="" />
+                Гарантия
+                <br />
+                качества
+            </p>
+        </li>
+        <li class="service-page__goods-item">
+            <p class="service-page__goods-text">
+                <img class="service-page__goods-img" src="./img/top-list-2.svg" alt="" />
+                Онлайн-запись
+            </p>
+        </li>
+        <li class="service-page__goods-item">
+            <p class="service-page__goods-text">
+                <img class="service-page__goods-img" src="./img/top-list-3.svg" alt="" />
+                Гарантия
+                <br />
+                качества
+            </p>
+        </li>
+        <li class="service-page__goods-item">
+            <p class="service-page__goods-text">
+                <img class="service-page__goods-img" src="./img/top-list-4.svg" alt="" />
+                Гарантия
+                <br />
+                качества
+            </p>
+        </li>
+        <li class="service-page__goods-item">
+            <p class="service-page__goods-text">
+                <img class="service-page__goods-img" src="./img/top-list-5.svg" alt="" />
+                Гарантия
+                <br />
+                качества
+            </p>
+        </li>
+    </ul>
+</div>
+{{> service-stages}}
+<div class="service-page__bot-wrap">
+    <div class="container">
+        <div class="service-page__bot service-page__bot--full">
+            <div class="service-page__info">
+                <p class="title-big service-page__info-title">Для кого эта услуга?</p>
+                <p class="service-page__info-descr">
+                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+                    commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus
+                    et magnis dis parturient montes, nascetur ridiculus mus. Donec quam
+                    felis, ultricies nec. Lorem ipsum dolor sit amet, consectetuer
+                    adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum
+                    sociis natoque penatibus et magnis dis parturient montes, nascetur
+                    ridiculus mus. Donec quam felis, ultricies nec.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{{> service-form}}
+{{> service-prices}}
+{{> service-certificates}}
+{{> related-services}}
+{{> questions light=true}}
+{{> projects-service}}
+{{> reviews}}
+{{> request-form}}
