@@ -1,0 +1,79 @@
+.service-plan {
+  padding: 80px 0;
+
+  &--decor {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-image: url("../img/questions-decor.jpg");
+  }
+
+  &__title {
+    margin: 0 0 15px;
+    color: #cc1100;
+    font-family: "Wadik", sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+  }
+
+  &__text {
+    font-size: 16px;
+    margin-bottom: 50px;
+  }
+
+  &__items {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  &__item {
+    background-color: #fff;
+    box-shadow: 0 -2px 20px 0 rgba(0, 0, 0, 0.08),
+      0 2px 20px 0 rgba(0, 0, 0, 0.08);
+    padding: 44px;
+    border-radius: 55px;
+    display: flex;
+    flex-direction: column;
+
+    &--big {
+      grid-column: span 2;
+    }
+  }
+
+  &__item-title {
+    color: #0b2f38;
+    font-size: 20px;
+    margin: 0;
+  }
+
+  &__item-content {
+    font-size: 16px;
+    & ul,
+    ol {
+      padding-left: 1.3em;
+    }
+
+    & li {
+      padding: 12px 0;
+      border-bottom: 1px solid #d9d9d9;
+
+      &:first-child {
+        padding-top: 0;
+      }
+    }
+
+    & p {
+      padding-bottom: 12px;
+      border-bottom: 1px solid #d9d9d9;
+    }
+  }
+
+  &__item-price {
+    margin: auto 0 0;
+    font-family: "Wadik", sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: #cc1100;
+  }
+}

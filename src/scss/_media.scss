@@ -1036,6 +1036,19 @@
       gap: 50px;
     }
   }
+
+  .service-plan {
+    padding: 50px 0;
+    &__items {
+      grid-template-columns: 1fr;
+    }
+
+    &__item {
+      &--big {
+        grid-column: unset;
+      }
+    }
+  }
 }
 
 @media (max-width: 750px) {
@@ -1798,6 +1811,20 @@
 
     &__descr {
       border-radius: 16px;
+    }
+  }
+
+  .service-plan {
+    &__title {
+      font-size: 18px;
+    }
+
+    &__items {
+    }
+
+    &__item {
+      border-radius: 24px;
+      padding: 24px;
     }
   }
 }
