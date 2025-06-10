@@ -215,7 +215,7 @@ function handle_ajax_service_review()
         wp_send_json_error('Пожалуйста, укажите имя.');
     }
 
-    if (!preg_match('/^[0-9\s\+\-\(\)]+$/', $tel))
+    if ($tel !== '' && !preg_match('/^[0-9\s\+\-\(\)]+$/', $tel))
     {
         wp_send_json_error('Укажите корректный номер телефона.');
     }
@@ -224,8 +224,26 @@ function handle_ajax_service_review()
 
     if (!empty($_FILES['files']))
     {
+
+        $allowed_mime_types = [
+            'image/png',
+            'image/jpeg',
+            'video/mp4',
+            'video/webm',
+            'video/ogg'
+        ];
+
         foreach ($_FILES['files']['tmp_name'] as $index => $tmp_name)
         {
+
+            $file_type = $_FILES['files']['type'][$index];
+
+            if (!in_array($file_type, $allowed_mime_types))
+            {
+                wp_send_json_error('Недопустимый тип файла. Разрешены только: PNG, JPEG, MP4, WebM, OGG.');
+                continue;
+            }
+
             $file = [
                 'name' => $_FILES['files']['name'][$index],
                 'type' => $_FILES['files']['type'][$index],
@@ -361,7 +379,7 @@ function filter_news_by_service($query)
                 $query->set('meta_query', array(
                     array(
                         'key' => $meta_key,
-                        'value' => '"' . $service_id . '"', // ACF хранит ID в виде сериализованной строки
+                        'value' => '"' . $service_id . '"',
                         'compare' => 'LIKE',
                     )
                 ));

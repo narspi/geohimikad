@@ -3,6 +3,12 @@ import { Navigation } from "swiper/modules";
 import Choices from "choices.js";
 
 document.addEventListener("DOMContentLoaded", () => {
+  const reviewsListMediaVideo = document.querySelectorAll(
+    ".reviews-list__media-video"
+  );
+  const popupVideo = document.getElementById("popup-video");
+  const popupVideoClose = document.querySelector(".popup-video__close");
+  const filterTrack = document.querySelectorAll(".filter__track");
   const services = document.querySelector(".services");
   const certificatesSlider = document.querySelector(".certificates__slider");
   const reviewsSlider = document.querySelector(".reviews__slider");
@@ -202,20 +208,21 @@ document.addEventListener("DOMContentLoaded", () => {
       previewContainer.innerHTML = "";
 
       Array.from(files).forEach((file) => {
-        if (!file.type.startsWith("image/")) return;
-
-        const reader = new FileReader();
-        reader.onload = function (e) {
-          const img = document.createElement("img");
-          img.src = e.target.result;
-          img.style.maxWidth = "120px";
-          img.style.marginRight = "10px";
-          img.style.marginBottom = "10px";
-          img.style.borderRadius = "8px";
-          img.alt = file.name;
-          previewContainer.appendChild(img);
-        };
-        reader.readAsDataURL(file);
+        // показываем превью
+        if (file.type.startsWith("image/")) {
+          const reader = new FileReader();
+          reader.onload = function (e) {
+            const img = document.createElement("img");
+            img.src = e.target.result;
+            img.classList.add("reviews-form__file-img");
+            previewContainer.appendChild(img);
+          };
+          reader.readAsDataURL(file);
+        } else if (file.type.startsWith("video/")) {
+          const videoDiv = document.createElement("div");
+          videoDiv.classList.add("reviews-form__file-video");
+          previewContainer.appendChild(videoDiv);
+        }
       });
     });
   }
@@ -303,32 +310,69 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  filterTrack.forEach((filter) => {
+    let isDown = false;
+    let startX;
+    let scrollLeft;
 
-  document.querySelectorAll('.filter__track').forEach(filter => {
-  let isDown = false;
-  let startX;
-  let scrollLeft;
+    filter.addEventListener("mousedown", (e) => {
+      isDown = true;
+      startX = e.pageX - filter.offsetLeft;
+      scrollLeft = filter.scrollLeft;
+    });
 
-  filter.addEventListener('mousedown', (e) => {
-    isDown = true;
-    startX = e.pageX - filter.offsetLeft;
-    scrollLeft = filter.scrollLeft;
+    filter.addEventListener("mouseleave", () => {
+      isDown = false;
+    });
+
+    filter.addEventListener("mouseup", () => {
+      isDown = false;
+    });
+
+    filter.addEventListener("mousemove", (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - filter.offsetLeft;
+      const walk = (x - startX) * 2;
+      filter.scrollLeft = scrollLeft - walk;
+    });
   });
 
-  filter.addEventListener('mouseleave', () => {
-    isDown = false;
+  reviewsListMediaVideo.forEach((btnVideo) => {
+    btnVideo.addEventListener("click", (e) => {
+      const target = e.target;
+      const url = target.dataset.url;
+      if (!url || !popupVideo) return;
+      const inner = popupVideo.querySelector(".popup-video__inner");
+      const video = popupVideo.querySelector("video");
+      if (video) {
+        const source = video.querySelector("source");
+        source.type = `video/${url.split(".").pop()}`;
+        source.src = url;
+        video.load();
+      } else {
+        const videoElement = document.createElement("video");
+        videoElement.controls = true;
+        videoElement.autoplay = true;
+        const sourceElement = document.createElement("source");
+        sourceElement.src = url;
+        sourceElement.type = `video/${url.split(".").pop()}`;
+        videoElement.appendChild(sourceElement);
+        inner.appendChild(videoElement);
+        videoElement.classList.add("popup-video-player");
+      }
+      popupVideo.classList.add("active");
+      document.body.style.overflow = "hidden";
+    });
   });
 
-  filter.addEventListener('mouseup', () => {
-    isDown = false;
+  popupVideoClose.addEventListener("click", () => {
+    const video = popupVideo.querySelector("video");
+    if (video) {
+      video.pause();
+      video.currentTime = 0;
+    }
+    popupVideo.classList.remove("active");
+    document.body.style.overflow = null;
   });
-
-  filter.addEventListener('mousemove', (e) => {
-    if(!isDown) return;
-    e.preventDefault();
-    const x = e.pageX - filter.offsetLeft;
-    const walk = (x - startX) * 2;
-    filter.scrollLeft = scrollLeft - walk;
-  });
-});
 });

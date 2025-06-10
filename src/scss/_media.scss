@@ -1550,6 +1550,15 @@
     }
   }
 
+  .popup-video {
+    &__close {
+      top: 10px;
+      right: 15px;
+      width: 35px;
+      height: 35px;
+    }
+  }
+
   .services-list {
     padding-top: 30px;
     gap: 50px;

@@ -17,7 +17,7 @@
                     Прикрепить фото или видео к отзыву
                 </label>
                 <input class="reviews-form__input-file" type="file" id="reviews-form-file" name="files[]"
-                    accept="image/png, image/jpeg, video/mp4" multiple />
+                    accept="image/png, image/jpeg, video/mp4, video/webm, video/ogg" multiple />
                 <div class="reviews-form__file-preview"></div>
             </div>
             <div class="reviews-form__column">

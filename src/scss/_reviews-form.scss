@@ -47,6 +47,25 @@
 
   &__file-preview {
     margin-top: 10px;
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  &__file-img,
+  &__file-video {
+    width: 120px;
+    border-radius: 8px;
+  }
+
+  &__file-video {
+    aspect-ratio: 1 / 1;
+    background-color: #fff;
+    background-image: url("../img/icons/play-video.svg");
+    background-repeat: no-repeat;
+    background-size: 50px 50px;
+    background-position: center;
   }
 
   &__input {

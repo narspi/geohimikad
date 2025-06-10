@@ -165,6 +165,10 @@
     </div>
     <button class="form-popup__close" aria-label="Закрыть окно"></button>
 </div>
+<div class="popup-video" id="popup-video">
+    <div class="popup-video__inner"></div>
+    <button class="popup-video__close" aria-label="Закрыть видео"></button>
+</div>
 <?php wp_footer(); ?>
 </body>
 
