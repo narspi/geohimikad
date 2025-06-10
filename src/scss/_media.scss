@@ -358,6 +358,66 @@
 }
 
 @media (max-width: 1100px) {
+  .filter {
+    position: relative;
+    margin: 0 -20px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 75px;
+      background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 1) 0%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      pointer-events: none;
+    }
+
+    color: rgb(10, 43, 52);
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+      width: 75px;
+      background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 1) 100%
+      );
+      pointer-events: none;
+    }
+
+    &__track {
+      flex-wrap: nowrap;
+      padding: 0 20px;
+      gap: 15px;
+      overflow-x: auto;
+      cursor: grab;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+
+    &__btn {
+      white-space: nowrap;
+
+      &:hover {
+        z-index: 1;
+        position: relative;
+      }
+    }
+  }
+
   .news-list {
     grid-template-columns: 1fr 1fr;
 
@@ -442,6 +502,14 @@
   .container {
     padding-left: 15px;
     padding-right: 15px;
+  }
+
+  .filter {
+    margin: 0 -15px;
+
+    &__track {
+      padding: 0 15px;
+    }
   }
 
   .header {
@@ -1141,6 +1209,14 @@
 }
 
 @media (max-width: 600px) {
+  .filter {
+    &__btn {
+      padding: 10px 15px;
+      font-size: 16px;
+      border-radius: 20px;
+    }
+  }
+
   .header {
     &__contacts {
       display: grid;

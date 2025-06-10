@@ -5,7 +5,9 @@ get_template_part('parts/results');
 get_template_part('parts/team');
 get_template_part('parts/projects');
 get_template_part('parts/about-video');
-get_template_part('parts/reviews');
+get_template_part('parts/reviews', null, array(
+    'service_id' => 0
+));
 get_template_part('parts/request-form');
 get_footer();
 ?>

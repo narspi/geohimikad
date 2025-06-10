@@ -336,3 +336,37 @@ function handle_ajax_send_form()
         wp_send_json_error('Не удалось отправить письмо. Попробуйте позже.');
     }
 }
+
+function filter_news_by_service($query)
+{
+    // Проверяем, что это не админка, основной запрос и нужный тип страницы
+    if (is_admin() || !$query->is_main_query())
+    {
+        return;
+    }
+
+    // Обрабатываем только для главной страницы и архива 'cases'
+    if (is_home() || is_post_type_archive('cases'))
+    {
+        // Проверяем наличие параметра и его безопасность
+        if (isset($_GET['service_page']))
+        {
+            $service_id = absint($_GET['service_page']); // absint() - абсолютное целое число >= 0
+
+            // Если service_page = 0, пропускаем фильтрацию (показываем всё)
+            if ($service_id > 0)
+            {
+                $meta_key = (is_post_type_archive('cases')) ? 'service-related' : 'related-services';
+
+                $query->set('meta_query', array(
+                    array(
+                        'key' => $meta_key,
+                        'value' => '"' . $service_id . '"', // ACF хранит ID в виде сериализованной строки
+                        'compare' => 'LIKE',
+                    )
+                ));
+            }
+        }
+    }
+}
+add_action('pre_get_posts', 'filter_news_by_service');

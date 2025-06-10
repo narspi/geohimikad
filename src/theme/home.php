@@ -1,11 +1,10 @@
 <?php get_header(); ?>
-
 <div class="container">
     <div class="heading-row">
         <a class="heading-row__btn" href="<?= home_url(); ?>" aria-label="На главную" title="На главную"></a>
         <h1 class="title-big">Новости</h1>
     </div>
-
+    <?php get_template_part('parts/filter'); ?>
     <?php if (have_posts()): ?>
         <div class="news-list">
             <?php
@@ -55,5 +54,4 @@
         <p>Пока новостей нет.</p>
     <?php endif; ?>
 </div>
-
 <?php get_footer(); ?>

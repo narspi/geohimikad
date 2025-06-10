@@ -302,4 +302,33 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
+
+
+  document.querySelectorAll('.filter__track').forEach(filter => {
+  let isDown = false;
+  let startX;
+  let scrollLeft;
+
+  filter.addEventListener('mousedown', (e) => {
+    isDown = true;
+    startX = e.pageX - filter.offsetLeft;
+    scrollLeft = filter.scrollLeft;
+  });
+
+  filter.addEventListener('mouseleave', () => {
+    isDown = false;
+  });
+
+  filter.addEventListener('mouseup', () => {
+    isDown = false;
+  });
+
+  filter.addEventListener('mousemove', (e) => {
+    if(!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - filter.offsetLeft;
+    const walk = (x - startX) * 2;
+    filter.scrollLeft = scrollLeft - walk;
+  });
+});
 });

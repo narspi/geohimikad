@@ -8,6 +8,7 @@ get_header();
     </div>
     <p class="porfolio__descr-top">Наши работы: примеры качества и мастертсва</p>
     <p class="porfolio__descr-bot">Мы гордимся результатами своей работы</p>
+    <?php get_template_part('parts/filter'); ?>
     <?php if (have_posts()): ?>
         <div class="porfolio-list">
             <?php while (have_posts()):
@@ -61,6 +62,9 @@ get_header();
                         title="перейти на кейс"></a>
                 </article>
             <?php endwhile; ?>
+        </div>
+        <div class="pagination">
+            <?= paginate_links(); ?>
         </div>
     <?php else: ?>
         <p>Кейсы не найдены.</p>

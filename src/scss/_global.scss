@@ -175,12 +175,16 @@ button {
 }
 
 .filter {
-  @include mixin.reset-list;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 17px 29px;
+  &__track {
+    @include mixin.reset-list;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 17px 29px;
+  }
 
   &__btn {
+    display: block;
+    text-decoration: none;
     @include mixin.roboto-flex;
     font-size: 18px;
     padding: 13px 32px;
