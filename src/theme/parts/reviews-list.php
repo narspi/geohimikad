@@ -66,11 +66,22 @@ $reviews = get_posts($args);
               ?>
               <div class="reviews-list__media reviews-list__media--info">
                 <?php
-                foreach ($gallery as $gallery_elem):
-                  ?>
-                  <img class="reviews-list__media-img" src="<?= esc_url($gallery_elem['url']) ?>"
-                    alt="<?= esc_attr($gallery_elem['alt']); ?>">
-                <?php endforeach; ?>
+                if (is_array($gallery)):
+                  foreach ($gallery as $gallery_elem):
+                    ?>
+                    <img class="reviews-list__media-img" src="<?= esc_url($gallery_elem['url']) ?>"
+                      alt="<?= esc_attr($gallery_elem['alt']); ?>">
+                    <?php
+                  endforeach;
+                endif;
+                if (is_array($video_list)):
+                  foreach ($video_list as $video): ?>
+                    <button class="reviews-list__media-video" data-url="<?= esc_url($video['video-elem']) ?>"
+                      aria-label="Открыть видео"></button>
+                    <?php
+                  endforeach;
+                endif;
+                ?>
               </div>
             <?php endif; ?>
             <?php if ($services_related): ?>
@@ -91,12 +102,21 @@ $reviews = get_posts($args);
         <?php if ($count > 0 && $is_wide): ?>
           <div class="reviews-list__media<?php if ($count > 2) echo ' reviews-list__block--hulf'; ?> ">
             <?php
-            foreach ($gallery as $gallery_elem):
-              ?>
-              <img class="reviews-list__media-img" src="<?= esc_url($gallery_elem['url']) ?>"
-                alt="<?= esc_attr($gallery_elem['alt']); ?>">
-              <?php
-            endforeach;
+            if (is_array($gallery)):
+              foreach ($gallery as $gallery_elem):
+                ?>
+                <img class="reviews-list__media-img" src="<?= esc_url($gallery_elem['url']) ?>"
+                  alt="<?= esc_attr($gallery_elem['alt']); ?>">
+                <?php
+              endforeach;
+            endif;
+            if (is_array($video_list)):
+              foreach ($video_list as $video): ?>
+                <button class="reviews-list__media-video" data-url="<?= esc_url($video['url']) ?>"
+                  aria-label="Открыть видео"></button>
+                <?php
+              endforeach;
+            endif;
             ?>
             <?php
             if (is_numeric($rating) && ($is_wide && $count === 1)):
