@@ -40,7 +40,7 @@
                 if ($tg_url):
                     ?>
                     <li class="footer__social-item">
-                        <a class="footer__social-link" href="<?= $inst_url ?>" target="_blank">
+                        <a class="footer__social-link" href="<?= $tg_url ?>" target="_blank">
                             <img class="footer__social-img"
                                 src="<?= get_template_directory_uri() ?>/assets/img/icons/footer-tg.svg"
                                 alt="Написать в телеграмм">

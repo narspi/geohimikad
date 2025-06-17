@@ -2,7 +2,9 @@
 
 $services = get_posts(array(
     'post_type' => 'service',
-    'numberposts' => -1
+    'numberposts' => -1,
+    'orderby' => 'menu_order', // Сортировка по полю "Порядок" (menu_order)
+    'order' => 'ASC', // ASC (по возрастанию) или DESC (по убыванию)
 ));
 ?>
 <div class="services">

@@ -388,3 +388,13 @@ function filter_news_by_service($query)
     }
 }
 add_action('pre_get_posts', 'filter_news_by_service');
+
+function custom_service_order($query)
+{
+    if (!is_admin() && $query->is_post_type_archive('service') && $query->is_main_query())
+    {
+        $query->set('orderby', 'menu_order'); // Сортировка по полю "Порядок"
+        $query->set('order', 'ASC'); // По возрастанию
+    }
+}
+add_action('pre_get_posts', 'custom_service_order');
