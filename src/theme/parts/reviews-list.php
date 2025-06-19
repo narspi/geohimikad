@@ -75,9 +75,12 @@ $reviews = get_posts($args);
                   endforeach;
                 endif;
                 if (is_array($video_list)):
-                  foreach ($video_list as $video): ?>
+                  foreach ($video_list as $video): 
+                  $preview_style = "";
+                  if ($video['video-preview'] )  $preview_style = ' style="--video-preview: url(' . esc_url($video['video-preview']) . ');"';
+                  ?>
                     <button class="reviews-list__media-video" data-url="<?= esc_url($video['video-elem']) ?>"
-                      aria-label="Открыть видео"></button>
+                      aria-label="Открыть видео"<?php if ($preview_style) echo $preview_style;?>></button>
                     <?php
                   endforeach;
                 endif;
