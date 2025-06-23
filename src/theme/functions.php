@@ -1,6 +1,47 @@
 <?php
 show_admin_bar(false);
 
+function send_to_bitrix24($name, $phone, $target) {
+    $webhook_base = "... тут будет хук";
+    $lead_data = [
+        'fields' => [
+            'TITLE' => "Новая заявка с сайта geoarhikad.ru",
+            'NAME' => $name,
+            'PHONE' => [['VALUE' => $phone, 'VALUE_TYPE' => 'WORK']],
+            'SOURCE_ID' => 'WEB', // Source - website
+            'COMMENTS' => "Цель/форма: {$target}",
+        ],
+        'params' => ["REGISTER_SONET_EVENT" => "Y"]
+    ];
+
+    $endpoint = $webhook_base . 'crm.lead.add.json';
+    
+    $args = [
+        'body' => http_build_query($lead_data),
+        'headers' => [
+            'Content-Type' => 'application/x-www-form-urlencoded',
+        ],
+        'timeout' => 15,
+    ];
+
+    $response = wp_remote_post($endpoint, $args);
+
+    if (is_wp_error($response)) {
+        error_log('Bitrix24 API Error: ' . $response->get_error_message());
+        return false;
+    }
+
+    $body = wp_remote_retrieve_body($response);
+    $data = json_decode($body, true);
+
+    if (isset($data['result'])) {
+        return true;
+    } else {
+        error_log('Bitrix24 API Error: ' . print_r($data, true));
+        return false;
+    }
+}
+
 add_theme_support('post-thumbnails');
 add_theme_support('title-tag');
 add_theme_support('menus');
@@ -345,14 +386,14 @@ function handle_ajax_send_form()
 
 
     $mail_sent = wp_mail($to_email, $subject, $message, $headers);
+    $bitrix_sent = send_to_bitrix24($name, $tel, $target);
 
-    if ($mail_sent)
-    {
-        wp_send_json_success(['message' => 'Форма отправлена успешно']);
-    } else
+    if (!$mail_sent || !$bitrix_sent)
     {
         wp_send_json_error('Не удалось отправить письмо. Попробуйте позже.');
     }
+
+    wp_send_json_success(['message' => 'Форма отправлена успешно']);
 }
 
 function filter_news_by_service($query)

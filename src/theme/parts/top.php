@@ -56,22 +56,22 @@
             <div class="top__list-item">
                 <img class="top__list-img" src="<?= get_template_directory_uri() ?>/assets/img/top-list-1.svg" alt="">
                 <p class="top__list-title">10+ лет опыта</p>
-                <p class="top__list-descr">Более 1000 проектов выполнено.</p>
+                <p class="top__list-descr">Более 8 тыс. проектов выполнено</p>
             </div>
             <div class="top__list-item">
                 <img class="top__list-img" src="<?= get_template_directory_uri() ?>/assets/img/top-list-2.svg" alt="">
                 <p class="top__list-title">Гарантия<br>качества</p>
-                <p class="top__list-descr">Используем сертифицированные материалы</p>
+                <p class="top__list-descr">Доводим каждый проект до результата</p>
             </div>
             <div class="top__list-item">
                 <img class="top__list-img" src="<?= get_template_directory_uri() ?>/assets/img/top-list-3.svg" alt="">
                 <p class="top__list-title">Команда профессионалов</p>
-                <p class="top__list-descr">Высокая квалификация сотрудников</p>
+                <p class="top__list-descr">Высокая квалификация<br>и опыт</p>
             </div>
             <div class="top__list-item">
                 <img class="top__list-img" src="<?= get_template_directory_uri() ?>/assets/img/top-list-4.svg" alt="">
                 <p class="top__list-title">Собственный автопарк</p>
-                <p class="top__list-descr">Оперативное выполнение работ</p>
+                <p class="top__list-descr">Оперативно и по<br>справедливой цене</p>
             </div>
             <div class="top__list-item">
                 <img class="top__list-img" src="<?= get_template_directory_uri() ?>/assets/img/top-list-5.svg" alt="">

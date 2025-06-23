@@ -153,9 +153,6 @@ get_template_part('parts/questions', null, array(
     'questions' => $questions
 ));
 get_template_part('parts/projects-service');
-get_template_part('parts/reviews', null, array(
-    'service_id' => $id
-));
 get_template_part('parts/request-form');
 get_footer();
 ?>
