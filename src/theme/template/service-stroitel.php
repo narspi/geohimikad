@@ -25,89 +25,11 @@ $id = get_the_ID();
             <div class="service-page__content">
                 <?php the_content(); ?>
             </div>
-            <div class="steps service-page__steps">
-                <p class="steps__descr">Как подготовиться к строительству дома?</p>
-                <?php if (have_rows('stages', 'option')): ?>
-                    <div class="steps__list">
-                        <?php
-                        $stage_number = 1;
-                        while (have_rows('stages', 'option')):
-                            the_row(); ?>
-                            <div class="steps__item">
-                                <p class="steps__item-num"><?php echo $stage_number; ?> этап</p>
-                                <?php if (have_rows('stage_item', 'option')): ?>
-                                    <ul class="steps__item-list">
-                                        <?php while (have_rows('stage_item', 'option')):
-                                            the_row();
-                                            $service__id = get_sub_field('service-id', 'option');
-                                            if ($service__id): ?>
-                                                <li>
-                                                    <?php $elem_url = get_permalink($service__id); ?>
-                                                    <a<?php if ($page_url === $elem_url) echo ' class="active"'; ?>
-                                                        href="<?php echo esc_url($elem_url); ?>">
-                                                        <?php echo esc_html(get_the_title($service__id)); ?>
-                                                        </a>
-                                                </li>
-                                            <?php endif;
-                                        endwhile; ?>
-                                    </ul>
-                                <?php endif; ?>
-                            </div>
-                            <?php
-                            $stage_number++;
-                        endwhile; ?>
-                    </div>
-                <?php endif; ?>
-            </div>
             <button class="btn-red service-page__btn" data-popup="form-service"
                 data-service="<?= esc_html(get_the_title()); ?>">Заказать услугу</button>
         </div>
     </div>
-    <ul class="service-page__goods">
-        <li class="service-page__goods-item">
-            <p class="service-page__goods-text">
-                <img class="service-page__goods-img" src="<?= get_template_directory_uri() ?>/assets/img/top-list-1.svg"
-                    alt="">
-                Гарантия
-                <br>
-                качества
-            </p>
-        </li>
-        <li class="service-page__goods-item">
-            <p class="service-page__goods-text">
-                <img class="service-page__goods-img" src="<?= get_template_directory_uri() ?>/assets/img/top-list-2.svg"
-                    alt="">
-                Онлайн-запись
-            </p>
-        </li>
-        <li class="service-page__goods-item">
-            <p class="service-page__goods-text">
-                <img class="service-page__goods-img" src="<?= get_template_directory_uri() ?>/assets/img/top-list-3.svg"
-                    alt="">
-                Гарантия
-                <br>
-                качества
-            </p>
-        </li>
-        <li class="service-page__goods-item">
-            <p class="service-page__goods-text">
-                <img class="service-page__goods-img" src="<?= get_template_directory_uri() ?>/assets/img/top-list-4.svg"
-                    alt="">
-                Гарантия
-                <br>
-                качества
-            </p>
-        </li>
-        <li class="service-page__goods-item">
-            <p class="service-page__goods-text">
-                <img class="service-page__goods-img" src="<?= get_template_directory_uri() ?>/assets/img/top-list-5.svg"
-                    alt="">
-                Гарантия
-                <br>
-                качества
-            </p>
-        </li>
-    </ul>
+    <?php get_template_part('parts/service-page-goods'); ?>
 </div>
 <?php
 $title = get_field('bot-block-title');

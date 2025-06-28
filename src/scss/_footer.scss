@@ -17,6 +17,7 @@
     margin: 12px 0 0;
     font-size: 15px;
     @include mixin.roboto-flex;
+    max-width: 220px;
   }
 
   &__social {

@@ -142,6 +142,11 @@
     }
   }
 
+  &__btns--grey &__call-back:hover {
+    border: 1px solid #fff;
+
+  }
+
   &__social {
     @include mixin.reset-list;
     display: flex;

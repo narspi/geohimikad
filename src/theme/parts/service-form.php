@@ -1,47 +1,55 @@
 <div class="service-form">
-  <div class="container service-form__inner">
-    <div class="service-form__info">
-      <p class="service-form__info-text">
-        Бесплатно выедем на ваш участок, подберем место для скважины и
-        рассчитаем стоимость
-      </p>
-      <ul class="service-form__info-list">
-        <li>
-          <p class="service-form__info-elem">
-            <img class="service-form__info-img"
-              src="<?= get_template_directory_uri() ?>/assets/img/service-form-decor-1.svg" alt="">
-            10 лет<br>обучения
-          </p>
-        </li>
-        <li>
-          <p class="service-form__info-elem">
-            <img class="service-form__info-img"
-              src="<?= get_template_directory_uri() ?>/assets/img/service-form-decor-2.svg" alt="">
-            Заключаем<br>договор
-          </p>
-        </li>
-        <li>
-          <p class="service-form__info-elem">
-            <img class="service-form__info-img"
-              src="<?= get_template_directory_uri() ?>/assets/img/service-form-decor-3.svg" alt="">
-            Бурим за 2<br>дня
-          </p>
-        </li>
-      </ul>
+    <div class="container service-form__inner">
+        <div class="service-form__info">
+            <p class="service-form__info-text">
+                <span class="service-form__info-text--large">МЫ ПОМОЖЕМ РЕШИТЬ ВАШИ ПРОБЛЕМЫ И ЗАДАЧИ!</span>
+                <span class="service-form__info-text--small service-form__info-text--color">
+                    Проанализируем ситуацию, разъясним порядок действий и укажем на возможные нюансы.&ensp;
+                </span>
+                <br><br>
+                <span class="service-form__info-text--medium">
+                    ​Мгновенная реакция на Вашу заявку – выезд инженера в течение 1 дня
+                </span>
+            </p>
+            <ul class="service-form__info-list">
+                <li>
+                    <p class="service-form__info-elem">
+                        <img class="service-form__info-img"
+                            src="<?= get_template_directory_uri() ?>/assets/img/service-form-decor-1.svg" alt="">
+                        10 лет<br>опыта
+                    </p>
+                </li>
+                <li>
+                    <p class="service-form__info-elem">
+                        <img class="service-form__info-img"
+                            src="<?= get_template_directory_uri() ?>/assets/img/service-form-decor-2.svg" alt="">
+                        Заключаем<br>договор
+                    </p>
+                </li>
+                <li>
+                    <p class="service-form__info-elem">
+                        <img class="service-form__info-img"
+                            src="<?= get_template_directory_uri() ?>/assets/img/service-form-decor-3.svg" alt="">
+                        Оперативно и<br>по справедливой цене
+                    </p>
+                </li>
+            </ul>
+        </div>
+        <form class="service-form__elem" data-send data-url="<?= admin_url('admin-ajax.php') ?>">
+            <p class="service-form__elem-title">Оставить заявку</p>
+            <input type="hidden" name="submit_send_form_nonce"
+                value="<?= wp_create_nonce('submit_send_form_action'); ?>">
+            <input type="hidden" name="target" value="<?= esc_html(get_the_title()); ?> и выезд на участок">
+            <input class="service-form__elem-input" type="text" name="name" placeholder="Ваше имя">
+            <input class="service-form__elem-input" type="tel" name="tel" placeholder="Ваш номер телефона">
+            <label class="service-form__elem-policy">
+                <input class="service-form__elem-checkbox" type="checkbox">
+                <span class="service-form__elem-fake"></span>
+                <span>Я ознакомлен и согласен с политикой обработки персональных данных, и даю согласие на обработку
+                    моих
+                    персональных данных</span>
+            </label>
+            <button class="service-form__elem-btn">Перезвонить мне</button>
+        </form>
     </div>
-    <form class="service-form__elem" data-send data-url="<?= admin_url('admin-ajax.php') ?>">
-      <p class="service-form__elem-title">Оставить заявку</p>
-      <input type="hidden" name="submit_send_form_nonce" value="<?= wp_create_nonce('submit_send_form_action'); ?>">
-      <input type="hidden" name="target" value="<?= esc_html(get_the_title()); ?> и выезд на участок">
-      <input class="service-form__elem-input" type="text" name="name" placeholder="Ваше имя">
-      <input class="service-form__elem-input" type="tel" name="tel" placeholder="Ваш номер телефона">
-      <label class="service-form__elem-policy">
-        <input class="service-form__elem-checkbox" type="checkbox">
-        <span class="service-form__elem-fake"></span>
-        <span>Я ознакомлен и согласен с политикой обработки персональных данных, и даю согласие на обработку моих
-          персональных данных</span>
-      </label>
-      <button class="service-form__elem-btn">Перезвонить мне</button>
-    </form>
-  </div>
 </div>

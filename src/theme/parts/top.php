@@ -56,7 +56,7 @@
             <div class="top__list-item">
                 <img class="top__list-img" src="<?= get_template_directory_uri() ?>/assets/img/top-list-1.svg" alt="">
                 <p class="top__list-title">10+ лет опыта</p>
-                <p class="top__list-descr">Более 8 тыс. проектов выполнено</p>
+                <p class="top__list-descr">Выполнено более 8 тыс. проектов</p>
             </div>
             <div class="top__list-item">
                 <img class="top__list-img" src="<?= get_template_directory_uri() ?>/assets/img/top-list-2.svg" alt="">

@@ -18,7 +18,7 @@
         <span class="results__list-text">домов</span>
       </p>
       <p class="results__list-item">
-        <span class="results__list-text">Для топографисекой съемки<br>было охвачено</span>
+        <span class="results__list-text">Для топографической<br>съемки было охвачено</span>
         <span class="results__list-text results__list-text--big">3 000</span>
         <span class="results__list-text">ГА</span>
       </p>
